@@ -15,15 +15,15 @@ public class BlueDarkStyle : Style {
         super.init()
         /*** style properties **********************************************************************************/
         // Progress Size
-        self.progressSize = 220
+        self.progressSize = 260
         
         // Gradient Circular
-        self.arcLineWidth = 14.0
+        self.arcLineWidth = 4.0
         self.startArcColor = UIColor(red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         self.endArcColor = UIColor.cyanColor()
         
         // Base Circular
-        self.baseLineWidth = 15.0
+        self.baseLineWidth = 5.0
         self.baseArcColor = UIColor(red:0.0, green: 0.0, blue: 0.0, alpha: 0.2)
         
         // Percentage

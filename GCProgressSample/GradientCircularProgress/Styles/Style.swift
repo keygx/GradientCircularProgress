@@ -47,12 +47,12 @@ public class Style {
         self.progressSize = 220
         
         // Gradient Circular
-        self.arcLineWidth = 20.0
+        self.arcLineWidth = 16.0
         self.startArcColor = UIColor(red:90.0/255.0, green: 90.0/255.0, blue: 90.0/255.0, alpha: 1.0)
         self.endArcColor = UIColor(red:230.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, alpha: 1.0)
         
         // Base Circular
-        self.baseLineWidth = 20.0
+        self.baseLineWidth = 16.0
         self.baseArcColor = UIColor(red:1.0, green: 1.0, blue: 1.0, alpha: 0.8)
         
         // Percentage
