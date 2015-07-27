@@ -114,6 +114,59 @@ GCProgress().show(message: "Loading...", MyStyle())
 GCProgress().dismiss()
 ```
 
+## Download Progress Examples
+
+### NSURLSession
+
+```swift
+var progress = GCProgress()
+
+~~
+
+progress.showAtRatio(style: BlueDarkStyle())
+        
+let url = NSURL(string: "http://example.com/download/dummy.mp4")
+let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+let session = NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
+let task = session.downloadTaskWithURL(url!)
+task.resume()
+
+~~
+
+// Delegate
+func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+    let ratio: CGFloat = CGFloat(totalBytesWritten) / CGFloat(totalBytesExpectedToWrite)
+    progress.updateRatio(ratio)
+}
+// Delegate
+func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
+    progress.dismiss()
+}
+```
+
+### Alamofire
+
+```swift
+var progress = GCProgress()
+
+~~
+
+progress.showAtRatio(style: BlueDarkStyle())
+
+Alamofire.request(.GET, "http://example.com/download/dummy.mp4")
+    .response { (request, response, data, error) in
+        
+        self.progress.dismiss()
+}
+    .progress { (bytesRead, totalBytesRead, totalBytesExpectedToRead) in
+        let ratio: CGFloat = CGFloat(totalBytesRead) / CGFloat(totalBytesExpectedToRead)
+        // Call main thread.
+        dispatch_async(dispatch_get_main_queue(), {
+            self.progress.updateRatio(ratio)
+        })
+}
+```
+
 ## API
 ```swift
 public func showAtRatio(display: Bool = true, style: Style = Style())
