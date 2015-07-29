@@ -117,8 +117,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if v > 1.00 {
             timer!.invalidate()
-            gcp!.dismiss()
-            available = true
+            gcp!.dismiss() { Void in
+                self.available = true
+            }
             
             return
         }

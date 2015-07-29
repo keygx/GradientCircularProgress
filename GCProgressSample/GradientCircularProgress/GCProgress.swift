@@ -31,6 +31,11 @@ public class GCProgress {
     
         GCProgress().dismiss()
             --> Hide gradient circular progress
+    
+        GCProgress().dismiss() { Void in
+            // Run after dismiss completion
+        }
+            --> Hide gradient circular progress with completionHandler
     ***/
     
     private var progressViewController: ProgressViewController?
@@ -100,10 +105,24 @@ public class GCProgress {
             vc.dismiss(0.6)
         }
         
-        cleanup(1.0)
+        cleanup(1.4, completionHandler: nil)
     }
     
-    private func cleanup(t: Double) -> Void {
+    public func dismiss(completionHandler: () -> Void) -> () {
+        if available {
+            return
+        }
+        
+        if let vc = progressViewController {
+            vc.dismiss(0.6)
+        }
+        
+        cleanup(1.4) { Void in
+            completionHandler()
+        }
+    }
+    
+    private func cleanup(t: Double, completionHandler: (() -> Void)?) -> Void {
         let delay = t * Double(NSEC_PER_SEC)
         let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
@@ -120,6 +139,9 @@ public class GCProgress {
                         win.rootViewController = nil
                         baseWindow = nil
                         self.available = true
+                        if let completionHandler = completionHandler {
+                            completionHandler()
+                        }
                     }
                 );
             }

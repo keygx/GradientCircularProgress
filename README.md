@@ -178,6 +178,8 @@ public func show(style: Style = Style())
 public func show(#message: String, style: Style = Style())
 
 public func dismiss()
+
+public func dismiss(completionHandler: () -> Void) -> ()
 ```
 
 ## License
