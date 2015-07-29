@@ -1,8 +1,8 @@
 //
-//  GCProgress.swift
+//  GradientCircularProgress.swift
 //  GradientCircularProgress
 //
-//  Created by keygx on 2015/06/24.
+//  Created by keygx on 2015/07/29.
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
 
@@ -11,26 +11,33 @@ import UIKit
 
 internal var baseWindow: BaseWindow?
 
-public class GCProgress {
+public class GradientCircularProgress {
     
     /***
-        GCProgress().showAtRatio(style: SubClass())
+        var progress = GradientCircularProgress()
+    
+        progress.showAtRatio(style: SubClass())
             --> Show gradient circular progress at ratio and percentage display
     
-        GCProgress().showAtRatio(display: false, style: SubClass())
+        progress.showAtRatio(display: false, style: SubClass())
             --> Show gradient circular progress at ratio
     
-        GCProgress().updateRatio(CGFloat(0.0 ~ 1.0))
+        progress.updateRatio(CGFloat(0.0 ~ 1.0))
             --> Update progress ratio
     
-        GCProgress().show(style: SubClass())
+        progress.show(style: SubClass())
             --> Show gradient circular progress
     
-        GCProgress().show(message: "Loading...", style: SubClass())
+        progress.show(message: "Loading...", style: SubClass())
             --> Show gradient circular progress with message display
     
-        GCProgress().dismiss()
+        progress.dismiss()
             --> Hide gradient circular progress
+    
+        progress.dismiss() { Void in
+            // Run after dismiss completion
+        }
+            --> Hide gradient circular progress with completionHandler
     ***/
     
     private var progressViewController: ProgressViewController?
@@ -100,10 +107,24 @@ public class GCProgress {
             vc.dismiss(0.6)
         }
         
-        cleanup(1.0)
+        cleanup(1.4, completionHandler: nil)
     }
     
-    private func cleanup(t: Double) -> Void {
+    public func dismiss(completionHandler: () -> Void) -> () {
+        if available {
+            return
+        }
+        
+        if let vc = progressViewController {
+            vc.dismiss(0.6)
+        }
+        
+        cleanup(1.4) { Void in
+            completionHandler()
+        }
+    }
+    
+    private func cleanup(t: Double, completionHandler: (() -> Void)?) -> Void {
         let delay = t * Double(NSEC_PER_SEC)
         let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
@@ -120,6 +141,9 @@ public class GCProgress {
                         win.rootViewController = nil
                         baseWindow = nil
                         self.available = true
+                        if let completionHandler = completionHandler {
+                            completionHandler()
+                        }
                     }
                 );
             }

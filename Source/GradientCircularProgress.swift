@@ -1,8 +1,8 @@
 //
-//  GCProgress.swift
+//  GradientCircularProgress.swift
 //  GradientCircularProgress
 //
-//  Created by keygx on 2015/06/24.
+//  Created by keygx on 2015/07/29.
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
 
@@ -11,28 +11,30 @@ import UIKit
 
 internal var baseWindow: BaseWindow?
 
-public class GCProgress {
+public class GradientCircularProgress {
     
     /***
-        GCProgress().showAtRatio(style: SubClass())
+        var progress = GradientCircularProgress()
+    
+        progress.showAtRatio(style: SubClass())
             --> Show gradient circular progress at ratio and percentage display
     
-        GCProgress().showAtRatio(display: false, style: SubClass())
+        progress.showAtRatio(display: false, style: SubClass())
             --> Show gradient circular progress at ratio
     
-        GCProgress().updateRatio(CGFloat(0.0 ~ 1.0))
+        progress.updateRatio(CGFloat(0.0 ~ 1.0))
             --> Update progress ratio
     
-        GCProgress().show(style: SubClass())
+        progress.show(style: SubClass())
             --> Show gradient circular progress
     
-        GCProgress().show(message: "Loading...", style: SubClass())
+        progress.show(message: "Loading...", style: SubClass())
             --> Show gradient circular progress with message display
     
-        GCProgress().dismiss()
+        progress.dismiss()
             --> Hide gradient circular progress
     
-        GCProgress().dismiss() { Void in
+        progress.dismiss() { Void in
             // Run after dismiss completion
         }
             --> Hide gradient circular progress with completionHandler

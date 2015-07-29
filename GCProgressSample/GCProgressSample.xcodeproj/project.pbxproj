@@ -16,7 +16,7 @@
 		36F742C01B3A7016003D799C /* GradientCircularProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 36F742BF1B3A7016003D799C /* GradientCircularProgress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36F742D21B3A7016003D799C /* GradientCircularProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F742BB1B3A7016003D799C /* GradientCircularProgress.framework */; };
 		36F742D31B3A7016003D799C /* GradientCircularProgress.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36F742BB1B3A7016003D799C /* GradientCircularProgress.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		36F742EB1B3A70EA003D799C /* GCProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742DB1B3A70EA003D799C /* GCProgress.swift */; };
+		36F742EB1B3A70EA003D799C /* GradientCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742DB1B3A70EA003D799C /* GradientCircularProgress.swift */; };
 		36F742EC1B3A70EA003D799C /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742DD1B3A70EA003D799C /* ArcView.swift */; };
 		36F742ED1B3A70EA003D799C /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742DE1B3A70EA003D799C /* Background.swift */; };
 		36F742EE1B3A70EA003D799C /* BaseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742DF1B3A70EA003D799C /* BaseWindow.swift */; };
@@ -77,7 +77,7 @@
 		36F742BB1B3A7016003D799C /* GradientCircularProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GradientCircularProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36F742BE1B3A7016003D799C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36F742BF1B3A7016003D799C /* GradientCircularProgress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientCircularProgress.h; sourceTree = "<group>"; };
-		36F742DB1B3A70EA003D799C /* GCProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCProgress.swift; sourceTree = "<group>"; };
+		36F742DB1B3A70EA003D799C /* GradientCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientCircularProgress.swift; sourceTree = "<group>"; };
 		36F742DD1B3A70EA003D799C /* ArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcView.swift; sourceTree = "<group>"; };
 		36F742DE1B3A70EA003D799C /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		36F742DF1B3A70EA003D799C /* BaseWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWindow.swift; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		36F742BC1B3A7016003D799C /* GradientCircularProgress */ = {
 			isa = PBXGroup;
 			children = (
-				36F742DB1B3A70EA003D799C /* GCProgress.swift */,
+				36F742DB1B3A70EA003D799C /* GradientCircularProgress.swift */,
 				36F742DC1B3A70EA003D799C /* Progress */,
 				36F742E51B3A70EA003D799C /* Styles */,
 				36F742BF1B3A7016003D799C /* GradientCircularProgress.h */,
@@ -384,7 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36F742F31B3A70EA003D799C /* Property.swift in Sources */,
-				36F742EB1B3A70EA003D799C /* GCProgress.swift in Sources */,
+				36F742EB1B3A70EA003D799C /* GradientCircularProgress.swift in Sources */,
 				36F742F01B3A70EA003D799C /* GradientArcView.swift in Sources */,
 				36F742F11B3A70EA003D799C /* ProgressAtRatioView.swift in Sources */,
 				36F742F51B3A70EA003D799C /* BlueIndicatorStyle.swift in Sources */,

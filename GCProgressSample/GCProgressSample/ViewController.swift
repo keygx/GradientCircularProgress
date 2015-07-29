@@ -14,7 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var timer: NSTimer?
     var v: Double = 0.0
     var available: Bool = true
-    var gcp: GCProgress?
+    var progress = GradientCircularProgress()
     
     let styleList = [
         (Style(),                       true,  "Loading"),
@@ -31,8 +31,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         styleTableView.delegate = self
         styleTableView.dataSource = self
-        
-        gcp = GCProgress()
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,7 +84,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if tag == 101 {
             
-            gcp!.showAtRatio(display: item.1, style: item.0)
+            progress.showAtRatio(display: item.1, style: item.0)
             
             v = 0.0
             timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "updateProgressAtRatio", userInfo: nil, repeats: true)
@@ -95,15 +93,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             
             if item.2 == "" {
-                gcp!.show(style: item.0)
+                progress.show(style: item.0)
             } else {
-                gcp!.show(message: item.2, style: item.0)
+                progress.show(message: item.2, style: item.0)
             }
             
             let delay = 2.0 * Double(NSEC_PER_SEC)
             let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             dispatch_after(time, dispatch_get_main_queue(), {
-                self.gcp!.dismiss()
+                self.progress.dismiss()
                 self.available = true
             })
         }
@@ -113,11 +111,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         v += 0.01
         
-        gcp!.updateRatio(CGFloat(v))
+        progress.updateRatio(CGFloat(v))
         
         if v > 1.00 {
             timer!.invalidate()
-            gcp!.dismiss() { Void in
+            progress.dismiss() { Void in
                 self.available = true
             }
             

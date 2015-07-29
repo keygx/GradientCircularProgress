@@ -101,17 +101,19 @@ public class MyStyle : Style {
 import GradientCircularProgress
 ```
 ```swift
-var gcp = GCProgress()
+var progress = GradientCircularProgress()
 
 let ratio: CGFloat = CGFloat(totalBytesWritten) / CGFloat(totalBytesExpectedToWrite)        
 
-gcp.showAtRatio(style: MyStyle())
-gcp.updateRatio(ratio)
-gcp.dismiss()
+progress.showAtRatio(style: MyStyle())
+progress.updateRatio(ratio)
+progress.dismiss()
 ```
 ```swift
-GCProgress().show(message: "Loading...", MyStyle())
-GCProgress().dismiss()
+var progress = GradientCircularProgress()
+
+progress.show(message: "Loading...", MyStyle())
+progress.dismiss()
 ```
 
 ## Download Progress Examples
@@ -119,7 +121,7 @@ GCProgress().dismiss()
 ### NSURLSession
 
 ```swift
-var progress = GCProgress()
+var progress = GradientCircularProgress()
 
 ~~
 
@@ -147,7 +149,7 @@ func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, d
 ### Alamofire
 
 ```swift
-var progress = GCProgress()
+var progress = GradientCircularProgress()
 
 ~~
 
