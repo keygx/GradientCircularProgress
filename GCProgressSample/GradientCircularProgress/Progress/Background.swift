@@ -13,11 +13,11 @@ class Background {
     
     internal func blurEffectView(fromBlurStyle style: BackgroundStyles, frame: CGRect) -> UIVisualEffectView? {
         
-        if getStyle(style) == nil {
+        guard let backgroundStyle = getStyle(style) else {
             return nil
         }
         
-        let effect = UIBlurEffect(style: getStyle(style)!)
+        let effect = UIBlurEffect(style: backgroundStyle)
         let blurView = UIVisualEffectView(effect: effect)
         blurView.frame = frame
         
@@ -27,11 +27,11 @@ class Background {
     private func getStyle(style: BackgroundStyles) -> UIBlurEffectStyle? {
         switch style {
             case .ExtraLight:
-                return UIBlurEffectStyle.ExtraLight
+                return .ExtraLight
             case .Light:
-                return UIBlurEffectStyle.Light
+                return .Light
             case .Dark:
-                return UIBlurEffectStyle.Dark
+                return .Dark
             default:
                 return nil
         }

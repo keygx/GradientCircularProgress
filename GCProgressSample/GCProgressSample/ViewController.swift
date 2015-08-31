@@ -44,11 +44,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let CellIdentifier: String = "CustomCell"
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! UITableViewCell
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier)!
         
-        var className: UILabel = cell.viewWithTag(100) as! UILabel
-        var btn1: UIButton = cell.viewWithTag(101) as! UIButton
-        var btn2: UIButton = cell.viewWithTag(102) as! UIButton
+        let className: UILabel = cell.viewWithTag(100) as! UILabel
+        let btn1: UIButton = cell.viewWithTag(101) as! UIButton
+        let btn2: UIButton = cell.viewWithTag(102) as! UIButton
         
         let clazz = styleList[indexPath.row].0 as Style
         className.text = NSStringFromClass(clazz.dynamicType).componentsSeparatedByString(".").last! as String
@@ -60,7 +60,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func listViewIndexPathForControlEvent(event: UIEvent) -> NSIndexPath {
         
-        let touch: UITouch = (event.allTouches()!.first as? UITouch)!
+        let touch: UITouch = event.allTouches()!.first!
         let point: CGPoint = touch.locationInView(styleTableView)
         let indexPath: NSIndexPath = styleTableView.indexPathForRowAtPoint(point)!
         
@@ -92,7 +92,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
         } else {
             
-            if item.2 == "" {
+            if item.2.isEmpty {
                 progress.show(style: item.0)
             } else {
                 progress.show(message: item.2, style: item.0)

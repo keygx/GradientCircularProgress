@@ -12,7 +12,7 @@ import UIKit
 class Property {
     
     let margin: CGFloat = 5.0
-    let arcLineCapStyle: CGLineCap = kCGLineCapButt
+    let arcLineCapStyle: CGLineCap = CGLineCap.Butt
     
     // Progress Size
     let progressSize: CGFloat
