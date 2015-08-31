@@ -17,11 +17,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var progress = GradientCircularProgress()
     
     let styleList = [
-        (Style(),                       true,  "Loading"),
-        (BlueDarkStyle() as Style,      true,  "Loading"),
-        (OrangeDarkStyle() as Style,    true,  "Loading"),
-        (IndicatorStyle() as Style,        false, ""),
-        (BlueIndicatorStyle() as Style, false, "")
+        (Style() as StyleProperty,              true,  "Loading", "Style"),
+        (BlueDarkStyle() as StyleProperty,      true,  "Loading", "BlueDarkStyle"),
+        (OrangeDarkStyle() as StyleProperty,    true,  "Loading", "IndicatorStyle"),
+        (IndicatorStyle() as StyleProperty,     false, "",        "IndicatorStyle"),
+        (BlueIndicatorStyle() as StyleProperty, false, "",        "BlueIndicatorStyle")
     ]
     
     @IBOutlet weak var styleTableView: UITableView!
@@ -50,8 +50,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let btn1: UIButton = cell.viewWithTag(101) as! UIButton
         let btn2: UIButton = cell.viewWithTag(102) as! UIButton
         
-        let clazz = styleList[indexPath.row].0 as Style
-        className.text = NSStringFromClass(clazz.dynamicType).componentsSeparatedByString(".").last! as String
+        className.text = styleList[indexPath.row].3
         btn1.addTarget(self, action: "didTouchButton:event:", forControlEvents: UIControlEvents.TouchUpInside)
         btn2.addTarget(self, action: "didTouchButton:event:", forControlEvents: UIControlEvents.TouchUpInside)
         

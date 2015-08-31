@@ -6,10 +6,8 @@
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
 
-import Foundation
-import UIKit
 
-class Background {
+struct Background {
     
     internal func blurEffectView(fromBlurStyle style: BackgroundStyles, frame: CGRect) -> UIVisualEffectView? {
         
@@ -26,14 +24,14 @@ class Background {
     
     private func getStyle(style: BackgroundStyles) -> UIBlurEffectStyle? {
         switch style {
-            case .ExtraLight:
-                return .ExtraLight
-            case .Light:
-                return .Light
-            case .Dark:
-                return .Dark
-            default:
-                return nil
+        case .ExtraLight:
+            return .ExtraLight
+        case .Light:
+            return .Light
+        case .Dark:
+            return .Dark
+        default:
+            return nil
         }
     }
 }

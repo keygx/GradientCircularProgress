@@ -6,11 +6,43 @@
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
 
-import Foundation
-import UIKit
-
-class Property {
+public protocol StyleProperty {
+    // Progress Size
+    var progressSize: CGFloat { get set }
     
+    // Gradient Circular
+    var arcLineWidth: CGFloat { get set }
+    var startArcColor: UIColor { get set }
+    var endArcColor: UIColor { get set }
+    
+    // Base Circular
+    var baseLineWidth: CGFloat { get set }
+    var baseArcColor: UIColor { get set }
+    
+    // Ratio
+    var ratioLabelFont: UIFont { get set }
+    var ratioLabelFontColor: UIColor { get set }
+    
+    // Message
+    var messageLabelFont: UIFont { get set }
+    var messageLabelFontColor: UIColor { get set }
+    
+    // Background
+    var backgroundStyle: BackgroundStyles { get set }
+    
+    // Initialize
+    init()
+}
+
+public enum BackgroundStyles : Int {
+    case None = 0
+    case ExtraLight
+    case Light
+    case Dark
+}
+
+
+internal struct Property {
     let margin: CGFloat = 5.0
     let arcLineCapStyle: CGLineCap = CGLineCap.Butt
     
@@ -37,9 +69,9 @@ class Property {
     // Background
     let backgroundStyle: BackgroundStyles
     
-    init(style: Style) {
+    init(style: StyleProperty) {
         
-        let styles: Style = style
+        let styles: StyleProperty = style
         
         self.progressSize          = styles.progressSize
         self.arcLineWidth          = styles.arcLineWidth
