@@ -36,6 +36,7 @@ public class GradientCircularProgress {
         }
         
         win.rootViewController = vc
+        win.backgroundColor = UIColor.clearColor()
         vc.arc(display, style: style)
     }
     
@@ -66,6 +67,7 @@ public class GradientCircularProgress {
         }
         
         win.rootViewController = vc
+        win.backgroundColor = UIColor.clearColor()
         vc.circle(message, style: style)
     }
     
