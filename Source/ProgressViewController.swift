@@ -62,70 +62,80 @@ class ProgressViewController : UIViewController {
     
     private func getBlurView() {
         
-        if let rect = viewRect, let prop = prop {
-            
-            blurView = Background().blurEffectView(fromBlurStyle: prop.backgroundStyle, frame: rect)
-            
-            if let blurView = blurView {
-                self.view.backgroundColor = UIColor.clearColor()
-                self.view.addSubview(blurView)
-            }
+        guard let rect = viewRect, let prop = prop else {
+            return
         }
+        
+        blurView = Background().blurEffectView(fromBlurStyle: prop.backgroundStyle, frame: rect)
+        
+        guard let blurView = blurView else {
+            return
+        }
+        
+        self.view.backgroundColor = UIColor.clearColor()
+        self.view.addSubview(blurView)
     }
     
-    internal func arc(display: Bool, style: Style) {
+    internal func arc(display: Bool, style: StyleProperty) {
         
         prop = Property(style: style)
         
-        baseWindow!.userInteractionEnabled = !(prop?.backgroundStyle.hashValue == 0) ? true : false // 0 == .None
+        guard let win = baseWindow, prop = prop else {
+            return
+        }
+        
+        win.userInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false // 0 == .None
         
         getViewRect()
         
         getBlurView()
         
-        if let prop = prop {
+        progressAtRatioView = ProgressAtRatioView(frame: CGRectMake(0, 0, prop.progressSize, prop.progressSize))
         
-            progressAtRatioView = ProgressAtRatioView(frame: CGRectMake(0, 0, prop.progressSize, prop.progressSize))
-            
-            if let progressAtRatioView = progressAtRatioView {
-                progressAtRatioView.prop = prop
-                progressAtRatioView.initialize(progressAtRatioView.frame)
-                
-                if display {
-                    progressAtRatioView.showRatio()
-                }
-                
-                progressAtRatioView.center = self.view.center
-                self.view.addSubview(progressAtRatioView)
-            }
+        guard let progressAtRatioView = progressAtRatioView else {
+            return
         }
+        
+        progressAtRatioView.prop = prop
+        progressAtRatioView.initialize(progressAtRatioView.frame)
+        
+        if display {
+            progressAtRatioView.showRatio()
+        }
+        
+        progressAtRatioView.center = self.view.center
+        self.view.addSubview(progressAtRatioView)
     }
     
-    internal func circle(message: String?, style: Style) {
+    internal func circle(message: String?, style: StyleProperty) {
         
         prop = Property(style: style)
         
-        baseWindow!.userInteractionEnabled = !(prop?.backgroundStyle.hashValue == 0) ? true : false // 0 == .None
+        guard let win = baseWindow, prop = prop else {
+            return
+        }
+        
+        win.userInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false // 0 == .None
         
         getViewRect()
         
         getBlurView()
                 
-        if let prop = prop {
-            circularProgressView = CircularProgressView(frame: CGRectMake(0, 0, prop.progressSize, prop.progressSize))
-            
-            if let circularProgressView = circularProgressView {
-                circularProgressView.prop = prop
-                circularProgressView.initialize(circularProgressView.frame)
-                
-                if message != nil {
-                    circularProgressView.showMessage(message!)
-                }
-                
-                circularProgressView.center = self.view.center
-                self.view.addSubview(circularProgressView)
-            }
+        circularProgressView = CircularProgressView(frame: CGRectMake(0, 0, prop.progressSize, prop.progressSize))
+        
+        guard let circularProgressView = circularProgressView else {
+            return
         }
+        
+        circularProgressView.prop = prop
+        circularProgressView.initialize(circularProgressView.frame)
+        
+        if message != nil {
+            circularProgressView.showMessage(message!)
+        }
+        
+        circularProgressView.center = self.view.center
+        self.view.addSubview(circularProgressView)
     }
   
     internal func dismiss(t: Double) {
@@ -134,21 +144,23 @@ class ProgressViewController : UIViewController {
         let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
         dispatch_after(time, dispatch_get_main_queue(), {
-            if let blurView = self.blurView, let progressAtRatioView = self.progressAtRatioView, let circularProgressView = self.circularProgressView {
-                
-                UIView.animateWithDuration(
-                    0.3,
-                    animations: {
-                        progressAtRatioView.alpha = 0.0
-                        circularProgressView.alpha = 0.0
-                    },
-                    completion: { finished in
-                        progressAtRatioView.removeFromSuperview()
-                        circularProgressView.removeFromSuperview()
-                        blurView.removeFromSuperview()
-                    }
-                );
+            
+            guard let blurView = self.blurView, progressAtRatioView = self.progressAtRatioView, circularProgressView = self.circularProgressView else {
+                return
             }
+            
+            UIView.animateWithDuration(
+                0.3,
+                animations: {
+                    progressAtRatioView.alpha = 0.0
+                    circularProgressView.alpha = 0.0
+                },
+                completion: { finished in
+                    progressAtRatioView.removeFromSuperview()
+                    circularProgressView.removeFromSuperview()
+                    blurView.removeFromSuperview()
+                }
+            );
         })
     }
 }

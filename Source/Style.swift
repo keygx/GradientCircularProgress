@@ -2,69 +2,34 @@
 //  DefaultStyle.swift
 //  GradientCircularProgress
 //
-//  Created by keygx on 2015/06/24.
+//  Created by keygx on 2015/08/31.
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
 
-import Foundation
-import UIKit
 
-public enum BackgroundStyles : Int {
-    case None = 0
-    case ExtraLight
-    case Light
-    case Dark
-}
-
-public class Style {
-    
+public struct Style : StyleProperty {
     // Progress Size
-    public var progressSize: CGFloat
+    public var progressSize: CGFloat = 220
     
     // Gradient Circular
-    public var arcLineWidth: CGFloat
-    public var startArcColor: UIColor
-    public var endArcColor: UIColor
+    public var arcLineWidth: CGFloat = 16.0
+    public var startArcColor: UIColor = UIColor(red:90.0/255.0, green: 90.0/255.0, blue: 90.0/255.0, alpha: 1.0)
+    public var endArcColor: UIColor = UIColor(red:230.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, alpha: 1.0)
     
     // Base Circular
-    public var baseLineWidth: CGFloat
-    public var baseArcColor: UIColor
+    public var baseLineWidth: CGFloat = 16.0
+    public var baseArcColor: UIColor = UIColor(red:1.0, green: 1.0, blue: 1.0, alpha: 0.8)
     
     // Ratio
-    public var ratioLabelFont: UIFont
-    public var ratioLabelFontColor: UIColor
+    public var ratioLabelFont: UIFont = UIFont.systemFontOfSize(16.0)
+    public var ratioLabelFontColor: UIColor = UIColor.blackColor()
     
     // Message
-    public var messageLabelFont: UIFont
-    public var messageLabelFontColor: UIColor
+    public var messageLabelFont: UIFont = UIFont.systemFontOfSize(16.0)
+    public var messageLabelFontColor: UIColor = UIColor.blackColor()
     
     // Background
-    public var backgroundStyle: BackgroundStyles
+    public var backgroundStyle: BackgroundStyles = .ExtraLight
     
-    public init() {
-        /*** style properties **********************************************************************************/
-        // Progress Size
-        self.progressSize = 220
-        
-        // Gradient Circular
-        self.arcLineWidth = 16.0
-        self.startArcColor = UIColor(red:90.0/255.0, green: 90.0/255.0, blue: 90.0/255.0, alpha: 1.0)
-        self.endArcColor = UIColor(red:230.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, alpha: 1.0)
-        
-        // Base Circular
-        self.baseLineWidth = 16.0
-        self.baseArcColor = UIColor(red:1.0, green: 1.0, blue: 1.0, alpha: 0.8)
-        
-        // Percentage
-        self.ratioLabelFont = UIFont.systemFontOfSize(16.0)
-        self.ratioLabelFontColor = UIColor.blackColor()
-        
-        // Message
-        self.messageLabelFont = UIFont.systemFontOfSize(16.0)
-        self.messageLabelFontColor = UIColor.blackColor()
-        
-        // Background
-        self.backgroundStyle = .ExtraLight
-        /*** style properties **********************************************************************************/
-    }
+    public init() {}
 }
