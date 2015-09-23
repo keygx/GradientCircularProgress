@@ -16,7 +16,7 @@ class ArcView : UIView {
     var color: UIColor = UIColor.blackColor()
     var lineWidth: CGFloat = 0.0
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -35,26 +35,28 @@ class ArcView : UIView {
     }
     
     private func drawArc(rect: CGRect) {
-                
-        if let prop = prop {
-            let circularRect = prop.getProgressRect()
-            
-            let arcPoint: CGPoint = CGPoint(x: rect.width/2, y: rect.height/2)
-            let arcRadius: CGFloat = circularRect.width/2 + prop.arcLineWidth/2
-            let arcStartAngle: CGFloat = -CGFloat(M_PI_2)
-            let arcEndAngle: CGFloat = ratio * 2.0 * CGFloat(M_PI) - CGFloat(M_PI_2)
-            
-            let arc: UIBezierPath = UIBezierPath(arcCenter: arcPoint,
-                radius: arcRadius,
-                startAngle: arcStartAngle,
-                endAngle: arcEndAngle,
-                clockwise: true)
-            
-            color.setStroke()
-            
-            arc.lineWidth = lineWidth
-            arc.lineCapStyle = prop.arcLineCapStyle
-            arc.stroke()
+        
+        guard let prop = prop else {
+            return
         }
+        
+        let circularRect = prop.getProgressRect()
+        
+        let arcPoint: CGPoint = CGPoint(x: rect.width/2, y: rect.height/2)
+        let arcRadius: CGFloat = circularRect.width/2 + prop.arcLineWidth/2
+        let arcStartAngle: CGFloat = -CGFloat(M_PI_2)
+        let arcEndAngle: CGFloat = ratio * 2.0 * CGFloat(M_PI) - CGFloat(M_PI_2)
+        
+        let arc: UIBezierPath = UIBezierPath(arcCenter: arcPoint,
+            radius: arcRadius,
+            startAngle: arcStartAngle,
+            endAngle: arcEndAngle,
+            clockwise: true)
+        
+        color.setStroke()
+        
+        arc.lineWidth = lineWidth
+        arc.lineCapStyle = prop.arcLineCapStyle
+        arc.stroke()
     }
 }

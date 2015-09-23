@@ -13,39 +13,12 @@ internal var baseWindow: BaseWindow?
 
 public class GradientCircularProgress {
     
-    /***
-        var progress = GradientCircularProgress()
-    
-        progress.showAtRatio(style: SubClass())
-            --> Show gradient circular progress at ratio and percentage display
-    
-        progress.showAtRatio(display: false, style: SubClass())
-            --> Show gradient circular progress at ratio
-    
-        progress.updateRatio(CGFloat(0.0 ~ 1.0))
-            --> Update progress ratio
-    
-        progress.show(style: SubClass())
-            --> Show gradient circular progress
-    
-        progress.show(message: "Loading...", style: SubClass())
-            --> Show gradient circular progress with message display
-    
-        progress.dismiss()
-            --> Hide gradient circular progress
-    
-        progress.dismiss() { Void in
-            // Run after dismiss completion
-        }
-            --> Hide gradient circular progress with completionHandler
-    ***/
-    
     private var progressViewController: ProgressViewController?
     private var available: Bool = true
     
     public init() {}
     
-    public func showAtRatio(display: Bool = true, style: Style = Style()) -> Void {
+    public func showAtRatio(display display: Bool = true, style: StyleProperty = Style()) -> Void {
         if !available {
             return
         }
@@ -54,17 +27,20 @@ public class GradientCircularProgress {
         getProgressAtRatio(display, style: style)
     }
     
-    private func getProgressAtRatio(display: Bool, style: Style) {
+    private func getProgressAtRatio(display: Bool, style: StyleProperty) {
         baseWindow = BaseWindow()
         progressViewController = ProgressViewController()
         
-        if let win = baseWindow, vc = progressViewController {
-            win.rootViewController = vc
-            vc.arc(display, style: style)
+        guard let win = baseWindow, vc = progressViewController else {
+            return
         }
+        
+        win.rootViewController = vc
+        win.backgroundColor = UIColor.clearColor()
+        vc.arc(display, style: style)
     }
     
-    public func show(style: Style = Style()) -> Void {
+    public func show(style style: StyleProperty = Style()) -> Void {
         if !available {
             return
         }
@@ -73,7 +49,7 @@ public class GradientCircularProgress {
         getProgress(message: nil, style: style)
     }
     
-    public func show(#message: String, style: Style = Style()) -> Void {
+    public func show(message message: String, style: StyleProperty = Style()) -> Void {
         if !available {
             return
         }
@@ -82,20 +58,25 @@ public class GradientCircularProgress {
         getProgress(message: message, style: style)
     }
     
-    private func getProgress(#message: String?, style: Style) {
+    private func getProgress(message message: String?, style: StyleProperty) {
         baseWindow = BaseWindow()
         progressViewController = ProgressViewController()
         
-        if let win = baseWindow, vc = progressViewController {
-            win.rootViewController = vc
-            vc.circle(message, style: style)
+        guard let win = baseWindow, vc = progressViewController else {
+            return
         }
+        
+        win.rootViewController = vc
+        win.backgroundColor = UIColor.clearColor()
+        vc.circle(message, style: style)
     }
     
     public func updateRatio(ratio: CGFloat) {
-        if let vc = progressViewController {
-            vc.ratio = ratio
+        guard let vc = progressViewController else {
+            return
         }
+        
+        vc.ratio = ratio
     }
     
     public func dismiss() -> Void {
@@ -129,24 +110,27 @@ public class GradientCircularProgress {
         let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
         dispatch_after(time, dispatch_get_main_queue(), {
-            if let win = baseWindow {
-                UIView.animateWithDuration(
-                    0.3,
-                    animations: {
-                        win.alpha = 0
-                    },
-                    completion: { finished in
-                        self.progressViewController = nil
-                        win.hidden = true
-                        win.rootViewController = nil
-                        baseWindow = nil
-                        self.available = true
-                        if let completionHandler = completionHandler {
-                            completionHandler()
-                        }
-                    }
-                );
+            guard let win = baseWindow else {
+                return
             }
+            
+            UIView.animateWithDuration(
+                0.3,
+                animations: {
+                    win.alpha = 0
+                },
+                completion: { finished in
+                    self.progressViewController = nil
+                    win.hidden = true
+                    win.rootViewController = nil
+                    baseWindow = nil
+                    self.available = true
+                    guard let completionHandler = completionHandler else {
+                        return
+                    }
+                    completionHandler()
+                }
+            );
         })
     }
 }

@@ -2,40 +2,34 @@
 //  BlueDarkStyle.swift
 //  GradientCircularProgress
 //
-//  Created by keygx on 2015/06/24.
+//  Created by keygx on 2015/08/31.
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
 
-import Foundation
-import UIKit
 
-public class BlueDarkStyle : Style {
-        
-    public override init() {
-        super.init()
-        /*** style properties **********************************************************************************/
-        // Progress Size
-        self.progressSize = 260
-        
-        // Gradient Circular
-        self.arcLineWidth = 4.0
-        self.startArcColor = UIColor(red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-        self.endArcColor = UIColor.cyanColor()
-        
-        // Base Circular
-        self.baseLineWidth = 5.0
-        self.baseArcColor = UIColor(red:0.0, green: 0.0, blue: 0.0, alpha: 0.2)
-        
-        // Percentage
-        self.ratioLabelFont = UIFont(name: "Verdana-Bold", size: 16.0)!
-        self.ratioLabelFontColor = UIColor.whiteColor()
-        
-        // Message
-        self.messageLabelFont = UIFont.systemFontOfSize(16.0)
-        self.messageLabelFontColor = UIColor.whiteColor()
-        
-        // Background
-        self.backgroundStyle = .Dark
-        /*** style properties **********************************************************************************/
-    }
+public struct BlueDarkStyle : StyleProperty {
+    // Progress Size
+    public var progressSize: CGFloat = 260
+    
+    // Gradient Circular
+    public var arcLineWidth: CGFloat = 4.0
+    public var startArcColor: UIColor = UIColor(red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+    public var endArcColor: UIColor = UIColor.cyanColor()
+    
+    // Base Circular
+    public var baseLineWidth: CGFloat = 5.0
+    public var baseArcColor: UIColor = UIColor(red:0.0, green: 0.0, blue: 0.0, alpha: 0.2)
+    
+    // Ratio
+    public var ratioLabelFont: UIFont = UIFont(name: "Verdana-Bold", size: 16.0)!
+    public var ratioLabelFontColor: UIColor = UIColor.whiteColor()
+    
+    // Message
+    public var messageLabelFont: UIFont = UIFont.systemFontOfSize(16.0)
+    public var messageLabelFontColor: UIColor = UIColor.whiteColor()
+    
+    // Background
+    public var backgroundStyle: BackgroundStyles = .Dark
+    
+    public init() {}
 }

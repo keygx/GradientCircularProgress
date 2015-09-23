@@ -3,7 +3,7 @@
 Customizable progress indicator library in Swift
 
 ## Requirements
-- Swift 1.2
+- Swift 2.0
 - iOS 8.0 or later
 
 ## Screen Shots
@@ -63,35 +63,35 @@ Please make your original style
 ```swift
 import GradientCircularProgress
 
-public class MyStyle : Style {
+public struct MyStyle : StyleProperty {
+    /*** style properties **********************************************************************************/
     
-    override init() {
-        super.init()
-        /*** style properties **********************************************************************************/
-        // Progress Size
-        self.progressSize = 200
-        
-        // Gradient Circular
-        self.arcLineWidth = 18.0
-        self.startArcColor = UIColor.darkGrayColor()
-        self.endArcColor = UIColor.greenColor()
-        
-        // Base Circular
-        self.baseLineWidth = 19.0
-        self.baseArcColor = UIColor.darkGrayColor()
-        
-        // Percentage
-        self.ratioLabelFont = UIFont(name: "Verdana-Bold", size: 16.0)!
-        self.ratioLabelFontColor = UIColor.whiteColor()
-        
-        // Message
-        self.messageLabelFont = UIFont.systemFontOfSize(16.0)
-        self.messageLabelFontColor = UIColor.whiteColor()
-        
-        // Background
-        self.backgroundStyle = .Dark
-        /*** style properties **********************************************************************************/
-    }
+    // Progress Size
+    public var progressSize: CGFloat = 200
+    
+    // Gradient Circular
+    public var arcLineWidth: CGFloat = 18.0
+    public var startArcColor: UIColor = UIColor.darkGrayColor()
+    public var endArcColor: UIColor = UIColor.greenColor()
+    
+    // Base Circular
+    public var baseLineWidth: CGFloat = 19.0
+    public var baseArcColor: UIColor = UIColor.darkGrayColor()
+    
+    // Ratio
+    public var ratioLabelFont: UIFont = UIFont(name: "Verdana-Bold", size: 16.0)!
+    public var ratioLabelFontColor = UIColor.whiteColor()
+    
+    // Message
+    public var messageLabelFont: UIFont = UIFont.systemFontOfSize(16.0)
+    public var messageLabelFontColor: UIColor = UIColor.whiteColor()
+    
+    // Background
+    public var backgroundStyle: BackgroundStyles = .Dark
+    
+    /*** style properties **********************************************************************************/
+    
+    public init() {}
 }
 
 ```
@@ -101,7 +101,7 @@ public class MyStyle : Style {
 import GradientCircularProgress
 ```
 ```swift
-var progress = GradientCircularProgress()
+let progress = GradientCircularProgress()
 
 let ratio: CGFloat = CGFloat(totalBytesWritten) / CGFloat(totalBytesExpectedToWrite)        
 
@@ -110,7 +110,7 @@ progress.updateRatio(ratio)
 progress.dismiss()
 ```
 ```swift
-var progress = GradientCircularProgress()
+let progress = GradientCircularProgress()
 
 progress.show(message: "Loading...", MyStyle())
 progress.dismiss()
@@ -121,7 +121,7 @@ progress.dismiss()
 ### NSURLSession
 
 ```swift
-var progress = GradientCircularProgress()
+let progress = GradientCircularProgress()
 
 ~~
 
@@ -149,7 +149,7 @@ func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, d
 ### Alamofire
 
 ```swift
-var progress = GradientCircularProgress()
+let progress = GradientCircularProgress()
 
 ~~
 
@@ -171,15 +171,15 @@ Alamofire.request(.GET, "http://example.com/download/dummy.mp4")
 
 ## API
 ```swift
-public func showAtRatio(display: Bool = true, style: Style = Style())
+public func showAtRatio(display display: Bool = true, style: StyleProperty = Style()) -> Void
 
 public func updateRatio(ratio: CGFloat)
 
-public func show(style: Style = Style())
+public func show(style style: StyleProperty = Style()) -> Void
 
-public func show(#message: String, style: Style = Style())
+public func show(message message: String, style: StyleProperty = Style()) -> Void
 
-public func dismiss()
+public func dismiss() -> Void
 
 public func dismiss(completionHandler: () -> Void) -> ()
 ```
