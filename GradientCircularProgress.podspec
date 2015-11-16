@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GradientCircularProgress"
-  s.version      = "2.0.0"
+  s.version      = "2.1.0"
   s.summary      = ""
   s.homepage     = "https://github.com/keygx/GradientCircularProgress"
   s.license      = { :type => "MIT", :file => "LICENSE" }
