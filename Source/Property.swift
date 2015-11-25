@@ -16,16 +16,16 @@ public protocol StyleProperty {
     var endArcColor: UIColor { get set }
     
     // Base Circular
-    var baseLineWidth: CGFloat { get set }
-    var baseArcColor: UIColor { get set }
+    var baseLineWidth: CGFloat? { get set }
+    var baseArcColor: UIColor? { get set }
     
     // Ratio
-    var ratioLabelFont: UIFont { get set }
-    var ratioLabelFontColor: UIColor { get set }
+    var ratioLabelFont: UIFont? { get set }
+    var ratioLabelFontColor: UIColor? { get set }
     
     // Message
-    var messageLabelFont: UIFont { get set }
-    var messageLabelFontColor: UIColor { get set }
+    var messageLabelFont: UIFont? { get set }
+    var messageLabelFontColor: UIColor? { get set }
     
     // Background
     var backgroundStyle: BackgroundStyles { get set }
@@ -47,27 +47,35 @@ internal struct Property {
     let arcLineCapStyle: CGLineCap = CGLineCap.Butt
     
     // Progress Size
-    let progressSize: CGFloat
+    var progressSize: CGFloat
     
     // Gradient Circular
-    let arcLineWidth: CGFloat
-    let startArcColor: UIColor
-    let endArcColor: UIColor
+    var arcLineWidth: CGFloat
+    var startArcColor: UIColor
+    var endArcColor: UIColor
     
     // Base Circular
-    let baseLineWidth: CGFloat
-    let baseArcColor: UIColor
+    var baseLineWidth: CGFloat?
+    var baseArcColor: UIColor?
     
     // Ratio
-    let ratioLabelFont: UIFont
-    let ratioLabelFontColor: UIColor
+    let ratioLabelFont: UIFont?
+    let ratioLabelFontColor: UIColor?
     
     // Message
-    let messageLabelFont: UIFont
-    let messageLabelFontColor: UIColor
+    let messageLabelFont: UIFont?
+    let messageLabelFontColor: UIColor?
     
     // Background
     let backgroundStyle: BackgroundStyles
+    
+    // Progress Rect
+    var progressRect: CGRect {
+        get {
+            let lineWidth: CGFloat = (arcLineWidth > baseLineWidth) ? arcLineWidth : baseLineWidth!
+            return CGRectMake(0, 0, progressSize - lineWidth * 2, progressSize - lineWidth * 2)
+        }
+    }
     
     init(style: StyleProperty) {
         
@@ -77,17 +85,12 @@ internal struct Property {
         self.arcLineWidth          = styles.arcLineWidth
         self.startArcColor         = styles.startArcColor
         self.endArcColor           = styles.endArcColor
-        self.baseLineWidth         = styles.baseLineWidth
-        self.baseArcColor          = styles.baseArcColor
-        self.ratioLabelFont        = styles.ratioLabelFont
-        self.ratioLabelFontColor   = styles.ratioLabelFontColor
-        self.messageLabelFont      = styles.messageLabelFont
-        self.messageLabelFontColor = styles.messageLabelFontColor
+        self.baseLineWidth         = styles.baseLineWidth           ?? 0.0
+        self.baseArcColor          = styles.baseArcColor            ?? UIColor.clearColor()
+        self.ratioLabelFont        = styles.ratioLabelFont          ?? UIFont.systemFontOfSize(16.0)
+        self.ratioLabelFontColor   = styles.ratioLabelFontColor     ?? UIColor.clearColor()
+        self.messageLabelFont      = styles.messageLabelFont        ?? UIFont.systemFontOfSize(16.0)
+        self.messageLabelFontColor = styles.messageLabelFontColor   ?? UIColor.clearColor()
         self.backgroundStyle       = styles.backgroundStyle
-    }
-    
-    func getProgressRect() -> CGRect {
-        let lineWidth: CGFloat = (arcLineWidth > baseLineWidth) ? arcLineWidth : baseLineWidth
-        return CGRectMake(0, 0, progressSize - lineWidth * 2 - margin * 2, progressSize - lineWidth * 2 - margin * 2)
     }
 }

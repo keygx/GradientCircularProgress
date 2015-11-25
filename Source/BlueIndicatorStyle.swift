@@ -9,24 +9,24 @@
 
 public struct BlueIndicatorStyle : StyleProperty {
     // Progress Size
-    public var progressSize: CGFloat = 54
+    public var progressSize: CGFloat = 44
     
     // Gradient Circular
     public var arcLineWidth: CGFloat = 4.0
-    public var startArcColor: UIColor = UIColor(red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-    public var endArcColor: UIColor = UIColor(red: 235.0/255.0, green: 245.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+    public var startArcColor: UIColor = ColorUtil.toUIColor(r: 235.0, g: 245.0, b: 255.0, a: 1.0)
+    public var endArcColor: UIColor = ColorUtil.toUIColor(r: 0.0, g: 122.0, b: 255.0, a: 1.0)
     
     // Base Circular
-    public var baseLineWidth: CGFloat = 4.0
-    public var baseArcColor: UIColor = UIColor(red: 215.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 0.4)
+    public var baseLineWidth: CGFloat? = 4.0
+    public var baseArcColor: UIColor? = ColorUtil.toUIColor(r: 215.0, g: 215.0, b: 215.0, a: 0.4)
     
     // Ratio
-    public var ratioLabelFont: UIFont = UIFont.systemFontOfSize(16.0)
-    public var ratioLabelFontColor: UIColor = UIColor.blackColor()
+    public var ratioLabelFont: UIFont? = nil
+    public var ratioLabelFontColor: UIColor? = nil
     
     // Message
-    public var messageLabelFont: UIFont = UIFont.systemFontOfSize(16.0)
-    public var messageLabelFontColor: UIColor = UIColor.blackColor()
+    public var messageLabelFont: UIFont? = nil
+    public var messageLabelFontColor: UIColor? = nil
     
     // Background
     public var backgroundStyle: BackgroundStyles = .None

@@ -40,7 +40,7 @@ class ArcView : UIView {
             return
         }
         
-        let circularRect = prop.getProgressRect()
+        let circularRect: CGRect = prop.progressRect
         
         let arcPoint: CGPoint = CGPoint(x: rect.width/2, y: rect.height/2)
         let arcRadius: CGFloat = circularRect.width/2 + prop.arcLineWidth/2

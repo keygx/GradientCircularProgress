@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3636A24B1C02E2720025F315 /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3636A24A1C02E2720025F315 /* ColorUtil.swift */; };
 		36CC1C821B37083E009DE1F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC1C811B37083E009DE1F8 /* AppDelegate.swift */; };
 		36CC1C841B37083E009DE1F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC1C831B37083E009DE1F8 /* ViewController.swift */; };
 		36CC1C871B37083E009DE1F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CC1C851B37083E009DE1F8 /* Main.storyboard */; };
@@ -27,9 +28,10 @@
 		36F742F31B3A70EA003D799C /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E41B3A70EA003D799C /* Property.swift */; };
 		36F742F41B3A70EA003D799C /* BlueDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E61B3A70EA003D799C /* BlueDarkStyle.swift */; };
 		36F742F51B3A70EA003D799C /* BlueIndicatorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E71B3A70EA003D799C /* BlueIndicatorStyle.swift */; };
-		36F742F61B3A70EA003D799C /* IndicatorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E81B3A70EA003D799C /* IndicatorStyle.swift */; };
-		36F742F71B3A70EA003D799C /* OrangeDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E91B3A70EA003D799C /* OrangeDarkStyle.swift */; };
+		36F742F61B3A70EA003D799C /* GreenLightStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E81B3A70EA003D799C /* GreenLightStyle.swift */; };
+		36F742F71B3A70EA003D799C /* OrangeClearStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E91B3A70EA003D799C /* OrangeClearStyle.swift */; };
 		36F742F81B3A70EA003D799C /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742EA1B3A70EA003D799C /* Style.swift */; };
+		36FC1AA91BFF249800DFFA71 /* GradientArcWithClearColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FC1AA81BFF249800DFFA71 /* GradientArcWithClearColorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3636A24A1C02E2720025F315 /* ColorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
 		36CC1C7C1B37083E009DE1F8 /* GCProgressSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCProgressSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CC1C801B37083E009DE1F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36CC1C811B37083E009DE1F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,9 +91,10 @@
 		36F742E41B3A70EA003D799C /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		36F742E61B3A70EA003D799C /* BlueDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueDarkStyle.swift; sourceTree = "<group>"; };
 		36F742E71B3A70EA003D799C /* BlueIndicatorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueIndicatorStyle.swift; sourceTree = "<group>"; };
-		36F742E81B3A70EA003D799C /* IndicatorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorStyle.swift; sourceTree = "<group>"; };
-		36F742E91B3A70EA003D799C /* OrangeDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeDarkStyle.swift; sourceTree = "<group>"; };
+		36F742E81B3A70EA003D799C /* GreenLightStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenLightStyle.swift; sourceTree = "<group>"; };
+		36F742E91B3A70EA003D799C /* OrangeClearStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeClearStyle.swift; sourceTree = "<group>"; };
 		36F742EA1B3A70EA003D799C /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		36FC1AA81BFF249800DFFA71 /* GradientArcWithClearColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientArcWithClearColorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,8 +209,10 @@
 				36F742DF1B3A70EA003D799C /* BaseWindow.swift */,
 				36F742E01B3A70EA003D799C /* CircularProgressView.swift */,
 				36F742E11B3A70EA003D799C /* GradientArcView.swift */,
+				36FC1AA81BFF249800DFFA71 /* GradientArcWithClearColorView.swift */,
 				36F742E21B3A70EA003D799C /* ProgressAtRatioView.swift */,
 				36F742E31B3A70EA003D799C /* ProgressViewController.swift */,
+				3636A24A1C02E2720025F315 /* ColorUtil.swift */,
 				36F742E41B3A70EA003D799C /* Property.swift */,
 			);
 			path = Progress;
@@ -217,8 +223,8 @@
 			children = (
 				36F742E61B3A70EA003D799C /* BlueDarkStyle.swift */,
 				36F742E71B3A70EA003D799C /* BlueIndicatorStyle.swift */,
-				36F742E81B3A70EA003D799C /* IndicatorStyle.swift */,
-				36F742E91B3A70EA003D799C /* OrangeDarkStyle.swift */,
+				36F742E81B3A70EA003D799C /* GreenLightStyle.swift */,
+				36F742E91B3A70EA003D799C /* OrangeClearStyle.swift */,
 				36F742EA1B3A70EA003D799C /* Style.swift */,
 			);
 			path = Styles;
@@ -392,11 +398,13 @@
 				36F742F51B3A70EA003D799C /* BlueIndicatorStyle.swift in Sources */,
 				36F742F81B3A70EA003D799C /* Style.swift in Sources */,
 				36F742F21B3A70EA003D799C /* ProgressViewController.swift in Sources */,
+				3636A24B1C02E2720025F315 /* ColorUtil.swift in Sources */,
 				36F742F41B3A70EA003D799C /* BlueDarkStyle.swift in Sources */,
+				36FC1AA91BFF249800DFFA71 /* GradientArcWithClearColorView.swift in Sources */,
 				36F742EC1B3A70EA003D799C /* ArcView.swift in Sources */,
 				36F742EE1B3A70EA003D799C /* BaseWindow.swift in Sources */,
-				36F742F71B3A70EA003D799C /* OrangeDarkStyle.swift in Sources */,
-				36F742F61B3A70EA003D799C /* IndicatorStyle.swift in Sources */,
+				36F742F71B3A70EA003D799C /* OrangeClearStyle.swift in Sources */,
+				36F742F61B3A70EA003D799C /* GreenLightStyle.swift in Sources */,
 				36F742EF1B3A70EA003D799C /* CircularProgressView.swift in Sources */,
 				36F742ED1B3A70EA003D799C /* Background.swift in Sources */,
 			);
