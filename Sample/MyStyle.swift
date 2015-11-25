@@ -2,7 +2,7 @@
 //  MyStyle.swift
 //  GradientCircularProgress
 //
-//  Created by keygx on 2015/09/23.
+//  Created by keygx on 2015/11/25.
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
 
@@ -16,20 +16,20 @@ public struct MyStyle : StyleProperty {
     
     // Gradient Circular
     public var arcLineWidth: CGFloat = 18.0
-    public var startArcColor: UIColor = UIColor.darkGrayColor()
-    public var endArcColor: UIColor = UIColor.greenColor()
+    public var startArcColor: UIColor = UIColor.clearColor()
+    public var endArcColor: UIColor = UIColor.orangeColor()
     
     // Base Circular
-    public var baseLineWidth: CGFloat = 19.0
-    public var baseArcColor: UIColor = UIColor.darkGrayColor()
+    public var baseLineWidth: CGFloat? = 19.0
+    public var baseArcColor: UIColor? = UIColor.darkGrayColor()
     
     // Ratio
-    public var ratioLabelFont: UIFont = UIFont(name: "Verdana-Bold", size: 16.0)!
-    public var ratioLabelFontColor = UIColor.whiteColor()
+    public var ratioLabelFont: UIFont? = UIFont(name: "Verdana-Bold", size: 16.0)
+    public var ratioLabelFontColor: UIColor? = UIColor.whiteColor()
     
     // Message
-    public var messageLabelFont: UIFont = UIFont.systemFontOfSize(16.0)
-    public var messageLabelFontColor: UIColor = UIColor.whiteColor()
+    public var messageLabelFont: UIFont? = UIFont.systemFontOfSize(16.0)
+    public var messageLabelFontColor: UIColor? = UIColor.whiteColor()
     
     // Background
     public var backgroundStyle: BackgroundStyles = .Dark
