@@ -26,25 +26,15 @@ class GradientArcView : UIView {
     
     private func getGradientPointColor(ratio: CGFloat, startColor: UIColor, endColor: UIColor) -> UIColor {
         
-        var r1: CGFloat = 0.0
-        var g1: CGFloat = 0.0
-        var b1: CGFloat = 0.0
-        var a1: CGFloat = 0.0
+        let sColor = ColorUtil.toRGBA(color: startColor)
+        let eColor = ColorUtil.toRGBA(color: endColor)
         
-        var r2: CGFloat = 0.0
-        var g2: CGFloat = 0.0
-        var b2: CGFloat = 0.0
-        var a2: CGFloat = 0.0
+        let r = (eColor.r - sColor.r) * ratio + sColor.r
+        let g = (eColor.g - sColor.g) * ratio + sColor.g
+        let b = (eColor.b - sColor.b) * ratio + sColor.b
+        let a = (eColor.a - sColor.a) * ratio + sColor.a
         
-        startColor.getRed(&r1, green: &g1, blue: &b1, alpha: &a1)
-        endColor.getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
-        
-        let r0 = (r2 - r1) * ratio + r1
-        let g0 = (g2 - g1) * ratio + g1
-        let b0 = (b2 - b1) * ratio + b1
-        _ = (a2 - a1) * ratio + a1
-        
-        return UIColor(red: r0, green: g0, blue: b0, alpha: 1.0) // fixed alpha value
+        return UIColor(red: r, green: g, blue: b, alpha: a)
     }
     
     override func drawRect(rect: CGRect) {
@@ -53,7 +43,7 @@ class GradientArcView : UIView {
             return
         }
         
-        let circularRect = prop.getProgressRect()
+        let circularRect: CGRect = prop.progressRect
         
         var currentAngle: CGFloat = 0.0
         

@@ -19,8 +19,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let styleList = [
         (Style() as StyleProperty,              true,  "Loading", "Style"),
         (BlueDarkStyle() as StyleProperty,      true,  "Loading", "BlueDarkStyle"),
-        (OrangeDarkStyle() as StyleProperty,    true,  "Loading", "IndicatorStyle"),
-        (IndicatorStyle() as StyleProperty,     false, "",        "IndicatorStyle"),
+        (OrangeClearStyle() as StyleProperty,   true,  "",        "OrangeClearStyle"),
+        (GreenLightStyle() as StyleProperty,    true,  "Loading", "GreenLightStyle"),
         (BlueIndicatorStyle() as StyleProperty, false, "",        "BlueIndicatorStyle")
     ]
     

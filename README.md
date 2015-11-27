@@ -54,11 +54,13 @@ To integrate "GradientCircularProgress.framework" into your Xcode project
 
 ## Style Settings
 
-Please make your original style
+Please make your original styles
 
 ![](images/properties.png)
 
-- Inheritance Style class and override properties
+- Define custom style structs that implements the StyleProperty Protocol
+
+[MyStyle.swift](https://github.com/keygx/GradientCircularProgress/blob/master/Sample/MyStyle.swift)
 
 ```swift
 import GradientCircularProgress
@@ -71,20 +73,20 @@ public struct MyStyle : StyleProperty {
     
     // Gradient Circular
     public var arcLineWidth: CGFloat = 18.0
-    public var startArcColor: UIColor = UIColor.darkGrayColor()
-    public var endArcColor: UIColor = UIColor.greenColor()
+    public var startArcColor: UIColor = UIColor.clearColor()
+    public var endArcColor: UIColor = UIColor.orangeColor()
     
     // Base Circular
-    public var baseLineWidth: CGFloat = 19.0
-    public var baseArcColor: UIColor = UIColor.darkGrayColor()
+    public var baseLineWidth: CGFloat? = 19.0
+    public var baseArcColor: UIColor? = UIColor.darkGrayColor()
     
     // Ratio
-    public var ratioLabelFont: UIFont = UIFont(name: "Verdana-Bold", size: 16.0)!
-    public var ratioLabelFontColor = UIColor.whiteColor()
+    public var ratioLabelFont: UIFont? = UIFont(name: "Verdana-Bold", size: 16.0)
+    public var ratioLabelFontColor: UIColor? = UIColor.whiteColor()
     
     // Message
-    public var messageLabelFont: UIFont = UIFont.systemFontOfSize(16.0)
-    public var messageLabelFontColor: UIColor = UIColor.whiteColor()
+    public var messageLabelFont: UIFont? = UIFont.systemFontOfSize(16.0)
+    public var messageLabelFontColor: UIColor? = UIColor.whiteColor()
     
     // Background
     public var backgroundStyle: BackgroundStyles = .Dark
@@ -95,6 +97,8 @@ public struct MyStyle : StyleProperty {
 }
 
 ```
+
+![](images/scr_MyStyle.png)
 
 ## Usage
 ```swift
