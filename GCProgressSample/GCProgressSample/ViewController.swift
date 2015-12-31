@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  GCProgressSample
 //
-//  Created by keygx on 2015/06/21.
+//  Created by keygx on 2015/12/31.
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
 
@@ -10,21 +10,37 @@ import UIKit
 import GradientCircularProgress
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
+    @IBOutlet weak var styleTableView: UITableView!
+    
     var timer: NSTimer?
     var v: Double = 0.0
     var available: Bool = true
-    var progress = GradientCircularProgress()
+    let progress = GradientCircularProgress()
     
-    let styleList = [
-        (Style() as StyleProperty,              true,  "Loading", "Style"),
-        (BlueDarkStyle() as StyleProperty,      true,  "Loading", "BlueDarkStyle"),
-        (OrangeClearStyle() as StyleProperty,   true,  "",        "OrangeClearStyle"),
-        (GreenLightStyle() as StyleProperty,    true,  "Loading", "GreenLightStyle"),
-        (BlueIndicatorStyle() as StyleProperty, false, "",        "BlueIndicatorStyle")
+    let styleTitleList = [
+        "Style.swift",
+        "BlueDarkStyle.swift",
+        "OrangeClearStyle.swift",
+        "GreenLightStyle.swift",
+        "BlueIndicatorStyle.swift",
+        "MyStyle.swift",
     ]
     
-    @IBOutlet weak var styleTableView: UITableView!
+    let styleDetailList = [
+        "at Ratio",
+        "Basic",
+        "at Ratio",
+        "Basic",
+        "at Ratio",
+        "Basic",
+        "at Ratio",
+        "Basic",
+        "at Ratio",
+        "Basic",
+        "at Ratio",
+        "Basic",
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,89 +52,161 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+}
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return styleList.count
-    }
+extension ViewController {
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let CellIdentifier: String = "CustomCell"
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier)!
-        
-        let className: UILabel = cell.viewWithTag(100) as! UILabel
-        let btn1: UIButton = cell.viewWithTag(101) as! UIButton
-        let btn2: UIButton = cell.viewWithTag(102) as! UIButton
-        
-        className.text = styleList[indexPath.row].3
-        btn1.addTarget(self, action: "didTouchButton:event:", forControlEvents: UIControlEvents.TouchUpInside)
-        btn2.addTarget(self, action: "didTouchButton:event:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        return cell
-    }
-    
-    func listViewIndexPathForControlEvent(event: UIEvent) -> NSIndexPath {
-        
-        let touch: UITouch = event.allTouches()!.first!
-        let point: CGPoint = touch.locationInView(styleTableView)
-        let indexPath: NSIndexPath = styleTableView.indexPathForRowAtPoint(point)!
-        
-        return indexPath
-    }
-    
-    func didTouchButton(sender: UIButton, event: UIEvent) {
-        
-        if available {
-            available = false
-        
-            let indexPath: NSIndexPath = listViewIndexPathForControlEvent(event)
-            
-            self.showDummyProgress(indexPath.row, tag: sender.tag)
-        }
-    }
-    
-    func showDummyProgress(row: Int, tag: Int) {
-        
-        let item = styleList[row]
-        
-        if tag == 101 {
-            
-            progress.showAtRatio(display: item.1, style: item.0)
-            
-            v = 0.0
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "updateProgressAtRatio", userInfo: nil, repeats: true)
-            timer!.fire()
-            
-        } else {
-            
-            if item.2.isEmpty {
-                progress.show(style: item.0)
-            } else {
-                progress.show(message: item.2, style: item.0)
+    func showProgress(section section: Int, row: Int) {
+        switch section {
+        case 0:
+            // Style.swift
+            switch row {
+            case 0:
+                self.progress.showAtRatio(display: true, style: Style())
+                self.startProgressAtRatio()
+            case 1:
+                self.progress.show(message: "Loading", style: Style())
+                self.delayCloseProgress()
+            default: break
             }
-            
-            let delay = 2.0 * Double(NSEC_PER_SEC)
-            let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-            dispatch_after(time, dispatch_get_main_queue(), {
-                self.progress.dismiss()
-                self.available = true
-            })
+        case 1:
+            // BlueDarkStyle.swift
+            switch row {
+            case 0:
+                self.progress.showAtRatio(display: true, style: BlueDarkStyle())
+                self.startProgressAtRatio()
+            case 1:
+                self.progress.show(message: "Loading", style: BlueDarkStyle())
+                self.delayCloseProgress()
+            default: break
+            }
+        case 2:
+            // OrangeClearStyle.swift
+            switch row {
+            case 0:
+                self.progress.showAtRatio(display: true, style: OrangeClearStyle())
+                self.startProgressAtRatio()
+            case 1:
+                self.progress.show(message: "Loading", style: OrangeClearStyle())
+                self.delayCloseProgress()
+            default: break
+            }
+        case 3:
+            // GreenLightStyle.swift
+            switch row {
+            case 0:
+                self.progress.showAtRatio(display: true, style: GreenLightStyle())
+                self.startProgressAtRatio()
+            case 1:
+                self.progress.show(message: "Loading", style: GreenLightStyle())
+                self.delayCloseProgress()
+            default: break
+            }
+        case 4:
+            // BlueIndicatorStyle.swift
+            switch row {
+            case 0:
+                self.progress.showAtRatio(display: false, style: BlueIndicatorStyle())
+                self.startProgressAtRatio()
+            case 1:
+                self.progress.show(style: BlueIndicatorStyle())
+                self.delayCloseProgress()
+            default: break
+            }
+        case 5:
+            // MyStyle.swift
+            switch row {
+            case 0:
+                self.progress.showAtRatio(display: true, style: MyStyle())
+                self.startProgressAtRatio()
+            case 1:
+                self.progress.show(message: "Loading", style: MyStyle())
+                self.delayCloseProgress()
+            default: break
+            }
+        default: break
         }
     }
     
+    // for demo
+    func delayCloseProgress() {
+        let delay = 2.0 * Double(NSEC_PER_SEC)
+        let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue(), {
+            self.progress.dismiss()
+            self.available = true
+        })
+    }
+    // for demo
+    func startProgressAtRatio() {
+        self.v = 0.0
+        
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(
+            0.01,
+            target: self,
+            selector: "updateProgressAtRatio",
+            userInfo: nil,
+            repeats: true
+        )
+        NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
+    }
+    // for demo
     func updateProgressAtRatio() {
+        self.v += 0.01
         
-        v += 0.01
+        self.progress.updateRatio(CGFloat(v))
         
-        progress.updateRatio(CGFloat(v))
-        
-        if v > 1.00 {
-            timer!.invalidate()
-            progress.dismiss() { Void in
+        if self.v > 1.00 {
+            self.timer!.invalidate()
+            self.progress.dismiss() { Void in
                 self.available = true
             }
             
             return
         }
+    }
+}
+
+// UITableView
+extension ViewController {
+    
+    // cell tap event
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("\(self.styleTitleList[indexPath.section]) : \(self.styleDetailList[indexPath.row])")
+        
+        if self.available {
+            self.available = false
+            self.showProgress(section: indexPath.section, row: indexPath.row)
+        }
+    }
+    
+    // section count
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.styleTitleList.count
+    }
+    
+    // section title
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.styleTitleList[section]
+    }
+    
+    // row count
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if self.styleTitleList.count > section {
+            return 2
+        } else {
+            return 0
+        }
+    }
+    
+    // cell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let CellIdentifier = "CustomCell"
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier)!
+        cell.textLabel?.text = self.styleDetailList[indexPath.row]
+        
+        return cell
     }
 }
