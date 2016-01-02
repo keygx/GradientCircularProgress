@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3636A24B1C02E2720025F315 /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3636A24A1C02E2720025F315 /* ColorUtil.swift */; };
+		368F0E4E1C35319E008B1AC4 /* MyStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368F0E4D1C35319E008B1AC4 /* MyStyle.swift */; };
 		36CC1C821B37083E009DE1F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC1C811B37083E009DE1F8 /* AppDelegate.swift */; };
 		36CC1C841B37083E009DE1F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC1C831B37083E009DE1F8 /* ViewController.swift */; };
 		36CC1C871B37083E009DE1F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CC1C851B37083E009DE1F8 /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		3636A24A1C02E2720025F315 /* ColorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
+		368F0E4D1C35319E008B1AC4 /* MyStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStyle.swift; sourceTree = "<group>"; };
 		36CC1C7C1B37083E009DE1F8 /* GCProgressSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCProgressSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CC1C801B37083E009DE1F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36CC1C811B37083E009DE1F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				36CC1C811B37083E009DE1F8 /* AppDelegate.swift */,
 				36CC1C831B37083E009DE1F8 /* ViewController.swift */,
+				368F0E4D1C35319E008B1AC4 /* MyStyle.swift */,
 				36CC1C851B37083E009DE1F8 /* Main.storyboard */,
 				36CC1C881B37083E009DE1F8 /* Images.xcassets */,
 				36CC1C8A1B37083E009DE1F8 /* LaunchScreen.xib */,
@@ -376,6 +379,7 @@
 			files = (
 				36CC1C841B37083E009DE1F8 /* ViewController.swift in Sources */,
 				36CC1C821B37083E009DE1F8 /* AppDelegate.swift in Sources */,
+				368F0E4E1C35319E008B1AC4 /* MyStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,7 +514,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -586,6 +590,7 @@
 		36F742D41B3A7016003D799C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -609,6 +614,7 @@
 		36F742D51B3A7016003D799C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
