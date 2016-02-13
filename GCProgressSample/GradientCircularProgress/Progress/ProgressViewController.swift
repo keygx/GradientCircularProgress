@@ -137,6 +137,15 @@ class ProgressViewController : UIViewController {
         circularProgressView.center = self.view.center
         self.view.addSubview(circularProgressView)
     }
+    
+    internal func updateMessage(message: String) {
+        
+        guard let circularProgressView = circularProgressView else {
+            return
+        }
+        
+        circularProgressView.message = message
+    }
   
     internal func dismiss(t: Double) {
         

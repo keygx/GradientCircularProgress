@@ -30,16 +30,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let styleDetailList = [
         "at Ratio",
         "Basic",
-        "at Ratio",
-        "Basic",
-        "at Ratio",
-        "Basic",
-        "at Ratio",
-        "Basic",
-        "at Ratio",
-        "Basic",
-        "at Ratio",
-        "Basic",
+        "Update Message",
     ]
     
     override func viewDidLoad() {
@@ -67,6 +58,9 @@ extension ViewController {
             case 1:
                 self.progress.show(message: "Loading", style: Style())
                 self.delayCloseProgress()
+            case 2:
+                self.progress.show(message: "Download\n0 / 4", style: Style())
+                self.startProgressBasic()
             default: break
             }
         case 1:
@@ -78,6 +72,9 @@ extension ViewController {
             case 1:
                 self.progress.show(message: "Loading", style: BlueDarkStyle())
                 self.delayCloseProgress()
+            case 2:
+                self.progress.show(message: "Download\n0 / 4", style: BlueDarkStyle())
+                self.startProgressBasic()
             default: break
             }
         case 2:
@@ -87,7 +84,7 @@ extension ViewController {
                 self.progress.showAtRatio(display: true, style: OrangeClearStyle())
                 self.startProgressAtRatio()
             case 1:
-                self.progress.show(message: "Loading", style: OrangeClearStyle())
+                self.progress.show(style: OrangeClearStyle())
                 self.delayCloseProgress()
             default: break
             }
@@ -100,6 +97,9 @@ extension ViewController {
             case 1:
                 self.progress.show(message: "Loading", style: GreenLightStyle())
                 self.delayCloseProgress()
+            case 2:
+                self.progress.show(message: "Download\n0 / 4", style: GreenLightStyle())
+                self.startProgressBasic()
             default: break
             }
         case 4:
@@ -122,6 +122,9 @@ extension ViewController {
             case 1:
                 self.progress.show(message: "Loading", style: MyStyle())
                 self.delayCloseProgress()
+            case 2:
+                self.progress.show(message: "Download\n0 / 4", style: MyStyle())
+                self.startProgressBasic()
             default: break
             }
         default: break
@@ -130,12 +133,51 @@ extension ViewController {
     
     // for demo
     func delayCloseProgress() {
-        let delay = 2.0 * Double(NSEC_PER_SEC)
-        let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue(), {
-            self.progress.dismiss()
-            self.available = true
-        })
+        AsyncUtil().dispatchOnMainThread({
+                self.progress.dismiss()
+                self.available = true
+            },
+            delay: 2.0)
+    }
+    // for demo
+    func startProgressBasic() {
+        self.v = 0.0
+        
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(
+            0.01,
+            target: self,
+            selector: "updateMessage",
+            userInfo: nil,
+            repeats: true
+        )
+        NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
+    }
+    // for demo
+    func updateMessage() {
+        self.v += 0.002
+        
+        if self.v > 1.00 {
+            self.progress.updateMessage(message: "Download\n4 / 4")
+            self.timer!.invalidate()
+            
+            AsyncUtil().dispatchOnMainThread({
+                    self.progress.updateMessage(message: "Completed!")
+                    self.progress.dismiss() { Void in
+                        self.available = true
+                    }
+                }, delay: 0.8)
+            
+            return
+        
+        } else if self.v > 0.75 {
+            self.progress.updateMessage(message: "Download\n3 / 4")
+        
+        } else if self.v > 0.5 {
+            self.progress.updateMessage(message: "Download\n2 / 4")
+        
+        } else if self.v > 0.25 {
+            self.progress.updateMessage(message: "Download\n1 / 4")
+        }
     }
     // for demo
     func startProgressAtRatio() {
@@ -193,9 +235,20 @@ extension ViewController {
     // row count
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if self.styleTitleList.count > section {
+        switch section {
+        case 0:
+            fallthrough
+        case 1:
+            fallthrough
+        case 3:
+            fallthrough
+        case 5:
+            return 3
+        case 2:
+            fallthrough
+        case 4:
             return 2
-        } else {
+        default:
             return 0
         }
     }

@@ -58,6 +58,16 @@ public class GradientCircularProgress {
         getProgress(message: message, style: style)
     }
     
+    public func updateMessage(message message: String) -> Void {
+        if available {
+            return
+        }
+        
+        if let vc = progressViewController {
+            vc.updateMessage(message)
+        }
+    }
+    
     private func getProgress(message message: String?, style: StyleProperty) {
         baseWindow = BaseWindow()
         progressViewController = ProgressViewController()
