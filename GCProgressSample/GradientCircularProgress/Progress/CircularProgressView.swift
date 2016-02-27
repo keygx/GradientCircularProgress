@@ -19,6 +19,20 @@ class CircularProgressView : UIView {
         willSet {
             messageLabel.frame = self.frame
             messageLabel.text = newValue
+            
+            guard let message = messageLabel.text else {
+                return
+            }
+            
+            // Attribute
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineHeightMultiple = 1.2;
+            paragraphStyle.alignment = NSTextAlignment.Center
+            let attr = [NSParagraphStyleAttributeName: paragraphStyle]
+            let attributedString = NSMutableAttributedString(string: message, attributes: attr)
+            
+            messageLabel.attributedText = attributedString
+            
             messageLabel.sizeToFit()
             
             if centerPoint == nil {
