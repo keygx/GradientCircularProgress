@@ -104,6 +104,15 @@ public struct MyStyle : StyleProperty {
 ```swift
 import GradientCircularProgress
 ```
+### Basic
+```swift
+let progress = GradientCircularProgress()
+
+progress.show(message: "Loading...", MyStyle())
+progress.dismiss()
+```
+
+### at Rtio
 ```swift
 let progress = GradientCircularProgress()
 
@@ -113,11 +122,23 @@ progress.showAtRatio(style: MyStyle())
 progress.updateRatio(ratio)
 progress.dismiss()
 ```
+
+### Update Message
 ```swift
 let progress = GradientCircularProgress()
 
-progress.show(message: "Loading...", MyStyle())
-progress.dismiss()
+progress.show(message: "Download\n0 / 4", MyStyle())
+
+progress.show(message: "Download\n1 / 4", MyStyle())
+progress.show(message: "Download\n2 / 4", MyStyle())
+progress.show(message: "Download\n3 / 4", MyStyle())
+progress.show(message: "Download\n4 / 4", MyStyle())
+
+let time = dispatch_time(DISPATCH_TIME_NOW, Int64(0.8 * Double(NSEC_PER_SEC)))
+dispatch_after(time, dispatch_get_main_queue()) {
+    self.progress.updateMessage(message: "Completed!")
+    self.progress.dismiss()
+}
 ```
 
 ## Download Progress Examples
@@ -182,6 +203,8 @@ public func updateRatio(ratio: CGFloat)
 public func show(style style: StyleProperty = Style()) -> Void
 
 public func show(message message: String, style: StyleProperty = Style()) -> Void
+
+public func updateMessage(message message: String) -> Void
 
 public func dismiss() -> Void
 
