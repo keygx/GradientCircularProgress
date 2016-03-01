@@ -12,6 +12,38 @@ import UIKit
 class CircularProgressView : UIView {
     
     var prop: Property?
+    var messageLabel = UILabel()
+    var centerPoint: CGPoint?
+    
+    var message: String? {
+        willSet {
+            messageLabel.frame = self.frame
+            messageLabel.text = newValue
+            
+            guard let message = messageLabel.text else {
+                return
+            }
+            
+            // Attribute
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineHeightMultiple = 1.2;
+            paragraphStyle.alignment = NSTextAlignment.Center
+            let attr = [NSParagraphStyleAttributeName: paragraphStyle]
+            let attributedString = NSMutableAttributedString(string: message, attributes: attr)
+            
+            messageLabel.attributedText = attributedString
+            
+            messageLabel.sizeToFit()
+            
+            if centerPoint == nil {
+                centerPoint = self.center
+            }
+            
+            if let center = centerPoint {
+                messageLabel.center = center
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -76,14 +108,13 @@ class CircularProgressView : UIView {
         }
         
         // Message
-        let messageLabel: UILabel = UILabel(frame: self.frame)
-        messageLabel.text = message
         messageLabel.font = prop.messageLabelFont
         messageLabel.textAlignment = NSTextAlignment.Center
         messageLabel.textColor = prop.messageLabelFontColor
-        messageLabel.sizeToFit()
-        messageLabel.center = self.center
-        
+        messageLabel.numberOfLines = 0
+
         self.addSubview(messageLabel)
+        
+        self.message = message
     }
 }
