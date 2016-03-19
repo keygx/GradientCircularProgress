@@ -2,264 +2,322 @@
 //  ViewController.swift
 //  GCProgressSample
 //
-//  Created by keygx on 2015/12/31.
+//  Created by keygx on 2016/03/12.
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
 
 import UIKit
 import GradientCircularProgress
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
     
-    @IBOutlet weak var styleTableView: UITableView!
+    // UI
+    enum UsageType {
+        case Window
+        case SubView
+    }
     
+    let styleList: [(String, StyleProperty)] = [
+        ("Style.swift", Style()),
+        ("BlueDarkStyle.swift", BlueDarkStyle()),
+        ("OrangeClearStyle.swift", OrangeClearStyle()),
+        ("GreenLightStyle.swift", GreenLightStyle()),
+        ("BlueIndicatorStyle.swift", BlueIndicatorStyle()),
+        ("MyStyle.swift", MyStyle()),
+    ]
+    
+    var usageType: UsageType = .Window
+    
+    var seletedStyleIndex: Int = 0 {
+        willSet {
+            styleLabel.text = styleList[newValue].0
+        }
+    }
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var styleLabel: UILabel!
+    @IBOutlet weak var btnAtRatio: MyButton!
+    @IBOutlet weak var btnBasic: MyButton!
+    @IBOutlet weak var btnUpdateMessage: MyButton!
+
+    // Progress
+    let progress = GradientCircularProgress()
+    var progressView: UIView?
+    
+    // Demo
     var timer: NSTimer?
     var v: Double = 0.0
-    var available: Bool = true
-    let progress = GradientCircularProgress()
-    
-    let styleTitleList = [
-        "Style.swift",
-        "BlueDarkStyle.swift",
-        "OrangeClearStyle.swift",
-        "GreenLightStyle.swift",
-        "BlueIndicatorStyle.swift",
-        "MyStyle.swift",
-    ]
-    
-    let styleDetailList = [
-        "at Ratio",
-        "Basic",
-        "Update Message",
-    ]
+    var available: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        styleTableView.delegate = self
-        styleTableView.dataSource = self
+        usageType = .Window
+        seletedStyleIndex = 0
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-}
-
-extension ViewController {
     
-    func showProgress(section section: Int, row: Int) {
-        switch section {
+    @IBAction func segmentedControlAction(sender: AnyObject) {
+        switch sender.selectedSegmentIndex {
         case 0:
-            // Style.swift
-            switch row {
-            case 0:
-                self.progress.showAtRatio(display: true, style: Style())
-                self.startProgressAtRatio()
-            case 1:
-                self.progress.show(message: "Loading", style: Style())
-                self.delayCloseProgress()
-            case 2:
-                self.progress.show(message: "Download\n0 / 4", style: Style())
-                self.startProgressBasic()
-            default: break
-            }
+            usageType = .Window
         case 1:
-            // BlueDarkStyle.swift
-            switch row {
-            case 0:
-                self.progress.showAtRatio(display: true, style: BlueDarkStyle())
-                self.startProgressAtRatio()
-            case 1:
-                self.progress.show(message: "Loading", style: BlueDarkStyle())
-                self.delayCloseProgress()
-            case 2:
-                self.progress.show(message: "Download\n0 / 4", style: BlueDarkStyle())
-                self.startProgressBasic()
-            default: break
-            }
-        case 2:
-            // OrangeClearStyle.swift
-            switch row {
-            case 0:
-                self.progress.showAtRatio(display: true, style: OrangeClearStyle())
-                self.startProgressAtRatio()
-            case 1:
-                self.progress.show(style: OrangeClearStyle())
-                self.delayCloseProgress()
-            default: break
-            }
-        case 3:
-            // GreenLightStyle.swift
-            switch row {
-            case 0:
-                self.progress.showAtRatio(display: true, style: GreenLightStyle())
-                self.startProgressAtRatio()
-            case 1:
-                self.progress.show(message: "Loading", style: GreenLightStyle())
-                self.delayCloseProgress()
-            case 2:
-                self.progress.show(message: "Download\n0 / 4", style: GreenLightStyle())
-                self.startProgressBasic()
-            default: break
-            }
-        case 4:
-            // BlueIndicatorStyle.swift
-            switch row {
-            case 0:
-                self.progress.showAtRatio(display: false, style: BlueIndicatorStyle())
-                self.startProgressAtRatio()
-            case 1:
-                self.progress.show(style: BlueIndicatorStyle())
-                self.delayCloseProgress()
-            default: break
-            }
-        case 5:
-            // MyStyle.swift
-            switch row {
-            case 0:
-                self.progress.showAtRatio(display: true, style: MyStyle())
-                self.startProgressAtRatio()
-            case 1:
-                self.progress.show(message: "Loading", style: MyStyle())
-                self.delayCloseProgress()
-            case 2:
-                self.progress.show(message: "Download\n0 / 4", style: MyStyle())
-                self.startProgressBasic()
-            default: break
-            }
-        default: break
+            usageType = .SubView
+        default:
+            break
         }
     }
     
-    // for demo
+    @IBAction func btnChooseStyleAction(sender: AnyObject) {
+        
+        let styleTitleList: [String] = styleList.map {$0.0}
+        
+        let params = Parameters(
+            title: nil,
+            message: nil,
+            cancelButton: "Cancel",
+            otherButtons: styleTitleList
+        )
+        
+        AlertHelperKit().showAlertWithHandler(self, parameters: params) { buttonIndex in
+            switch buttonIndex {
+            case 1:
+                self.seletedStyleIndex = buttonIndex - 1
+                self.btnUpdateMessage.status = .Normal
+            case 2:
+                self.seletedStyleIndex = buttonIndex - 1
+                self.btnUpdateMessage.status = .Normal
+            case 3:
+                self.seletedStyleIndex = buttonIndex - 1
+                self.btnUpdateMessage.status = .Disabled
+            case 4:
+                self.seletedStyleIndex = buttonIndex - 1
+                self.btnUpdateMessage.status = .Normal
+            case 5:
+                self.seletedStyleIndex = buttonIndex - 1
+                self.btnUpdateMessage.status = .Disabled
+            case 6:
+                self.seletedStyleIndex = buttonIndex - 1
+                self.btnUpdateMessage.status = .Normal
+            default: break
+                // Cancel
+            }
+        }
+    }
+    
+    @IBAction func btnAtRatioAction(sender: AnyObject) {
+        if available {
+            return
+        }
+        available = true
+        
+        if usageType == .Window {
+            showAtRatio()
+        } else {
+            showAtRatioTypeSubView()
+        }
+    }
+    
+    @IBAction func btnBasicAction(sender: AnyObject) {
+        if available {
+            return
+        }
+        available = true
+        
+        if usageType == .Window {
+            showBasic()
+        } else {
+            showBasicTypeSubView()
+        }
+    }
+    
+    @IBAction func btnUpdateMessageAction(sender: AnyObject) {
+        if available {
+            return
+        }
+        available = true
+        
+        if usageType == .Window {
+            showUpdateMessage()
+        } else {
+            showUpdateMessageTypeSubView()
+        }
+    }
+}
+
+// UIWindow
+extension ViewController {
+    
+    func showAtRatio() {
+        var displayFlag: Bool
+        
+        switch seletedStyleIndex {
+        case 4:
+            displayFlag = false
+        default:
+            displayFlag = true
+        }
+        
+        progress.showAtRatio(display: displayFlag, style: styleList[seletedStyleIndex].1)
+        startProgressAtRatio()
+    }
+    
+    func showBasic() {
+        progress.show(message: "Loading...", style: styleList[seletedStyleIndex].1)
+        delayCloseProgress()
+    }
+    
+    func showUpdateMessage() {
+        progress.show(message: "Download\n0 / 4", style: styleList[seletedStyleIndex].1)
+        startProgressBasic()
+    }
+}
+
+// SubView
+extension ViewController {
+    
+    func showAtRatioTypeSubView() {
+        var displayFlag: Bool
+        
+        switch seletedStyleIndex {
+        case 4:
+            displayFlag = false
+        default:
+            displayFlag = true
+        }
+        
+        progressView = progress.showAtRatio(frame: getRect(), display: displayFlag, style: styleList[seletedStyleIndex].1)
+        progressView?.layer.cornerRadius = 12.0
+        view.addSubview(progressView!)
+        
+        startProgressAtRatio()
+    }
+    
+    func showBasicTypeSubView() {
+        progressView = progress.show(frame: getRect(), message: "Loading...", style: styleList[seletedStyleIndex].1)
+        progressView?.layer.cornerRadius = 12.0
+        view.addSubview(progressView!)
+        
+        delayCloseProgress()
+    }
+    
+    func showUpdateMessageTypeSubView() {
+        progressView = progress.show(frame: getRect(), message: "Download\n0 / 4", style: styleList[seletedStyleIndex].1)
+        progressView?.layer.cornerRadius = 12.0
+        view.addSubview(progressView!)
+        
+        startProgressBasic()
+    }
+}
+
+// for demo
+extension ViewController {
+    
     func delayCloseProgress() {
         AsyncUtil().dispatchOnMainThread({
+            switch self.usageType {
+            case .Window:
                 self.progress.dismiss()
-                self.available = true
-            },
-            delay: 2.0)
+                self.available = false
+            case .SubView:
+                self.progress.dismiss(progress: self.progressView!)
+                self.available = false
+            }
+        },
+        delay: 2.0)
     }
-    // for demo
+    
     func startProgressBasic() {
-        self.v = 0.0
+        v = 0.0
         
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(
+        timer = NSTimer.scheduledTimerWithTimeInterval(
             0.01,
             target: self,
             selector: "updateMessage",
             userInfo: nil,
             repeats: true
         )
-        NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
+        NSRunLoop.mainRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
     }
-    // for demo
+    
     func updateMessage() {
-        self.v += 0.002
+        v += 0.002
         
-        if self.v > 1.00 {
-            self.progress.updateMessage(message: "Download\n4 / 4")
-            self.timer!.invalidate()
+        if v > 1.00 {
+            progress.updateMessage(message: "Download\n4 / 4")
+            timer!.invalidate()
             
             AsyncUtil().dispatchOnMainThread({
                     self.progress.updateMessage(message: "Completed!")
-                    self.progress.dismiss() { Void in
-                        self.available = true
+
+                    switch self.usageType {
+                    case .Window:
+                        self.progress.dismiss() { Void in
+                            self.available = false
+                        }
+                    case .SubView:
+                        self.progress.dismiss(progress: self.progressView!) { Void in
+                            self.available = false
+                        }
                     }
                 }, delay: 0.8)
             
             return
         
-        } else if self.v > 0.75 {
-            self.progress.updateMessage(message: "Download\n3 / 4")
+        } else if v > 0.75 {
+            progress.updateMessage(message: "Download\n3 / 4")
         
-        } else if self.v > 0.5 {
-            self.progress.updateMessage(message: "Download\n2 / 4")
+        } else if v > 0.5 {
+            progress.updateMessage(message: "Download\n2 / 4")
         
-        } else if self.v > 0.25 {
-            self.progress.updateMessage(message: "Download\n1 / 4")
+        } else if v > 0.25 {
+            progress.updateMessage(message: "Download\n1 / 4")
         }
     }
-    // for demo
+    
     func startProgressAtRatio() {
-        self.v = 0.0
+        v = 0.0
         
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(
+        timer = NSTimer.scheduledTimerWithTimeInterval(
             0.01,
             target: self,
             selector: "updateProgressAtRatio",
             userInfo: nil,
             repeats: true
         )
-        NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
+        NSRunLoop.mainRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
     }
-    // for demo
+    
     func updateProgressAtRatio() {
-        self.v += 0.01
+        v += 0.01
         
-        self.progress.updateRatio(CGFloat(v))
+        progress.updateRatio(CGFloat(v))
         
-        if self.v > 1.00 {
-            self.timer!.invalidate()
-            self.progress.dismiss() { Void in
-                self.available = true
-            }
+        if v > 1.00 {
+            timer!.invalidate()
             
+            switch usageType {
+            case .Window:
+                progress.dismiss() { Void in
+                    self.available = false
+                }
+            case .SubView:
+                progress.dismiss(progress: progressView!) { Void in
+                    self.available = false
+                }
+            }
             return
         }
     }
-}
-
-// UITableView
-extension ViewController {
     
-    // cell tap event
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("\(self.styleTitleList[indexPath.section]) : \(self.styleDetailList[indexPath.row])")
-        
-        if self.available {
-            self.available = false
-            self.showProgress(section: indexPath.section, row: indexPath.row)
-        }
-    }
-    
-    // section count
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.styleTitleList.count
-    }
-    
-    // section title
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.styleTitleList[section]
-    }
-    
-    // row count
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        switch section {
-        case 0:
-            fallthrough
-        case 1:
-            fallthrough
-        case 3:
-            fallthrough
-        case 5:
-            return 3
-        case 2:
-            fallthrough
-        case 4:
-            return 2
-        default:
-            return 0
-        }
-    }
-    
-    // cell
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let CellIdentifier = "CustomCell"
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier)!
-        cell.textLabel?.text = self.styleDetailList[indexPath.row]
-        
-        return cell
+    func getRect() -> CGRect {
+        return CGRectMake(
+            view.frame.origin.x + 15,
+            (view.frame.size.height - view.frame.size.width) / 2,
+            view.frame.size.width - 30,
+            view.frame.size.width - 30)
     }
 }
