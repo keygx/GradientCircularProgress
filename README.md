@@ -17,6 +17,10 @@ Customizable progress indicator library in Swift
 ![](images/styles_01.png) 
 ![](images/styles_02.png) 
 
+- Example Use AddSubView
+
+![](images/scr_AddSubViewEx_01.png)  ![](images/scr_AddSubViewEx_02.png)
+
 ## Installation
 
 ###CocoaPods
@@ -105,25 +109,50 @@ public struct MyStyle : StyleProperty {
 import GradientCircularProgress
 ```
 ### Basic
+#### UIWindow
 ```swift
 let progress = GradientCircularProgress()
 
 progress.show(message: "Loading...", MyStyle())
+
 progress.dismiss()
+```
+#### addSubView
+```swift
+let progress = GradientCircularProgress()
+
+let progressView = progress.show(frame: rect, message: "Loading...", style: MyStyle())
+view.addSubview(progressView!)
+
+progress.dismiss(progress: progressView!)
 ```
 
 ### at Rtio
+#### UIWindow
 ```swift
 let progress = GradientCircularProgress()
 
 let ratio: CGFloat = CGFloat(totalBytesWritten) / CGFloat(totalBytesExpectedToWrite)        
-
 progress.showAtRatio(style: MyStyle())
+
 progress.updateRatio(ratio)
+
 progress.dismiss()
+```
+#### addSubView
+```swift
+let progress = GradientCircularProgress()
+
+let progressView = progress.showAtRatio(frame: rect, display: true, style: MyStyle())
+view.addSubview(progressView!)
+
+progress.updateRatio(ratio)
+
+progress.dismiss(progress: progressView!)
 ```
 
 ### Update Message
+#### UIWindow
 ```swift
 let progress = GradientCircularProgress()
 
@@ -138,6 +167,24 @@ let time = dispatch_time(DISPATCH_TIME_NOW, Int64(0.8 * Double(NSEC_PER_SEC)))
 dispatch_after(time, dispatch_get_main_queue()) {
     self.progress.updateMessage(message: "Completed!")
     self.progress.dismiss()
+}
+```
+#### addSubView
+```swift
+let progress = GradientCircularProgress()
+
+let progressView = progress.show(frame: rect, message: "Download\n0 / 4", style: MyStyle())
+view.addSubview(progressView!)
+
+progress.show(message: "Download\n1 / 4", MyStyle())
+progress.show(message: "Download\n2 / 4", MyStyle())
+progress.show(message: "Download\n3 / 4", MyStyle())
+progress.show(message: "Download\n4 / 4", MyStyle())
+
+let time = dispatch_time(DISPATCH_TIME_NOW, Int64(0.8 * Double(NSEC_PER_SEC)))
+dispatch_after(time, dispatch_get_main_queue()) {
+    self.progress.updateMessage(message: "Completed!")
+    self.progress.dismiss(progress: progressView!)
 }
 ```
 
@@ -195,20 +242,37 @@ Alamofire.request(.GET, "http://example.com/download/dummy.mp4")
 ```
 
 ## API
+### Use UIWindow
 ```swift
-public func showAtRatio(display display: Bool = true, style: StyleProperty = Style()) -> Void
+public func showAtRatio(display display: Bool = true, style: StyleProperty = Style())
 
-public func updateRatio(ratio: CGFloat)
+public func show(style style: StyleProperty = Style())
 
-public func show(style style: StyleProperty = Style()) -> Void
+public func show(message message: String, style: StyleProperty = Style())
 
-public func show(message message: String, style: StyleProperty = Style()) -> Void
-
-public func updateMessage(message message: String) -> Void
-
-public func dismiss() -> Void
+public func dismiss()
 
 public func dismiss(completionHandler: () -> Void) -> ()
+```
+
+### Use addSubView
+```swift
+public func showAtRatio(frame frame: CGRect, display: Bool = true, style: StyleProperty = Style()) -> UIView?
+
+public func show(frame frame: CGRect, style: StyleProperty = Style()) -> UIView?
+
+public func show(frame frame: CGRect, message: String, style: StyleProperty = Style()) -> UIView?
+
+public func dismiss(progress view: UIView)
+
+public func dismiss(progress view: UIView, completionHandler: () -> Void) -> ()
+```
+
+### Common
+```swift
+public func updateMessage(message message: String)
+
+public func updateRatio(ratio: CGFloat)
 ```
 
 ## License
