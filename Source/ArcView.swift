@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class ArcView : UIView {

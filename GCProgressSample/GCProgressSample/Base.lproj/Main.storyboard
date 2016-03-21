@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,39 +14,126 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tdA-po-iJf">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="44" id="bfA-41-4pI">
-                                        <rect key="frame" x="0.0" y="22" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bfA-41-4pI" id="oZl-lZ-2P4">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14u-O2-CKF">
+                                <rect key="frame" x="0.0" y="80" width="375" height="40"/>
+                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="X4i-OC-iK1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rc-3Q-ddQ">
+                                <rect key="frame" x="117" y="124" width="140" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="P3A-Qv-Bhn"/>
+                                    <constraint firstAttribute="width" constant="140" id="l71-eE-CY3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Choose Style"/>
+                                <connections>
+                                    <action selector="btnChooseStyleAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mv0-jr-lpc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZP-hJ-h5b" customClass="MyButton" customModule="GCProgressSample" customModuleProvider="target">
+                                <rect key="frame" x="20" y="607" width="335" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="UEd-zK-JjE"/>
+                                    <constraint firstAttribute="height" constant="40" id="tKM-G9-JlM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Update Message"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="UEd-zK-JjE"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="btnUpdateMessageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9aR-L7-2tw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZo-36-T7V" customClass="MyButton" customModule="GCProgressSample" customModuleProvider="target">
+                                <rect key="frame" x="20" y="557" width="335" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7O2-P4-a6D"/>
+                                    <constraint firstAttribute="width" constant="560" id="MKp-AB-eGC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Basic"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="MKp-AB-eGC"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="btnBasicAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a8V-va-ahk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hvr-2X-bR2" customClass="MyButton" customModule="GCProgressSample" customModuleProvider="target">
+                                <rect key="frame" x="20" y="507" width="335" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="0XB-wQ-jLr"/>
+                                    <constraint firstAttribute="height" constant="40" id="qk4-VJ-x8C"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="at Ratio"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0XB-wQ-jLr"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="btnAtRatioAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T2m-vo-6Ue"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="p5D-XQ-8cA">
+                                <rect key="frame" x="20" y="36" width="335" height="29"/>
+                                <segments>
+                                    <segment title="UIWindow"/>
+                                    <segment title="addSubView"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="mrb-th-vDk"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tdA-po-iJf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BHd-TR-h4m"/>
-                            <constraint firstAttribute="trailing" secondItem="tdA-po-iJf" secondAttribute="trailing" id="YPs-JC-icQ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tdA-po-iJf" secondAttribute="bottom" id="efW-NG-whO"/>
-                            <constraint firstItem="tdA-po-iJf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="vr3-w3-VRd"/>
+                            <constraint firstItem="iZP-hJ-h5b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="0bi-ow-fhy"/>
+                            <constraint firstItem="p5D-XQ-8cA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="2VA-BK-BQR"/>
+                            <constraint firstAttribute="trailing" secondItem="iZP-hJ-h5b" secondAttribute="trailing" constant="20" id="2iH-8F-Atp"/>
+                            <constraint firstItem="IZo-36-T7V" firstAttribute="top" secondItem="Hvr-2X-bR2" secondAttribute="bottom" constant="10" id="6rB-Rs-Y4T"/>
+                            <constraint firstItem="7rc-3Q-ddQ" firstAttribute="top" secondItem="14u-O2-CKF" secondAttribute="bottom" constant="4" id="8Wy-kA-hAo"/>
+                            <constraint firstItem="14u-O2-CKF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IKq-Ow-nBT"/>
+                            <constraint firstItem="14u-O2-CKF" firstAttribute="top" secondItem="p5D-XQ-8cA" secondAttribute="bottom" constant="16" id="Nva-VJ-B6j"/>
+                            <constraint firstItem="IZo-36-T7V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="T4X-bj-hx6"/>
+                            <constraint firstAttribute="trailing" secondItem="IZo-36-T7V" secondAttribute="trailing" constant="20" id="Tc9-n1-lxi"/>
+                            <constraint firstItem="7rc-3Q-ddQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WDH-iy-XO8"/>
+                            <constraint firstItem="Hvr-2X-bR2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="bIg-OL-gUs"/>
+                            <constraint firstItem="p5D-XQ-8cA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="bQn-AN-jxl"/>
+                            <constraint firstItem="iZP-hJ-h5b" firstAttribute="top" secondItem="IZo-36-T7V" secondAttribute="bottom" constant="10" id="hMh-oS-JVW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iZP-hJ-h5b" secondAttribute="bottom" constant="20" id="jxc-o1-hcQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Hvr-2X-bR2" secondAttribute="trailing" constant="20" id="k80-m2-GXu"/>
+                            <constraint firstAttribute="trailing" secondItem="14u-O2-CKF" secondAttribute="trailing" id="kLu-DU-4eP"/>
+                            <constraint firstAttribute="trailing" secondItem="p5D-XQ-8cA" secondAttribute="trailing" constant="20" id="yXU-o4-JcL"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="styleTableView" destination="tdA-po-iJf" id="Ti7-Sj-vZo"/>
+                        <outlet property="btnAtRatio" destination="Hvr-2X-bR2" id="2by-N2-74j"/>
+                        <outlet property="btnBasic" destination="IZo-36-T7V" id="Jzp-Ix-5Ds"/>
+                        <outlet property="btnUpdateMessage" destination="iZP-hJ-h5b" id="PsA-c4-vTc"/>
+                        <outlet property="segmentedControl" destination="p5D-XQ-8cA" id="R87-xN-24E"/>
+                        <outlet property="styleLabel" destination="14u-O2-CKF" id="XF2-lH-n9P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="348.5" y="248.5"/>
         </scene>
     </scenes>
 </document>

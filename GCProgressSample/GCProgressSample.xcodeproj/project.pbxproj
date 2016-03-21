@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		362C51F91C9AB926008C1C81 /* AlertHelperKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C51F81C9AB926008C1C81 /* AlertHelperKit.swift */; };
 		3632ED251C7833CD006484E5 /* AsyncUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3632ED241C7833CD006484E5 /* AsyncUtil.swift */; };
-		3636A24B1C02E2720025F315 /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3636A24A1C02E2720025F315 /* ColorUtil.swift */; };
+		366555DE1C9D900F00767B90 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366555DD1C9D900F00767B90 /* MyButton.swift */; };
 		368F0E4E1C35319E008B1AC4 /* MyStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368F0E4D1C35319E008B1AC4 /* MyStyle.swift */; };
 		36CC1C821B37083E009DE1F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC1C811B37083E009DE1F8 /* AppDelegate.swift */; };
 		36CC1C841B37083E009DE1F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC1C831B37083E009DE1F8 /* ViewController.swift */; };
@@ -16,24 +17,26 @@
 		36CC1C891B37083E009DE1F8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CC1C881B37083E009DE1F8 /* Images.xcassets */; };
 		36CC1C8C1B37083E009DE1F8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CC1C8A1B37083E009DE1F8 /* LaunchScreen.xib */; };
 		36CC1C981B37083E009DE1F8 /* GCProgressSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC1C971B37083E009DE1F8 /* GCProgressSampleTests.swift */; };
+		36CE2B5D1C93EA740084CE64 /* GradientCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B471C93EA740084CE64 /* GradientCircularProgress.swift */; };
+		36CE2B5E1C93EA740084CE64 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B4A1C93EA740084CE64 /* CircularProgressView.swift */; };
+		36CE2B5F1C93EA740084CE64 /* ProgressAtRatioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B4B1C93EA740084CE64 /* ProgressAtRatioView.swift */; };
+		36CE2B601C93EA740084CE64 /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B4D1C93EA740084CE64 /* ArcView.swift */; };
+		36CE2B611C93EA740084CE64 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B4E1C93EA740084CE64 /* Background.swift */; };
+		36CE2B621C93EA740084CE64 /* BaseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B4F1C93EA740084CE64 /* BaseWindow.swift */; };
+		36CE2B631C93EA740084CE64 /* GradientArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B501C93EA740084CE64 /* GradientArcView.swift */; };
+		36CE2B641C93EA740084CE64 /* GradientArcWithClearColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B511C93EA740084CE64 /* GradientArcWithClearColorView.swift */; };
+		36CE2B651C93EA740084CE64 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B521C93EA740084CE64 /* ProgressView.swift */; };
+		36CE2B661C93EA740084CE64 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B531C93EA740084CE64 /* ProgressViewController.swift */; };
+		36CE2B671C93EA740084CE64 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B541C93EA740084CE64 /* Property.swift */; };
+		36CE2B681C93EA740084CE64 /* BlueDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B561C93EA740084CE64 /* BlueDarkStyle.swift */; };
+		36CE2B691C93EA740084CE64 /* BlueIndicatorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B571C93EA740084CE64 /* BlueIndicatorStyle.swift */; };
+		36CE2B6A1C93EA740084CE64 /* GreenLightStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B581C93EA740084CE64 /* GreenLightStyle.swift */; };
+		36CE2B6B1C93EA740084CE64 /* OrangeClearStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B591C93EA740084CE64 /* OrangeClearStyle.swift */; };
+		36CE2B6C1C93EA740084CE64 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B5A1C93EA740084CE64 /* Style.swift */; };
+		36CE2B6D1C93EA740084CE64 /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B5C1C93EA740084CE64 /* ColorUtil.swift */; };
 		36F742C01B3A7016003D799C /* GradientCircularProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 36F742BF1B3A7016003D799C /* GradientCircularProgress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36F742D21B3A7016003D799C /* GradientCircularProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F742BB1B3A7016003D799C /* GradientCircularProgress.framework */; };
 		36F742D31B3A7016003D799C /* GradientCircularProgress.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36F742BB1B3A7016003D799C /* GradientCircularProgress.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		36F742EB1B3A70EA003D799C /* GradientCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742DB1B3A70EA003D799C /* GradientCircularProgress.swift */; };
-		36F742EC1B3A70EA003D799C /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742DD1B3A70EA003D799C /* ArcView.swift */; };
-		36F742ED1B3A70EA003D799C /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742DE1B3A70EA003D799C /* Background.swift */; };
-		36F742EE1B3A70EA003D799C /* BaseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742DF1B3A70EA003D799C /* BaseWindow.swift */; };
-		36F742EF1B3A70EA003D799C /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E01B3A70EA003D799C /* CircularProgressView.swift */; };
-		36F742F01B3A70EA003D799C /* GradientArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E11B3A70EA003D799C /* GradientArcView.swift */; };
-		36F742F11B3A70EA003D799C /* ProgressAtRatioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E21B3A70EA003D799C /* ProgressAtRatioView.swift */; };
-		36F742F21B3A70EA003D799C /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E31B3A70EA003D799C /* ProgressViewController.swift */; };
-		36F742F31B3A70EA003D799C /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E41B3A70EA003D799C /* Property.swift */; };
-		36F742F41B3A70EA003D799C /* BlueDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E61B3A70EA003D799C /* BlueDarkStyle.swift */; };
-		36F742F51B3A70EA003D799C /* BlueIndicatorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E71B3A70EA003D799C /* BlueIndicatorStyle.swift */; };
-		36F742F61B3A70EA003D799C /* GreenLightStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E81B3A70EA003D799C /* GreenLightStyle.swift */; };
-		36F742F71B3A70EA003D799C /* OrangeClearStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742E91B3A70EA003D799C /* OrangeClearStyle.swift */; };
-		36F742F81B3A70EA003D799C /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F742EA1B3A70EA003D799C /* Style.swift */; };
-		36FC1AA91BFF249800DFFA71 /* GradientArcWithClearColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FC1AA81BFF249800DFFA71 /* GradientArcWithClearColorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +71,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		362C51F81C9AB926008C1C81 /* AlertHelperKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelperKit.swift; sourceTree = "<group>"; };
 		3632ED241C7833CD006484E5 /* AsyncUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncUtil.swift; sourceTree = "<group>"; };
-		3636A24A1C02E2720025F315 /* ColorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
+		366555DD1C9D900F00767B90 /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		368F0E4D1C35319E008B1AC4 /* MyStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStyle.swift; sourceTree = "<group>"; };
 		36CC1C7C1B37083E009DE1F8 /* GCProgressSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCProgressSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CC1C801B37083E009DE1F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,24 +85,26 @@
 		36CC1C911B37083E009DE1F8 /* GCProgressSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GCProgressSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CC1C961B37083E009DE1F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36CC1C971B37083E009DE1F8 /* GCProgressSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCProgressSampleTests.swift; sourceTree = "<group>"; };
+		36CE2B471C93EA740084CE64 /* GradientCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientCircularProgress.swift; sourceTree = "<group>"; };
+		36CE2B4A1C93EA740084CE64 /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		36CE2B4B1C93EA740084CE64 /* ProgressAtRatioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressAtRatioView.swift; sourceTree = "<group>"; };
+		36CE2B4D1C93EA740084CE64 /* ArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcView.swift; sourceTree = "<group>"; };
+		36CE2B4E1C93EA740084CE64 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		36CE2B4F1C93EA740084CE64 /* BaseWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWindow.swift; sourceTree = "<group>"; };
+		36CE2B501C93EA740084CE64 /* GradientArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientArcView.swift; sourceTree = "<group>"; };
+		36CE2B511C93EA740084CE64 /* GradientArcWithClearColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientArcWithClearColorView.swift; sourceTree = "<group>"; };
+		36CE2B521C93EA740084CE64 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		36CE2B531C93EA740084CE64 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		36CE2B541C93EA740084CE64 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		36CE2B561C93EA740084CE64 /* BlueDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueDarkStyle.swift; sourceTree = "<group>"; };
+		36CE2B571C93EA740084CE64 /* BlueIndicatorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueIndicatorStyle.swift; sourceTree = "<group>"; };
+		36CE2B581C93EA740084CE64 /* GreenLightStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenLightStyle.swift; sourceTree = "<group>"; };
+		36CE2B591C93EA740084CE64 /* OrangeClearStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeClearStyle.swift; sourceTree = "<group>"; };
+		36CE2B5A1C93EA740084CE64 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		36CE2B5C1C93EA740084CE64 /* ColorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
 		36F742BB1B3A7016003D799C /* GradientCircularProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GradientCircularProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36F742BE1B3A7016003D799C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36F742BF1B3A7016003D799C /* GradientCircularProgress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientCircularProgress.h; sourceTree = "<group>"; };
-		36F742DB1B3A70EA003D799C /* GradientCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientCircularProgress.swift; sourceTree = "<group>"; };
-		36F742DD1B3A70EA003D799C /* ArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcView.swift; sourceTree = "<group>"; };
-		36F742DE1B3A70EA003D799C /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
-		36F742DF1B3A70EA003D799C /* BaseWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWindow.swift; sourceTree = "<group>"; };
-		36F742E01B3A70EA003D799C /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
-		36F742E11B3A70EA003D799C /* GradientArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientArcView.swift; sourceTree = "<group>"; };
-		36F742E21B3A70EA003D799C /* ProgressAtRatioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressAtRatioView.swift; sourceTree = "<group>"; };
-		36F742E31B3A70EA003D799C /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
-		36F742E41B3A70EA003D799C /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
-		36F742E61B3A70EA003D799C /* BlueDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueDarkStyle.swift; sourceTree = "<group>"; };
-		36F742E71B3A70EA003D799C /* BlueIndicatorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueIndicatorStyle.swift; sourceTree = "<group>"; };
-		36F742E81B3A70EA003D799C /* GreenLightStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenLightStyle.swift; sourceTree = "<group>"; };
-		36F742E91B3A70EA003D799C /* OrangeClearStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeClearStyle.swift; sourceTree = "<group>"; };
-		36F742EA1B3A70EA003D799C /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		36FC1AA81BFF249800DFFA71 /* GradientArcWithClearColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientArcWithClearColorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		366555DA1C9D8BB600767B90 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				362C51F81C9AB926008C1C81 /* AlertHelperKit.swift */,
+				3632ED241C7833CD006484E5 /* AsyncUtil.swift */,
+				366555DD1C9D900F00767B90 /* MyButton.swift */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
 		36CC1C731B37083E009DE1F8 = {
 			isa = PBXGroup;
 			children = (
@@ -150,8 +166,8 @@
 		36CC1C7E1B37083E009DE1F8 /* GCProgressSample */ = {
 			isa = PBXGroup;
 			children = (
+				366555DA1C9D8BB600767B90 /* libs */,
 				36CC1C811B37083E009DE1F8 /* AppDelegate.swift */,
-				3632ED241C7833CD006484E5 /* AsyncUtil.swift */,
 				36CC1C831B37083E009DE1F8 /* ViewController.swift */,
 				368F0E4D1C35319E008B1AC4 /* MyStyle.swift */,
 				36CC1C851B37083E009DE1F8 /* Main.storyboard */,
@@ -187,12 +203,66 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		36CE2B481C93EA740084CE64 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				36CE2B491C93EA740084CE64 /* Core */,
+				36CE2B4C1C93EA740084CE64 /* Elements */,
+				36CE2B521C93EA740084CE64 /* ProgressView.swift */,
+				36CE2B531C93EA740084CE64 /* ProgressViewController.swift */,
+				36CE2B541C93EA740084CE64 /* Property.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		36CE2B491C93EA740084CE64 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				36CE2B4A1C93EA740084CE64 /* CircularProgressView.swift */,
+				36CE2B4B1C93EA740084CE64 /* ProgressAtRatioView.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		36CE2B4C1C93EA740084CE64 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				36CE2B4D1C93EA740084CE64 /* ArcView.swift */,
+				36CE2B4E1C93EA740084CE64 /* Background.swift */,
+				36CE2B4F1C93EA740084CE64 /* BaseWindow.swift */,
+				36CE2B501C93EA740084CE64 /* GradientArcView.swift */,
+				36CE2B511C93EA740084CE64 /* GradientArcWithClearColorView.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		36CE2B551C93EA740084CE64 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				36CE2B561C93EA740084CE64 /* BlueDarkStyle.swift */,
+				36CE2B571C93EA740084CE64 /* BlueIndicatorStyle.swift */,
+				36CE2B581C93EA740084CE64 /* GreenLightStyle.swift */,
+				36CE2B591C93EA740084CE64 /* OrangeClearStyle.swift */,
+				36CE2B5A1C93EA740084CE64 /* Style.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		36CE2B5B1C93EA740084CE64 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				36CE2B5C1C93EA740084CE64 /* ColorUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		36F742BC1B3A7016003D799C /* GradientCircularProgress */ = {
 			isa = PBXGroup;
 			children = (
-				36F742DB1B3A70EA003D799C /* GradientCircularProgress.swift */,
-				36F742DC1B3A70EA003D799C /* Progress */,
-				36F742E51B3A70EA003D799C /* Styles */,
+				36CE2B471C93EA740084CE64 /* GradientCircularProgress.swift */,
+				36CE2B481C93EA740084CE64 /* Progress */,
+				36CE2B551C93EA740084CE64 /* Styles */,
+				36CE2B5B1C93EA740084CE64 /* Utils */,
 				36F742BF1B3A7016003D799C /* GradientCircularProgress.h */,
 				36F742BD1B3A7016003D799C /* Supporting Files */,
 			);
@@ -205,35 +275,6 @@
 				36F742BE1B3A7016003D799C /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		36F742DC1B3A70EA003D799C /* Progress */ = {
-			isa = PBXGroup;
-			children = (
-				36F742DD1B3A70EA003D799C /* ArcView.swift */,
-				36F742DE1B3A70EA003D799C /* Background.swift */,
-				36F742DF1B3A70EA003D799C /* BaseWindow.swift */,
-				36F742E01B3A70EA003D799C /* CircularProgressView.swift */,
-				36F742E11B3A70EA003D799C /* GradientArcView.swift */,
-				36FC1AA81BFF249800DFFA71 /* GradientArcWithClearColorView.swift */,
-				36F742E21B3A70EA003D799C /* ProgressAtRatioView.swift */,
-				36F742E31B3A70EA003D799C /* ProgressViewController.swift */,
-				3636A24A1C02E2720025F315 /* ColorUtil.swift */,
-				36F742E41B3A70EA003D799C /* Property.swift */,
-			);
-			path = Progress;
-			sourceTree = "<group>";
-		};
-		36F742E51B3A70EA003D799C /* Styles */ = {
-			isa = PBXGroup;
-			children = (
-				36F742E61B3A70EA003D799C /* BlueDarkStyle.swift */,
-				36F742E71B3A70EA003D799C /* BlueIndicatorStyle.swift */,
-				36F742E81B3A70EA003D799C /* GreenLightStyle.swift */,
-				36F742E91B3A70EA003D799C /* OrangeClearStyle.swift */,
-				36F742EA1B3A70EA003D799C /* Style.swift */,
-			);
-			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,7 +353,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = keygx;
 				TargetAttributes = {
@@ -382,9 +423,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				36CC1C841B37083E009DE1F8 /* ViewController.swift in Sources */,
+				362C51F91C9AB926008C1C81 /* AlertHelperKit.swift in Sources */,
 				36CC1C821B37083E009DE1F8 /* AppDelegate.swift in Sources */,
 				3632ED251C7833CD006484E5 /* AsyncUtil.swift in Sources */,
 				368F0E4E1C35319E008B1AC4 /* MyStyle.swift in Sources */,
+				366555DE1C9D900F00767B90 /* MyButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,22 +443,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36F742F31B3A70EA003D799C /* Property.swift in Sources */,
-				36F742EB1B3A70EA003D799C /* GradientCircularProgress.swift in Sources */,
-				36F742F01B3A70EA003D799C /* GradientArcView.swift in Sources */,
-				36F742F11B3A70EA003D799C /* ProgressAtRatioView.swift in Sources */,
-				36F742F51B3A70EA003D799C /* BlueIndicatorStyle.swift in Sources */,
-				36F742F81B3A70EA003D799C /* Style.swift in Sources */,
-				36F742F21B3A70EA003D799C /* ProgressViewController.swift in Sources */,
-				3636A24B1C02E2720025F315 /* ColorUtil.swift in Sources */,
-				36F742F41B3A70EA003D799C /* BlueDarkStyle.swift in Sources */,
-				36FC1AA91BFF249800DFFA71 /* GradientArcWithClearColorView.swift in Sources */,
-				36F742EC1B3A70EA003D799C /* ArcView.swift in Sources */,
-				36F742EE1B3A70EA003D799C /* BaseWindow.swift in Sources */,
-				36F742F71B3A70EA003D799C /* OrangeClearStyle.swift in Sources */,
-				36F742F61B3A70EA003D799C /* GreenLightStyle.swift in Sources */,
-				36F742EF1B3A70EA003D799C /* CircularProgressView.swift in Sources */,
-				36F742ED1B3A70EA003D799C /* Background.swift in Sources */,
+				36CE2B5F1C93EA740084CE64 /* ProgressAtRatioView.swift in Sources */,
+				36CE2B681C93EA740084CE64 /* BlueDarkStyle.swift in Sources */,
+				36CE2B601C93EA740084CE64 /* ArcView.swift in Sources */,
+				36CE2B671C93EA740084CE64 /* Property.swift in Sources */,
+				36CE2B5E1C93EA740084CE64 /* CircularProgressView.swift in Sources */,
+				36CE2B5D1C93EA740084CE64 /* GradientCircularProgress.swift in Sources */,
+				36CE2B631C93EA740084CE64 /* GradientArcView.swift in Sources */,
+				36CE2B6C1C93EA740084CE64 /* Style.swift in Sources */,
+				36CE2B661C93EA740084CE64 /* ProgressViewController.swift in Sources */,
+				36CE2B621C93EA740084CE64 /* BaseWindow.swift in Sources */,
+				36CE2B611C93EA740084CE64 /* Background.swift in Sources */,
+				36CE2B641C93EA740084CE64 /* GradientArcWithClearColorView.swift in Sources */,
+				36CE2B6B1C93EA740084CE64 /* OrangeClearStyle.swift in Sources */,
+				36CE2B651C93EA740084CE64 /* ProgressView.swift in Sources */,
+				36CE2B6A1C93EA740084CE64 /* GreenLightStyle.swift in Sources */,
+				36CE2B691C93EA740084CE64 /* BlueIndicatorStyle.swift in Sources */,
+				36CE2B6D1C93EA740084CE64 /* ColorUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +589,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GCProgressSample",
+				);
 				INFOPLIST_FILE = GCProgressSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keygraphix.ios.$(PRODUCT_NAME:rfc1034identifier)";
@@ -557,6 +606,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GCProgressSample",
+				);
 				INFOPLIST_FILE = GCProgressSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keygraphix.ios.$(PRODUCT_NAME:rfc1034identifier)";
@@ -597,6 +651,7 @@
 		36F742D41B3A7016003D799C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -613,6 +668,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keygraphix.ios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -621,6 +677,7 @@
 		36F742D51B3A7016003D799C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
