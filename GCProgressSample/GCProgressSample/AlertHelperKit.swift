@@ -147,7 +147,7 @@ public class AlertHelperKit {
                 }
                 alertController.addAction(destructiveAction)
                 
-                ++othersOffset
+                othersOffset += 1
             }
         }
         

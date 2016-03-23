@@ -52,7 +52,9 @@ class GradientArcView : UIView {
             limit = 1.01 // 64bit
         }
         
-        for var i: CGFloat = 0.0; i <= limit; i += 0.01 {
+        var i: CGFloat = 0.0
+        
+        while i <= limit {
             
             let arcPoint: CGPoint = CGPoint(x: rect.width/2, y: rect.height/2)
             let arcRadius: CGFloat = circularRect.width/2 + prop.arcLineWidth/2
@@ -66,10 +68,10 @@ class GradientArcView : UIView {
             }
             
             let arc: UIBezierPath = UIBezierPath(arcCenter: arcPoint,
-                radius: arcRadius,
-                startAngle: currentAngle,
-                endAngle: arcEndAngle,
-                clockwise: true)
+                                                 radius: arcRadius,
+                                                 startAngle: currentAngle,
+                                                 endAngle: arcEndAngle,
+                                                 clockwise: true)
             
             let strokeColor: UIColor = getGradientPointColor(i, startColor: prop.startArcColor, endColor: prop.endArcColor)
             strokeColor.setStroke()
@@ -77,6 +79,8 @@ class GradientArcView : UIView {
             arc.lineWidth = prop.arcLineWidth
             arc.lineCapStyle = prop.arcLineCapStyle
             arc.stroke()
+            
+            i += 0.01
         }
     }
 }

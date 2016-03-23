@@ -236,7 +236,7 @@ extension ViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(
             0.01,
             target: self,
-            selector: "updateMessage",
+            selector: #selector(updateMessage),
             userInfo: nil,
             repeats: true
         )
@@ -284,7 +284,7 @@ extension ViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(
             0.01,
             target: self,
-            selector: "updateProgressAtRatio",
+            selector: #selector(updateProgressAtRatio),
             userInfo: nil,
             repeats: true
         )
