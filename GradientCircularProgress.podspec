@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "GradientCircularProgress"
   s.version      = "3.3.0"
-  s.summary      = ""
+  s.summary      = "Customizable progress indicator library in Swift"
   s.homepage     = "https://github.com/keygx/GradientCircularProgress"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "keygx" => "y.kagiyama@gmail.com" }
