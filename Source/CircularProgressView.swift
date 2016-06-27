@@ -44,15 +44,62 @@ class CircularProgressView : UIView {
         }
     }
     
+    var gradientLayer = CALayer()
+    
+    private struct Animation {
+        var rotationZ: CABasicAnimation {
+            get {
+                let animation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+                animation.duration = 0.8
+                animation.repeatCount = HUGE
+                animation.fromValue = NSNumber(float: 0.0)
+                animation.toValue = NSNumber(float: 2 * Float(M_PI))
+                
+                return animation
+            }
+        }
+        
+        init() {}
+        
+        func start(layer: CALayer) {
+            layer.addAnimation(rotationZ, forKey: "rotate")
+        }
+        
+        func stop(layer: CALayer) {
+            layer.removeAllAnimations()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = UIColor.clearColor()
         self.layer.masksToBounds = true
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(viewDidEnterBackground(_:)),
+                                                         name: UIApplicationDidEnterBackgroundNotification,
+                                                         object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(viewWillEnterForeground(_:)),
+                                                         name: UIApplicationWillEnterForegroundNotification,
+                                                         object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    @objc private func viewDidEnterBackground(notification: NSNotification?) {
+        Animation().stop(gradientLayer)
+    }
+    
+    @objc private func viewWillEnterForeground(notification: NSNotification?) {
+        Animation().start(gradientLayer)
     }
     
     internal func initialize(frame: CGRect) {
@@ -77,7 +124,8 @@ class CircularProgressView : UIView {
             let gradient: UIView = GradientArcWithClearColorView().draw(rect, prop: prop)
             self.addSubview(gradient)
             
-            animation(gradient)
+            gradientLayer = gradient.layer
+            Animation().start(gradientLayer)
             
         } else {
             // Opaque Color
@@ -85,19 +133,9 @@ class CircularProgressView : UIView {
             gradient.prop = prop
             self.addSubview(gradient)
             
-            animation(gradient)
+            gradientLayer = gradient.layer
+            Animation().start(gradientLayer)
         }
-    }
-    
-    private func animation(gradient: UIView) {
-        // Rotate Animation
-        let animation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-        animation.duration = 0.8
-        animation.repeatCount = HUGE
-        animation.fromValue = NSNumber(float: 0.0)
-        animation.toValue   = NSNumber(float: 2 * Float(M_PI))
-        
-        gradient.layer.addAnimation(animation, forKey: "rotate")
     }
     
     internal func showMessage(message: String) {
