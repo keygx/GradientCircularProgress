@@ -35,16 +35,16 @@ public protocol StyleProperty {
 }
 
 public enum BackgroundStyles : Int {
-    case None = 0
-    case ExtraLight
-    case Light
-    case Dark
+    case none = 0
+    case extraLight
+    case light
+    case dark
 }
 
 
 internal struct Property {
     let margin: CGFloat = 5.0
-    let arcLineCapStyle: CGLineCap = CGLineCap.Butt
+    let arcLineCapStyle: CGLineCap = CGLineCap.butt
     
     // Progress Size
     var progressSize: CGFloat
@@ -73,7 +73,7 @@ internal struct Property {
     var progressRect: CGRect {
         get {
             let lineWidth: CGFloat = (arcLineWidth > baseLineWidth) ? arcLineWidth : baseLineWidth!
-            return CGRectMake(0, 0, progressSize - lineWidth * 2, progressSize - lineWidth * 2)
+            return CGRect(x: 0, y: 0, width: progressSize - lineWidth * 2, height: progressSize - lineWidth * 2)
         }
     }
     
@@ -86,11 +86,11 @@ internal struct Property {
         self.startArcColor         = styles.startArcColor
         self.endArcColor           = styles.endArcColor
         self.baseLineWidth         = styles.baseLineWidth           ?? 0.0
-        self.baseArcColor          = styles.baseArcColor            ?? UIColor.clearColor()
-        self.ratioLabelFont        = styles.ratioLabelFont          ?? UIFont.systemFontOfSize(16.0)
-        self.ratioLabelFontColor   = styles.ratioLabelFontColor     ?? UIColor.clearColor()
-        self.messageLabelFont      = styles.messageLabelFont        ?? UIFont.systemFontOfSize(16.0)
-        self.messageLabelFontColor = styles.messageLabelFontColor   ?? UIColor.clearColor()
+        self.baseArcColor          = styles.baseArcColor            ?? UIColor.clear()
+        self.ratioLabelFont        = styles.ratioLabelFont          ?? UIFont.systemFont(ofSize: 16.0)
+        self.ratioLabelFontColor   = styles.ratioLabelFontColor     ?? UIColor.clear()
+        self.messageLabelFont      = styles.messageLabelFont        ?? UIFont.systemFont(ofSize: 16.0)
+        self.messageLabelFontColor = styles.messageLabelFontColor   ?? UIColor.clear()
         self.backgroundStyle       = styles.backgroundStyle
     }
 }

@@ -13,23 +13,23 @@ public struct OrangeClearStyle : StyleProperty {
     
     // Gradient Circular
     public var arcLineWidth: CGFloat = 6.0
-    public var startArcColor: UIColor = UIColor.clearColor()
-    public var endArcColor: UIColor = UIColor.orangeColor()
+    public var startArcColor: UIColor = UIColor.clear()
+    public var endArcColor: UIColor = UIColor.orange()
     
     // Base Circular
     public var baseLineWidth: CGFloat? = nil
     public var baseArcColor: UIColor? = nil
     
     // Ratio
-    public var ratioLabelFont: UIFont? = UIFont.systemFontOfSize(13.0)
-    public var ratioLabelFontColor: UIColor? = UIColor.blackColor()
+    public var ratioLabelFont: UIFont? = UIFont.systemFont(ofSize: 13.0)
+    public var ratioLabelFontColor: UIColor? = UIColor.black()
     
     // Message
     public var messageLabelFont: UIFont? = nil
     public var messageLabelFontColor: UIColor? = nil
     
     // Background
-    public var backgroundStyle: BackgroundStyles = .None
+    public var backgroundStyle: BackgroundStyles = .none
     
     public init() {}
 }

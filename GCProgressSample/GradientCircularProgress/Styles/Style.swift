@@ -21,15 +21,15 @@ public struct Style : StyleProperty {
     public var baseArcColor: UIColor? = UIColor(red:1.0, green: 1.0, blue: 1.0, alpha: 0.8)
     
     // Ratio
-    public var ratioLabelFont: UIFont? = UIFont.systemFontOfSize(18.0)
-    public var ratioLabelFontColor: UIColor? = UIColor.blackColor()
+    public var ratioLabelFont: UIFont? = UIFont.systemFont(ofSize: 18.0)
+    public var ratioLabelFontColor: UIColor? = UIColor.black()
     
     // Message
-    public var messageLabelFont: UIFont? = UIFont.systemFontOfSize(18.0)
-    public var messageLabelFontColor: UIColor? = UIColor.blackColor()
+    public var messageLabelFont: UIFont? = UIFont.systemFont(ofSize: 18.0)
+    public var messageLabelFontColor: UIColor? = UIColor.black()
     
     // Background
-    public var backgroundStyle: BackgroundStyles = .ExtraLight
+    public var backgroundStyle: BackgroundStyles = .extraLight
     
     public init() {}
 }

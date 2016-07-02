@@ -14,7 +14,7 @@ public struct GreenLightStyle : StyleProperty {
     // Gradient Circular
     public var arcLineWidth: CGFloat = 32.0
     public var startArcColor: UIColor = ColorUtil.toUIColor(r: 40.0, g: 110.0, b: 60.0, a: 1.0)
-    public var endArcColor: UIColor = UIColor.greenColor()
+    public var endArcColor: UIColor = UIColor.green()
     
     // Base Circular
     public var baseLineWidth: CGFloat? = 1.0
@@ -22,14 +22,14 @@ public struct GreenLightStyle : StyleProperty {
     
     // Ratio
     public var ratioLabelFont: UIFont? = UIFont(name: "Verdana-Bold", size: 18.0)
-    public var ratioLabelFontColor: UIColor? = UIColor.darkGrayColor()
+    public var ratioLabelFontColor: UIColor? = UIColor.darkGray()
     
     // Message
     public var messageLabelFont: UIFont? = UIFont(name: "Verdana", size: 18.0)
-    public var messageLabelFontColor: UIColor? = UIColor.darkGrayColor()
+    public var messageLabelFontColor: UIColor? = UIColor.darkGray()
     
     // Background
-    public var backgroundStyle: BackgroundStyles = .Light
+    public var backgroundStyle: BackgroundStyles = .light
     
     public init() {}
 }

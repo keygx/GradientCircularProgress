@@ -16,23 +16,23 @@ public struct MyStyle : StyleProperty {
     
     // Gradient Circular
     public var arcLineWidth: CGFloat = 18.0
-    public var startArcColor: UIColor = UIColor.clearColor()
-    public var endArcColor: UIColor = UIColor.orangeColor()
+    public var startArcColor: UIColor = UIColor.clear()
+    public var endArcColor: UIColor = UIColor.orange()
     
     // Base Circular
     public var baseLineWidth: CGFloat? = 19.0
-    public var baseArcColor: UIColor? = UIColor.darkGrayColor()
+    public var baseArcColor: UIColor? = UIColor.darkGray()
     
     // Ratio
     public var ratioLabelFont: UIFont? = UIFont(name: "Verdana-Bold", size: 16.0)
-    public var ratioLabelFontColor: UIColor? = UIColor.whiteColor()
+    public var ratioLabelFontColor: UIColor? = UIColor.white()
     
     // Message
-    public var messageLabelFont: UIFont? = UIFont.systemFontOfSize(16.0)
-    public var messageLabelFontColor: UIColor? = UIColor.whiteColor()
+    public var messageLabelFont: UIFont? = UIFont.systemFont(ofSize: 16.0)
+    public var messageLabelFontColor: UIColor? = UIColor.white()
     
     // Background
-    public var backgroundStyle: BackgroundStyles = .Dark
+    public var backgroundStyle: BackgroundStyles = .dark
     
     /*** style properties **********************************************************************************/
     

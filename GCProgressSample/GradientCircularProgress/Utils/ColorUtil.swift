@@ -10,12 +10,12 @@ import UIKit
 
 public class ColorUtil {
     
-    public class func toUIColor(r r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) -> UIColor {
+    public class func toUIColor(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) -> UIColor {
         
         return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: a)
     }
     
-    internal class func toRGBA(color color: UIColor) -> (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
+    internal class func toRGBA(color: UIColor) -> (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
         var r: CGFloat = 0.0
         var g: CGFloat = 0.0
         var b: CGFloat = 0.0
@@ -26,10 +26,10 @@ public class ColorUtil {
         return (r, g, b, a)
     }
     
-    internal class func toNotOpacityColor(color color: UIColor) -> UIColor {
+    internal class func toNotOpacityColor(color: UIColor) -> UIColor {
         
-        if color == UIColor.clearColor() {
-            return UIColor.whiteColor()
+        if color == UIColor.clear() {
+            return UIColor.white()
         } else {
             return UIColor(
                 red: ColorUtil.toRGBA(color: color).r,

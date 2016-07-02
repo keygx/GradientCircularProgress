@@ -29,7 +29,7 @@ public struct BlueIndicatorStyle : StyleProperty {
     public var messageLabelFontColor: UIColor? = nil
     
     // Background
-    public var backgroundStyle: BackgroundStyles = .None
+    public var backgroundStyle: BackgroundStyles = .none
     
     public init() {}
 }

@@ -26,7 +26,7 @@ class ProgressViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.clearColor()
+        self.view.backgroundColor = UIColor.clear()
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,12 +39,12 @@ class ProgressViewController : UIViewController {
     
     override func prefersStatusBarHidden() -> Bool {
         
-        let orientation:UIInterfaceOrientation = UIApplication.sharedApplication().statusBarOrientation
+        let orientation:UIInterfaceOrientation = UIApplication.shared().statusBarOrientation
         
         switch orientation {
-        case .LandscapeLeft:
+        case .landscapeLeft:
             fallthrough
-        case .LandscapeRight:
+        case .landscapeRight:
             // LandscapeLeft | LandscapeRight
             return true
         default:
@@ -55,7 +55,7 @@ class ProgressViewController : UIViewController {
     
     private func getViewRect() {
         
-        let window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let window = UIWindow(frame: UIScreen.main().bounds)
         
         viewRect = window.frame
     }
@@ -72,11 +72,11 @@ class ProgressViewController : UIViewController {
             return
         }
         
-        self.view.backgroundColor = UIColor.clearColor()
+        self.view.backgroundColor = UIColor.clear()
         self.view.addSubview(blurView)
     }
     
-    internal func arc(display: Bool, style: StyleProperty) {
+    internal func arc(_ display: Bool, style: StyleProperty) {
         
         prop = Property(style: style)
         
@@ -84,13 +84,13 @@ class ProgressViewController : UIViewController {
             return
         }
         
-        win.userInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false // 0 == .None
+        win.isUserInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false // 0 == .None
         
         getViewRect()
         
         getBlurView()
         
-        progressAtRatioView = ProgressAtRatioView(frame: CGRectMake(0, 0, prop.progressSize, prop.progressSize))
+        progressAtRatioView = ProgressAtRatioView(frame: CGRect(x: 0, y: 0, width: prop.progressSize, height: prop.progressSize))
         
         guard let progressAtRatioView = progressAtRatioView else {
             return
@@ -107,7 +107,7 @@ class ProgressViewController : UIViewController {
         self.view.addSubview(progressAtRatioView)
     }
     
-    internal func circle(message: String?, style: StyleProperty) {
+    internal func circle(_ message: String?, style: StyleProperty) {
         
         prop = Property(style: style)
         
@@ -115,13 +115,13 @@ class ProgressViewController : UIViewController {
             return
         }
         
-        win.userInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false // 0 == .None
+        win.isUserInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false // 0 == .None
         
         getViewRect()
         
         getBlurView()
                 
-        circularProgressView = CircularProgressView(frame: CGRectMake(0, 0, prop.progressSize, prop.progressSize))
+        circularProgressView = CircularProgressView(frame: CGRect(x: 0, y: 0, width: prop.progressSize, height: prop.progressSize))
         
         guard let circularProgressView = circularProgressView else {
             return
@@ -138,7 +138,7 @@ class ProgressViewController : UIViewController {
         self.view.addSubview(circularProgressView)
     }
     
-    internal func updateMessage(message: String) {
+    internal func updateMessage(_ message: String) {
         
         guard let circularProgressView = circularProgressView else {
             return
@@ -147,19 +147,19 @@ class ProgressViewController : UIViewController {
         circularProgressView.message = message
     }
   
-    internal func dismiss(t: Double) {
+    internal func dismiss(_ t: Double) {
         
         let delay = t * Double(NSEC_PER_SEC)
-        let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        let time  = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
         
-        dispatch_after(time, dispatch_get_main_queue(), {
+        DispatchQueue.main.after(when: time) {
             
             guard let blurView = self.blurView, progressAtRatioView = self.progressAtRatioView, circularProgressView = self.circularProgressView else {
                 return
             }
             
-            UIView.animateWithDuration(
-                0.3,
+            UIView.animate(
+                withDuration: 0.3,
                 animations: {
                     progressAtRatioView.alpha = 0.0
                     circularProgressView.alpha = 0.0
@@ -170,6 +170,6 @@ class ProgressViewController : UIViewController {
                     blurView.removeFromSuperview()
                 }
             );
-        })
+        }
     }
 }
