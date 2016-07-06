@@ -234,7 +234,7 @@ extension ViewController {
             userInfo: nil,
             repeats: true
         )
-        RunLoop.main().add(timer!, forMode: RunLoopMode.commonModes)
+        RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
     }
     
     func updateMessage() {
@@ -251,8 +251,9 @@ extension ViewController {
                     case .window:
                         self.progress.dismiss()
                     case .subView:
-                        self.progress.dismiss(progress: self.progressView!)                    }
-                }, delay: 0.8)
+                        self.progress.dismiss(progress: self.progressView!)
+                }
+            }, delay: 0.8)
             
             return
         
@@ -277,7 +278,7 @@ extension ViewController {
             userInfo: nil,
             repeats: true
         )
-        RunLoop.main().add(timer!, forMode: RunLoopMode.commonModes)
+        RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
     }
     
     func updateProgressAtRatio() {
@@ -292,7 +293,8 @@ extension ViewController {
             case .window:
                 progress.dismiss()
             case .subView:
-                progress.dismiss(progress: progressView!)            }
+                progress.dismiss(progress: progressView!)
+            }
             return
         }
     }
