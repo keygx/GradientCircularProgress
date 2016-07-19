@@ -80,7 +80,7 @@ class ProgressViewController : UIViewController {
         
         prop = Property(style: style)
         
-        guard let win = baseWindow, prop = prop else {
+        guard let win = baseWindow, let prop = prop else {
             return
         }
         
@@ -111,7 +111,7 @@ class ProgressViewController : UIViewController {
         
         prop = Property(style: style)
         
-        guard let win = baseWindow, prop = prop else {
+        guard let win = baseWindow, let prop = prop else {
             return
         }
         
@@ -154,7 +154,7 @@ class ProgressViewController : UIViewController {
         
         DispatchQueue.main.after(when: time) {
             
-            guard let blurView = self.blurView, progressAtRatioView = self.progressAtRatioView, circularProgressView = self.circularProgressView else {
+            guard let blurView = self.blurView, let progressAtRatioView = self.progressAtRatioView, let circularProgressView = self.circularProgressView else {
                 return
             }
             

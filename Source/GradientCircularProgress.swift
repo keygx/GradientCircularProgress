@@ -72,7 +72,7 @@ extension GradientCircularProgress {
         baseWindow = BaseWindow()
         progressViewController = ProgressViewController()
         
-        guard let win = baseWindow, vc = progressViewController else {
+        guard let win = baseWindow, let vc = progressViewController else {
             return
         }
         
@@ -103,7 +103,7 @@ extension GradientCircularProgress {
         baseWindow = BaseWindow()
         progressViewController = ProgressViewController()
         
-        guard let win = baseWindow, vc = progressViewController else {
+        guard let win = baseWindow, let vc = progressViewController else {
             return
         }
         
