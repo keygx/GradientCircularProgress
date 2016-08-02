@@ -27,20 +27,20 @@ class GradientArcWithClearColorView : UIView {
         endArcColorProp.startArcColor = ColorUtil.toNotOpacityColor(color: endArcColorProp.endArcColor)
         
         // StartGradientMask
-        startGradientMaskProp.startArcColor = UIColor.black()
-        startGradientMaskProp.endArcColor = UIColor.white()
+        startGradientMaskProp.startArcColor = UIColor.black
+        startGradientMaskProp.endArcColor = UIColor.white
         startGradientMaskProp.progressSize += 10.0
         startGradientMaskProp.arcLineWidth += 20.0
         
         // EndGradientMask
-        endGradientMaskProp.startArcColor = UIColor.white()
-        endGradientMaskProp.endArcColor = UIColor.black()
+        endGradientMaskProp.startArcColor = UIColor.white
+        endGradientMaskProp.endArcColor = UIColor.black
         endGradientMaskProp.progressSize += 10.0
         endGradientMaskProp.arcLineWidth += 20.0
 
         // SolidMask
-        solidMaskProp.startArcColor = UIColor.black()
-        solidMaskProp.endArcColor   = UIColor.black()
+        solidMaskProp.startArcColor = UIColor.black
+        solidMaskProp.endArcColor   = UIColor.black
         
         /* Mask Image */
         // StartArcColorImage
@@ -102,7 +102,7 @@ class GradientArcWithClearColorView : UIView {
             shouldInterpolate: false)!
         
         let maskedImageRef: CGImage = image.cgImage!.masking(mask)!
-        let scale = UIScreen.main().scale
+        let scale = UIScreen.main.scale
         let maskedImage: UIImage = UIImage.init(cgImage: maskedImageRef, scale: scale, orientation: .up)
         
         return maskedImage
@@ -110,7 +110,7 @@ class GradientArcWithClearColorView : UIView {
     
     internal func viewToUIImage(_ view: UIView) -> UIImage? {
         
-        let scale = UIScreen.main().scale
+        let scale = UIScreen.main.scale
         UIGraphicsBeginImageContextWithOptions(view.frame.size, false, scale)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -121,7 +121,7 @@ class GradientArcWithClearColorView : UIView {
     
     internal func composite(image1: UIImage, image2: UIImage, prop: Property) -> UIImage {
         
-        let scale = UIScreen.main().scale
+        let scale = UIScreen.main.scale
         UIGraphicsBeginImageContextWithOptions(image1.size, false, scale)
         image1.draw(
             in: CGRect(x: 0, y: 0, width: image1.size.width, height: image1.size.height),

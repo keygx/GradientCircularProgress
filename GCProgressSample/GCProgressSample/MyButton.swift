@@ -32,7 +32,7 @@ class MyButton: UIButton {
     }
     
     private let defaultColor: UIColor = UIColor(red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-    private let disabledColor: UIColor = UIColor.lightGray()
+    private let disabledColor: UIColor = UIColor.lightGray
     
     override init(frame: CGRect) {
         super.init(frame: frame)

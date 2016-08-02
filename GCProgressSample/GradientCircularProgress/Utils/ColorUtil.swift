@@ -28,8 +28,8 @@ public class ColorUtil {
     
     internal class func toNotOpacityColor(color: UIColor) -> UIColor {
         
-        if color == UIColor.clear() {
-            return UIColor.white()
+        if color == UIColor.clear {
+            return UIColor.white
         } else {
             return UIColor(
                 red: ColorUtil.toRGBA(color: color).r,

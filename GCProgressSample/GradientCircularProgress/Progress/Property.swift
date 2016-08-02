@@ -86,11 +86,11 @@ internal struct Property {
         self.startArcColor         = styles.startArcColor
         self.endArcColor           = styles.endArcColor
         self.baseLineWidth         = styles.baseLineWidth           ?? 0.0
-        self.baseArcColor          = styles.baseArcColor            ?? UIColor.clear()
+        self.baseArcColor          = styles.baseArcColor            ?? UIColor.clear
         self.ratioLabelFont        = styles.ratioLabelFont          ?? UIFont.systemFont(ofSize: 16.0)
-        self.ratioLabelFontColor   = styles.ratioLabelFontColor     ?? UIColor.clear()
+        self.ratioLabelFontColor   = styles.ratioLabelFontColor     ?? UIColor.clear
         self.messageLabelFont      = styles.messageLabelFont        ?? UIFont.systemFont(ofSize: 16.0)
-        self.messageLabelFontColor = styles.messageLabelFontColor   ?? UIColor.clear()
+        self.messageLabelFontColor = styles.messageLabelFontColor   ?? UIColor.clear
         self.backgroundStyle       = styles.backgroundStyle
     }
 }

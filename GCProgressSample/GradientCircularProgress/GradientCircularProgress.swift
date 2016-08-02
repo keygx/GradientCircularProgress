@@ -77,7 +77,7 @@ extension GradientCircularProgress {
         }
         
         win.rootViewController = vc
-        win.backgroundColor = UIColor.clear()
+        win.backgroundColor = UIColor.clear
         vc.arc(display, style: style)
     }
     
@@ -108,7 +108,7 @@ extension GradientCircularProgress {
         }
         
         win.rootViewController = vc
-        win.backgroundColor = UIColor.clear()
+        win.backgroundColor = UIColor.clear
         vc.circle(message, style: style)
     }
     
@@ -142,7 +142,7 @@ extension GradientCircularProgress {
         let delay = t * Double(NSEC_PER_SEC)
         let time  = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
         
-        DispatchQueue.main.after(when: time) {
+        DispatchQueue.main.asyncAfter(deadline: time) {
             guard let win = baseWindow else {
                 return
             }
@@ -163,7 +163,7 @@ extension GradientCircularProgress {
                     }
                     completionHandler()
                 }
-            );
+            )
         }
     }
 }
@@ -241,8 +241,7 @@ extension GradientCircularProgress {
         let delay = t * Double(NSEC_PER_SEC)
         let time  = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
         
-        DispatchQueue.main.after(when: time) {
-            
+        DispatchQueue.main.asyncAfter(deadline: time) {
             UIView.animate(
                 withDuration: 0.3,
                 animations: {
@@ -256,7 +255,7 @@ extension GradientCircularProgress {
                     }
                     completionHandler()
                 }
-            );
+            )
         }
     }
 }

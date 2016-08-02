@@ -26,20 +26,19 @@ class ProgressViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.clear()
+        self.view.backgroundColor = UIColor.clear
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate: Bool {
         return false
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        
-        let orientation:UIInterfaceOrientation = UIApplication.shared().statusBarOrientation
+    override var prefersStatusBarHidden: Bool {
+        let orientation:UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
         
         switch orientation {
         case .landscapeLeft:
@@ -55,7 +54,7 @@ class ProgressViewController : UIViewController {
     
     private func getViewRect() {
         
-        let window = UIWindow(frame: UIScreen.main().bounds)
+        let window = UIWindow(frame: UIScreen.main.bounds)
         
         viewRect = window.frame
     }
@@ -72,7 +71,7 @@ class ProgressViewController : UIViewController {
             return
         }
         
-        self.view.backgroundColor = UIColor.clear()
+        self.view.backgroundColor = UIColor.clear
         self.view.addSubview(blurView)
     }
     
@@ -152,8 +151,7 @@ class ProgressViewController : UIViewController {
         let delay = t * Double(NSEC_PER_SEC)
         let time  = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
         
-        DispatchQueue.main.after(when: time) {
-            
+        DispatchQueue.main.asyncAfter(deadline: time) {
             guard let blurView = self.blurView, let progressAtRatioView = self.progressAtRatioView, let circularProgressView = self.circularProgressView else {
                 return
             }
@@ -169,7 +167,7 @@ class ProgressViewController : UIViewController {
                     circularProgressView.removeFromSuperview()
                     blurView.removeFromSuperview()
                 }
-            );
+            )
         }
     }
 }

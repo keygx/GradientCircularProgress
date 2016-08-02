@@ -22,11 +22,11 @@ public struct Style : StyleProperty {
     
     // Ratio
     public var ratioLabelFont: UIFont? = UIFont.systemFont(ofSize: 18.0)
-    public var ratioLabelFontColor: UIColor? = UIColor.black()
+    public var ratioLabelFontColor: UIColor? = UIColor.black
     
     // Message
     public var messageLabelFont: UIFont? = UIFont.systemFont(ofSize: 18.0)
-    public var messageLabelFontColor: UIColor? = UIColor.black()
+    public var messageLabelFontColor: UIColor? = UIColor.black
     
     // Background
     public var backgroundStyle: BackgroundStyles = .extraLight

@@ -127,7 +127,7 @@ class ProgressView : UIView {
             return
         }
         
-        self.backgroundColor = UIColor.clear()
+        self.backgroundColor = UIColor.clear
         self.addSubview(blurView)
     }
 }

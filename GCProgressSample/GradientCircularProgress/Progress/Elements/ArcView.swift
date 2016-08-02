@@ -12,7 +12,7 @@ class ArcView : UIView {
     
     var prop: Property?
     var ratio: CGFloat = 1.0
-    var color: UIColor = UIColor.black()
+    var color: UIColor = UIColor.black
     var lineWidth: CGFloat = 0.0
     
     required init?(coder aDecoder: NSCoder) {
@@ -22,7 +22,7 @@ class ArcView : UIView {
     init(frame: CGRect, lineWidth: CGFloat) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.clear()
+        self.backgroundColor = UIColor.clear
         self.layer.masksToBounds = true
         
         self.lineWidth = lineWidth

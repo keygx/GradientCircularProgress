@@ -19,7 +19,7 @@ class AsyncUtil {
         }
         
         let d = DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        DispatchQueue.main.after(when: d) {
+        DispatchQueue.main.asyncAfter(deadline: d) {
             block()
         }
     }
