@@ -18,11 +18,9 @@ public class GradientCircularProgress {
     public var isAvailable: Bool = false
     
     public init() {}
-}
 
-// MARK: Common
-extension GradientCircularProgress {
     
+    // MARK: Common
     public func updateMessage(message: String) {
         if !isAvailable {
             return
@@ -54,11 +52,9 @@ extension GradientCircularProgress {
             vc.ratio = ratio
         }
     }
-}
 
-// MARK: Use UIWindow
-extension GradientCircularProgress {
     
+    // MARK: Use UIWindow
     public func showAtRatio(display: Bool = true, style: StyleProperty = Style()) {
         if isAvailable {
             return
@@ -124,7 +120,7 @@ extension GradientCircularProgress {
         cleanup(1.4, completionHandler: nil)
     }
     
-    public func dismiss(_ completionHandler: () -> Void) -> () {
+    public func dismiss(_ completionHandler: @escaping () -> Void) -> () {
         if !isAvailable {
             return
         }
@@ -166,11 +162,9 @@ extension GradientCircularProgress {
             )
         }
     }
-}
 
-// MARK: Use addSubView
-extension GradientCircularProgress {
-    
+
+    // MARK: Use addSubView
     public func showAtRatio(frame: CGRect, display: Bool = true, style: StyleProperty = Style()) -> UIView? {
         if isAvailable {
             return nil
@@ -227,7 +221,7 @@ extension GradientCircularProgress {
         cleanup(0.8, view: view, completionHandler: nil)
     }
     
-    public func dismiss(progress view: UIView, completionHandler: () -> Void) -> () {
+    public func dismiss(progress view: UIView, completionHandler: @escaping () -> Void) -> () {
         if !isAvailable {
             return
         }

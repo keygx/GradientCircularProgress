@@ -72,7 +72,7 @@ internal struct Property {
     // Progress Rect
     var progressRect: CGRect {
         get {
-            let lineWidth: CGFloat = (arcLineWidth > baseLineWidth) ? arcLineWidth : baseLineWidth!
+            let lineWidth: CGFloat = (arcLineWidth > baseLineWidth!) ? arcLineWidth : baseLineWidth!
             return CGRect(x: 0, y: 0, width: progressSize - lineWidth * 2, height: progressSize - lineWidth * 2)
         }
     }

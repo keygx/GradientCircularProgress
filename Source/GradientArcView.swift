@@ -48,7 +48,7 @@ class GradientArcView : UIView {
         
         // workaround
         var limit: CGFloat = 1.0 // 32bit
-        if sizeof(limit.dynamicType) == 8 {
+        if MemoryLayout<CGFloat>.size == 8 {
             limit = 1.01 // 64bit
         }
         

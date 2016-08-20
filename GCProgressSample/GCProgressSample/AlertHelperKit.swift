@@ -16,8 +16,8 @@ public struct Parameters {
     var title: String?
     var message: String?
     var cancelButton: String?
-    var otherButtons: [String]?
     var destructiveButtons: [String]?
+    var otherButtons: [String]?
     var disabledButtons: [String]?
     var inputFields: [InputField]?
     var sender: AnyObject?
@@ -28,19 +28,19 @@ public struct Parameters {
         title: String? = nil,
         message: String? = nil,
         cancelButton: String? = nil,
-        otherButtons: [String]? = nil,
         destructiveButtons: [String]? = nil,
+        otherButtons: [String]? = nil,
         disabledButtons: [String]? = nil,
         inputFields: [InputField]? = nil,
         sender: AnyObject? = nil,
         arrowDirection: UIPopoverArrowDirection? = nil,
         popoverStyle: ActionSheetPopoverStyle = .normal
-    ) {
+        ) {
         self.title = title
         self.message = message
         self.cancelButton = cancelButton
-        self.otherButtons = otherButtons
         self.destructiveButtons = destructiveButtons
+        self.otherButtons = otherButtons
         self.disabledButtons = disabledButtons
         self.inputFields = inputFields
         self.sender = sender
@@ -77,7 +77,6 @@ public class AlertHelperKit {
     
     // Alert
     public func showAlert(_ parent: UIViewController, title: String?, message: String?, button: String) {
-            
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         // cancel
@@ -88,8 +87,7 @@ public class AlertHelperKit {
     }
     
     // Alert with Callback Handler
-    public func showAlertWithHandler(_ parent: UIViewController, parameters: Parameters, handler: (Int) -> ()) {
-        
+    public func showAlertWithHandler(_ parent: UIViewController, parameters: Parameters, handler: @escaping (Int) -> ()) {
         let alertController: UIAlertController = buildAlertController(.alert, params: parameters) { buttonIndex in
             handler(buttonIndex)
         }
@@ -100,8 +98,7 @@ public class AlertHelperKit {
     }
     
     // ActionSheet
-    public func showActionSheet(_ parent: UIViewController, parameters: Parameters, handler: (Int) -> ()) {
-        
+    public func showActionSheet(_ parent: UIViewController, parameters: Parameters, handler: @escaping (Int) -> ()) {
         let alertController: UIAlertController = buildAlertController(.actionSheet, params: parameters) { buttonIndex in
             handler(buttonIndex)
         }
@@ -125,7 +122,7 @@ public class AlertHelperKit {
     }
     
     // Build AlertController
-    private func buildAlertController(_ style: UIAlertControllerStyle, params: Parameters, handler: (Int) -> ()) -> UIAlertController {
+    private func buildAlertController(_ style: UIAlertControllerStyle, params: Parameters, handler: @escaping (Int) -> ()) -> UIAlertController {
         
         let alertController = UIAlertController(title: params.title, message: params.message, preferredStyle: style)
         let destructivOffset = 1
@@ -133,8 +130,8 @@ public class AlertHelperKit {
         
         // cancel
         if let cancel = params.cancelButton {
-            let cancelAction = UIAlertAction(title: cancel, style: .cancel) {
-                action in handler(0)
+            let cancelAction = UIAlertAction(title: cancel, style: .cancel) { _ in
+                handler(0)
             }
             alertController.addAction(cancelAction)
         }
@@ -142,8 +139,8 @@ public class AlertHelperKit {
         // destructive
         if let destructive = params.destructiveButtons {
             for i in 0..<destructive.count {
-                let destructiveAction = UIAlertAction(title: destructive[i], style: .destructive) {
-                    action in handler(i + destructivOffset)
+                let destructiveAction = UIAlertAction(title: destructive[i], style: .destructive) { _ in
+                    handler(i + destructivOffset)
                 }
                 alertController.addAction(destructiveAction)
                 
@@ -154,8 +151,8 @@ public class AlertHelperKit {
         // others
         if let others = params.otherButtons {
             for i in 0..<others.count {
-                let otherAction = UIAlertAction(title: others[i], style: .default) {
-                    action in handler(i + othersOffset)
+                let otherAction = UIAlertAction(title: others[i], style: .default) { _ in
+                    handler(i + othersOffset)
                 }
                 alertController.addAction(otherAction)
             }

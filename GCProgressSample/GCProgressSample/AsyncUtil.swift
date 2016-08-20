@@ -10,7 +10,7 @@ import Foundation
 
 class AsyncUtil {
     
-    func dispatchOnMainThread(_ block: () -> (), delay: Double) {
+    func dispatchOnMainThread(_ block: @escaping () -> (), delay: Double) {
         if delay == 0 {
             DispatchQueue.main.async {
                 block()
