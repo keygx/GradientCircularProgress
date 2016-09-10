@@ -371,7 +371,6 @@
 					};
 					36F742BA1B3A7016003D799C = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 3CCNMX7TC9;
 						DevelopmentTeamName = "Yukihiko Kagiyama";
 						LastSwiftMigration = 0800;
 					};
@@ -672,6 +671,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -699,6 +699,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

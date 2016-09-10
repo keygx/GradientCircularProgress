@@ -35,11 +35,18 @@ or
 ```Cartfile
 github "keygx/GradientCircularProgress" "branch-name"
 ```
+or
+
+```Cartfile
+github "keygx/GradientCircularProgress" "tag"
+```
+
+* install
 
 ```
 $ carthage update
 ```
-* install
+
 
 To integrate "GradientCircularProgress.framework" into your Xcode project
 
@@ -65,6 +72,17 @@ use_frameworks!
 
 target '<Your Target Name>' do
     pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress', :branch => 'branch-name'
+end
+```
+or
+
+```PodFile
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress', :tag => 'tag'
 end
 ```
 
