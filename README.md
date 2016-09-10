@@ -3,7 +3,7 @@
 Customizable progress indicator library in Swift
 
 ## Requirements
-- Swift 2.2
+- Swift 3.0
 - iOS 8.0 or later
 
 ## Screen Shots
@@ -23,6 +23,33 @@ Customizable progress indicator library in Swift
 
 ## Installation
 
+###Carthage
+
+* Cartfile
+
+```Cartfile
+github "keygx/GradientCircularProgress"
+```
+or
+
+```Cartfile
+github "keygx/GradientCircularProgress" "branch-name"
+```
+or
+
+```Cartfile
+github "keygx/GradientCircularProgress" "tag"
+```
+
+* install
+
+```
+$ carthage update
+```
+
+
+To integrate "GradientCircularProgress.framework" into your Xcode project
+
 ###CocoaPods
 
 * PodFile [Sample/PodFile]
@@ -32,29 +59,38 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress'
+target '<Your Target Name>' do
+    pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress'
+end
 ```
+or
+
+```PodFile
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress', :branch => 'branch-name'
+end
+```
+or
+
+```PodFile
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress', :tag => 'tag'
+end
+```
+
 * install
 
 ```
 $ pod install
 ```
-
-###Carthage
-
-* Cartfile
-
-```Cartfile
-github "keygx/GradientCircularProgress"
-```
-
-```
-$ carthage update
-```
-* install
-
-To integrate "GradientCircularProgress.framework" into your Xcode project
-
 
 ## Style Settings
 
@@ -77,23 +113,23 @@ public struct MyStyle : StyleProperty {
     
     // Gradient Circular
     public var arcLineWidth: CGFloat = 18.0
-    public var startArcColor: UIColor = UIColor.clearColor()
-    public var endArcColor: UIColor = UIColor.orangeColor()
+    public var startArcColor: UIColor = UIColor.clear()
+    public var endArcColor: UIColor = UIColor.orange()
     
     // Base Circular
     public var baseLineWidth: CGFloat? = 19.0
-    public var baseArcColor: UIColor? = UIColor.darkGrayColor()
+    public var baseArcColor: UIColor? = UIColor.darkGray()
     
     // Ratio
     public var ratioLabelFont: UIFont? = UIFont(name: "Verdana-Bold", size: 16.0)
-    public var ratioLabelFontColor: UIColor? = UIColor.whiteColor()
+    public var ratioLabelFontColor: UIColor? = UIColor.white()
     
     // Message
-    public var messageLabelFont: UIFont? = UIFont.systemFontOfSize(16.0)
-    public var messageLabelFontColor: UIColor? = UIColor.whiteColor()
+    public var messageLabelFont: UIFont? = UIFont.systemFont(ofSize: 16.0)
+    public var messageLabelFontColor: UIColor? = UIColor.white()
     
     // Background
-    public var backgroundStyle: BackgroundStyles = .Dark
+    public var backgroundStyle: BackgroundStyles = .dark
     
     /*** style properties **********************************************************************************/
     
@@ -158,16 +194,13 @@ let progress = GradientCircularProgress()
 
 progress.show(message: "Download\n0 / 4", MyStyle())
 
-progress.show(message: "Download\n1 / 4", MyStyle())
-progress.show(message: "Download\n2 / 4", MyStyle())
-progress.show(message: "Download\n3 / 4", MyStyle())
-progress.show(message: "Download\n4 / 4", MyStyle())
+progress.updateMessage(message: "Download\n1 / 4")
+progress.updateMessage(message: "Download\n2 / 4")
+progress.updateMessage(message: "Download\n3 / 4")
+progress.updateMessage(message: "Download\n4 / 4")
+progress.updateMessage(message: "Completed!")
 
-let time = dispatch_time(DISPATCH_TIME_NOW, Int64(0.8 * Double(NSEC_PER_SEC)))
-dispatch_after(time, dispatch_get_main_queue()) {
-    self.progress.updateMessage(message: "Completed!")
-    self.progress.dismiss()
-}
+progress.dismiss()
 ```
 #### addSubView
 ```swift
@@ -176,92 +209,36 @@ let progress = GradientCircularProgress()
 let progressView = progress.show(frame: rect, message: "Download\n0 / 4", style: MyStyle())
 view.addSubview(progressView!)
 
-progress.show(message: "Download\n1 / 4", MyStyle())
-progress.show(message: "Download\n2 / 4", MyStyle())
-progress.show(message: "Download\n3 / 4", MyStyle())
-progress.show(message: "Download\n4 / 4", MyStyle())
+progress.updateMessage(message: "Download\n1 / 4")
+progress.updateMessage(message: "Download\n2 / 4")
+progress.updateMessage(message: "Download\n3 / 4")
+progress.updateMessage(message: "Download\n4 / 4")
+progress.updateMessage(message: "Completed!")
 
-let time = dispatch_time(DISPATCH_TIME_NOW, Int64(0.8 * Double(NSEC_PER_SEC)))
-dispatch_after(time, dispatch_get_main_queue()) {
-    self.progress.updateMessage(message: "Completed!")
-    self.progress.dismiss(progress: progressView!)
-}
-```
-
-## Download Progress Examples
-
-### NSURLSession
-
-```swift
-let progress = GradientCircularProgress()
-
-~~
-
-progress.showAtRatio(style: BlueDarkStyle())
-        
-let url = NSURL(string: "http://example.com/download/dummy.mp4")
-let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-let session = NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
-let task = session.downloadTaskWithURL(url!)
-task.resume()
-
-~~
-
-// Delegate
-func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-    let ratio: CGFloat = CGFloat(totalBytesWritten) / CGFloat(totalBytesExpectedToWrite)
-    progress.updateRatio(ratio)
-}
-// Delegate
-func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
-    progress.dismiss()
-}
-```
-
-### Alamofire
-
-```swift
-let progress = GradientCircularProgress()
-
-~~
-
-progress.showAtRatio(style: BlueDarkStyle())
-
-Alamofire.request(.GET, "http://example.com/download/dummy.mp4")
-    .response { (request, response, data, error) in
-        
-        self.progress.dismiss()
-}
-    .progress { (bytesRead, totalBytesRead, totalBytesExpectedToRead) in
-        let ratio: CGFloat = CGFloat(totalBytesRead) / CGFloat(totalBytesExpectedToRead)
-        // Call main thread.
-        dispatch_async(dispatch_get_main_queue(), {
-            self.progress.updateRatio(ratio)
-        })
-}
+progress.dismiss(progress: progressView!)
 ```
 
 ## API
 ### Use UIWindow
 ```swift
-public func showAtRatio(display display: Bool = true, style: StyleProperty = Style())
+public func showAtRatio(display: Bool = true, style: StyleProperty = Style())
 
-public func show(style style: StyleProperty = Style())
+public func show(style: StyleProperty = Style())
 
-public func show(message message: String, style: StyleProperty = Style())
+public func show(message: String, style: StyleProperty = Style())
 
 public func dismiss()
 
-public func dismiss(completionHandler: () -> Void) -> ()
+public func dismiss(_ completionHandler: () -> Void) -> ()
 ```
 
 ### Use addSubView
 ```swift
-public func showAtRatio(frame frame: CGRect, display: Bool = true, style: StyleProperty = Style()) -> UIView?
+public func showAtRatio(frame: CGRect, display: Bool = true, style: StyleProperty = Style()) -> UIView?
 
-public func show(frame frame: CGRect, style: StyleProperty = Style()) -> UIView?
+public func show(frame: CGRect, style: StyleProperty = Style()) -> UIView?
 
-public func show(frame frame: CGRect, message: String, style: StyleProperty = Style()) -> UIView?
+public func show(frame: CGRect, message: String, style: StyleProperty = Style()) -> UIView?
 
 public func dismiss(progress view: UIView)
 
@@ -272,7 +249,7 @@ public func dismiss(progress view: UIView, completionHandler: () -> Void) -> ()
 ```swift
 public func updateMessage(message message: String)
 
-public func updateRatio(ratio: CGFloat)
+public func updateRatio(_ ratio: CGFloat)
 ```
 
 ## License

@@ -13,26 +13,26 @@ import UIKit
 class MyButton: UIButton {
     
     enum ButtonStatus {
-        case Normal
-        case Highlighted
-        case Selected
-        case Disabled
+        case normal
+        case highlighted
+        case selected
+        case disabled
     }
     
-    var status: ButtonStatus = .Normal {
+    var status: ButtonStatus = .normal {
         didSet {
             switch status {
-            case .Disabled:
-                enabled = false
+            case .disabled:
+                isEnabled = false
             default:
-                enabled = true
+                isEnabled = true
             }
             apply()
         }
     }
     
     private let defaultColor: UIColor = UIColor(red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-    private let disabledColor: UIColor = UIColor.lightGrayColor()
+    private let disabledColor: UIColor = UIColor.lightGray
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,7 +47,7 @@ class MyButton: UIButton {
     }
     
     private func initialize() {
-        status = .Normal
+        status = .normal
         
         layer.cornerRadius = 4.0
         layer.borderWidth = 1.0
@@ -55,12 +55,12 @@ class MyButton: UIButton {
     
     func apply() {
         switch status {
-        case .Disabled:
-            setTitleColor(disabledColor, forState: .Disabled)
-            layer.borderColor = disabledColor.CGColor
+        case .disabled:
+            setTitleColor(disabledColor, for: .disabled)
+            layer.borderColor = disabledColor.cgColor
         default:
-            setTitleColor(defaultColor, forState: .Normal)
-            layer.borderColor = defaultColor.CGColor
+            setTitleColor(defaultColor, for: UIControlState())
+            layer.borderColor = defaultColor.cgColor
         }
     }
 }

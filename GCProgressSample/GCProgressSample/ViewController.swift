@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     
     // UI
     enum UsageType {
-        case Window
-        case SubView
+        case window
+        case subView
     }
     
     let styleList: [(String, StyleProperty)] = [
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         ("MyStyle.swift", MyStyle()),
     ]
     
-    var usageType: UsageType = .Window
+    var usageType: UsageType = .window
     
     var seletedStyleIndex: Int = 0 {
         willSet {
@@ -45,14 +45,13 @@ class ViewController: UIViewController {
     var progressView: UIView?
     
     // Demo
-    var timer: NSTimer?
+    var timer: Timer?
     var v: Double = 0.0
-    var available: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        usageType = .Window
+        usageType = .window
         seletedStyleIndex = 0
     }
 
@@ -60,18 +59,18 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func segmentedControlAction(sender: AnyObject) {
+    @IBAction func segmentedControlAction(_ sender: AnyObject) {
         switch sender.selectedSegmentIndex {
         case 0:
-            usageType = .Window
+            usageType = .window
         case 1:
-            usageType = .SubView
+            usageType = .subView
         default:
             break
         }
     }
     
-    @IBAction func btnChooseStyleAction(sender: AnyObject) {
+    @IBAction func btnChooseStyleAction(_ sender: AnyObject) {
         
         let styleTitleList: [String] = styleList.map {$0.0}
         
@@ -86,61 +85,58 @@ class ViewController: UIViewController {
             switch buttonIndex {
             case 1:
                 self.seletedStyleIndex = buttonIndex - 1
-                self.btnUpdateMessage.status = .Normal
+                self.btnUpdateMessage.status = .normal
             case 2:
                 self.seletedStyleIndex = buttonIndex - 1
-                self.btnUpdateMessage.status = .Normal
+                self.btnUpdateMessage.status = .normal
             case 3:
                 self.seletedStyleIndex = buttonIndex - 1
-                self.btnUpdateMessage.status = .Disabled
+                self.btnUpdateMessage.status = .disabled
             case 4:
                 self.seletedStyleIndex = buttonIndex - 1
-                self.btnUpdateMessage.status = .Normal
+                self.btnUpdateMessage.status = .normal
             case 5:
                 self.seletedStyleIndex = buttonIndex - 1
-                self.btnUpdateMessage.status = .Disabled
+                self.btnUpdateMessage.status = .disabled
             case 6:
                 self.seletedStyleIndex = buttonIndex - 1
-                self.btnUpdateMessage.status = .Normal
+                self.btnUpdateMessage.status = .normal
             default: break
                 // Cancel
             }
         }
     }
     
-    @IBAction func btnAtRatioAction(sender: AnyObject) {
-        if available {
+    @IBAction func btnAtRatioAction(_ sender: AnyObject) {
+        if progress.isAvailable {
             return
         }
-        available = true
         
-        if usageType == .Window {
+        if usageType == .window {
             showAtRatio()
         } else {
             showAtRatioTypeSubView()
         }
     }
     
-    @IBAction func btnBasicAction(sender: AnyObject) {
-        if available {
+    @IBAction func btnBasicAction(_ sender: AnyObject) {
+        if progress.isAvailable {
             return
         }
-        available = true
         
-        if usageType == .Window {
+        if usageType == .window {
             showBasic()
         } else {
             showBasicTypeSubView()
         }
     }
     
-    @IBAction func btnUpdateMessageAction(sender: AnyObject) {
-        if available {
+    @IBAction func btnUpdateMessageAction(_ sender: AnyObject) {
+        if progress.isAvailable {
             return
         }
-        available = true
         
-        if usageType == .Window {
+        if usageType == .window {
             showUpdateMessage()
         } else {
             showUpdateMessageTypeSubView()
@@ -219,12 +215,10 @@ extension ViewController {
     func delayCloseProgress() {
         AsyncUtil().dispatchOnMainThread({
             switch self.usageType {
-            case .Window:
+            case .window:
                 self.progress.dismiss()
-                self.available = false
-            case .SubView:
+            case .subView:
                 self.progress.dismiss(progress: self.progressView!)
-                self.available = false
             }
         },
         delay: 2.0)
@@ -233,14 +227,14 @@ extension ViewController {
     func startProgressBasic() {
         v = 0.0
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(
-            0.01,
+        timer = Timer.scheduledTimer(
+            timeInterval: 0.01,
             target: self,
             selector: #selector(updateMessage),
             userInfo: nil,
             repeats: true
         )
-        NSRunLoop.mainRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+        RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
     }
     
     func updateMessage() {
@@ -254,16 +248,12 @@ extension ViewController {
                     self.progress.updateMessage(message: "Completed!")
 
                     switch self.usageType {
-                    case .Window:
-                        self.progress.dismiss() { Void in
-                            self.available = false
-                        }
-                    case .SubView:
-                        self.progress.dismiss(progress: self.progressView!) { Void in
-                            self.available = false
-                        }
-                    }
-                }, delay: 0.8)
+                    case .window:
+                        self.progress.dismiss()
+                    case .subView:
+                        self.progress.dismiss(progress: self.progressView!)
+                }
+            }, delay: 0.8)
             
             return
         
@@ -281,14 +271,14 @@ extension ViewController {
     func startProgressAtRatio() {
         v = 0.0
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(
-            0.01,
+        timer = Timer.scheduledTimer(
+            timeInterval: 0.01,
             target: self,
             selector: #selector(updateProgressAtRatio),
             userInfo: nil,
             repeats: true
         )
-        NSRunLoop.mainRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+        RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
     }
     
     func updateProgressAtRatio() {
@@ -300,24 +290,20 @@ extension ViewController {
             timer!.invalidate()
             
             switch usageType {
-            case .Window:
-                progress.dismiss() { Void in
-                    self.available = false
-                }
-            case .SubView:
-                progress.dismiss(progress: progressView!) { Void in
-                    self.available = false
-                }
+            case .window:
+                progress.dismiss()
+            case .subView:
+                progress.dismiss(progress: progressView!)
             }
             return
         }
     }
     
     func getRect() -> CGRect {
-        return CGRectMake(
-            view.frame.origin.x + 15,
-            (view.frame.size.height - view.frame.size.width) / 2,
-            view.frame.size.width - 30,
-            view.frame.size.width - 30)
+        return CGRect(
+            x: view.frame.origin.x + 15,
+            y: (view.frame.size.height - view.frame.size.width) / 2,
+            width: view.frame.size.width - 30,
+            height: view.frame.size.width - 30)
     }
 }

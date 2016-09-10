@@ -22,14 +22,14 @@ struct Background {
         return blurView
     }
     
-    private func getStyle(style: BackgroundStyles) -> UIBlurEffectStyle? {
+    private func getStyle(_ style: BackgroundStyles) -> UIBlurEffectStyle? {
         switch style {
-        case .ExtraLight:
-            return .ExtraLight
-        case .Light:
-            return .Light
-        case .Dark:
-            return .Dark
+        case .extraLight:
+            return .extraLight
+        case .light:
+            return .light
+        case .dark:
+            return .dark
         default:
             return nil
         }

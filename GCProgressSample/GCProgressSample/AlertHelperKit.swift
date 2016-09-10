@@ -8,39 +8,39 @@
 import UIKit
 
 public enum ActionSheetPopoverStyle: Int {
-    case Normal = 0
-    case BarButton
+    case normal = 0
+    case barButton
 }
 
 public struct Parameters {
     var title: String?
     var message: String?
     var cancelButton: String?
-    var otherButtons: [String]?
     var destructiveButtons: [String]?
+    var otherButtons: [String]?
     var disabledButtons: [String]?
     var inputFields: [InputField]?
     var sender: AnyObject?
     var arrowDirection: UIPopoverArrowDirection?
-    var popoverStyle: ActionSheetPopoverStyle = .Normal
+    var popoverStyle: ActionSheetPopoverStyle = .normal
     
     public init(
         title: String? = nil,
         message: String? = nil,
         cancelButton: String? = nil,
-        otherButtons: [String]? = nil,
         destructiveButtons: [String]? = nil,
+        otherButtons: [String]? = nil,
         disabledButtons: [String]? = nil,
         inputFields: [InputField]? = nil,
         sender: AnyObject? = nil,
         arrowDirection: UIPopoverArrowDirection? = nil,
-        popoverStyle: ActionSheetPopoverStyle = .Normal
-    ) {
+        popoverStyle: ActionSheetPopoverStyle = .normal
+        ) {
         self.title = title
         self.message = message
         self.cancelButton = cancelButton
-        self.otherButtons = otherButtons
         self.destructiveButtons = destructiveButtons
+        self.otherButtons = otherButtons
         self.disabledButtons = disabledButtons
         self.inputFields = inputFields
         self.sender = sender
@@ -76,21 +76,19 @@ public class AlertHelperKit {
     }
     
     // Alert
-    public func showAlert(parent: UIViewController, title: String?, message: String?, button: String) {
-            
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+    public func showAlert(_ parent: UIViewController, title: String?, message: String?, button: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         // cancel
-        let cancelAction = UIAlertAction(title: button, style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: button, style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
         show(parent, ac: alertController)
     }
     
     // Alert with Callback Handler
-    public func showAlertWithHandler(parent: UIViewController, parameters: Parameters, handler: (Int) -> ()) {
-        
-        let alertController: UIAlertController = buildAlertController(.Alert, params: parameters) { buttonIndex in
+    public func showAlertWithHandler(_ parent: UIViewController, parameters: Parameters, handler: @escaping (Int) -> ()) {
+        let alertController: UIAlertController = buildAlertController(.alert, params: parameters) { buttonIndex in
             handler(buttonIndex)
         }
         
@@ -100,9 +98,8 @@ public class AlertHelperKit {
     }
     
     // ActionSheet
-    public func showActionSheet(parent: UIViewController, parameters: Parameters, handler: (Int) -> ()) {
-        
-        let alertController: UIAlertController = buildAlertController(.ActionSheet, params: parameters) { buttonIndex in
+    public func showActionSheet(_ parent: UIViewController, parameters: Parameters, handler: @escaping (Int) -> ()) {
+        let alertController: UIAlertController = buildAlertController(.actionSheet, params: parameters) { buttonIndex in
             handler(buttonIndex)
         }
         
@@ -112,7 +109,7 @@ public class AlertHelperKit {
             popover.sourceView = parent.view
             
             switch parameters.popoverStyle {
-            case .BarButton:
+            case .barButton:
                 popover.barButtonItem = sender as? UIBarButtonItem
             default:
                 popover.sourceRect = sender.frame
@@ -125,7 +122,7 @@ public class AlertHelperKit {
     }
     
     // Build AlertController
-    private func buildAlertController(style: UIAlertControllerStyle, params: Parameters, handler: (Int) -> ()) -> UIAlertController {
+    private func buildAlertController(_ style: UIAlertControllerStyle, params: Parameters, handler: @escaping (Int) -> ()) -> UIAlertController {
         
         let alertController = UIAlertController(title: params.title, message: params.message, preferredStyle: style)
         let destructivOffset = 1
@@ -133,8 +130,8 @@ public class AlertHelperKit {
         
         // cancel
         if let cancel = params.cancelButton {
-            let cancelAction = UIAlertAction(title: cancel, style: .Cancel) {
-                action in handler(0)
+            let cancelAction = UIAlertAction(title: cancel, style: .cancel) { _ in
+                handler(0)
             }
             alertController.addAction(cancelAction)
         }
@@ -142,8 +139,8 @@ public class AlertHelperKit {
         // destructive
         if let destructive = params.destructiveButtons {
             for i in 0..<destructive.count {
-                let destructiveAction = UIAlertAction(title: destructive[i], style: .Destructive) {
-                    action in handler(i + destructivOffset)
+                let destructiveAction = UIAlertAction(title: destructive[i], style: .destructive) { _ in
+                    handler(i + destructivOffset)
                 }
                 alertController.addAction(destructiveAction)
                 
@@ -154,23 +151,23 @@ public class AlertHelperKit {
         // others
         if let others = params.otherButtons {
             for i in 0..<others.count {
-                let otherAction = UIAlertAction(title: others[i], style: .Default) {
-                    action in handler(i + othersOffset)
+                let otherAction = UIAlertAction(title: others[i], style: .default) { _ in
+                    handler(i + othersOffset)
                 }
                 alertController.addAction(otherAction)
             }
         }
         
         // textFields
-        if style != .ActionSheet {
+        if style != .actionSheet {
             if let inputFields = params.inputFields {
                 for i in 0..<inputFields.count {
-                    alertController.addTextFieldWithConfigurationHandler({ textField in
+                    alertController.addTextField(configurationHandler: { textField in
                         // placeholder
                         textField.placeholder = inputFields[i].placeholder
                         // secure
                         if let secure = inputFields[i].secure {
-                            textField.secureTextEntry = secure
+                            textField.isSecureTextEntry = secure
                         }
                     })
                 }
@@ -181,7 +178,7 @@ public class AlertHelperKit {
     }
     
     // Button Disabled
-    private func buttonDisabled(alertController: UIAlertController, params: Parameters) {
+    private func buttonDisabled(_ alertController: UIAlertController, params: Parameters) {
         guard let buttons = params.disabledButtons else {
             return
         }
@@ -190,16 +187,16 @@ public class AlertHelperKit {
             let action: UIAlertAction = alertAction
             for title in buttons {
                 if action.title == title {
-                    action.enabled = false
+                    action.isEnabled = false
                 }
             }
         }
     }
     
     // Appear Alert
-    private func show(vc: UIViewController, ac: UIAlertController) {
+    private func show(_ vc: UIViewController, ac: UIAlertController) {
         self.textFields = ac.textFields
-        vc.presentViewController(ac, animated: animated, completion: completionHandler)
+        vc.present(ac, animated: animated, completion: completionHandler)
     }
     
 }

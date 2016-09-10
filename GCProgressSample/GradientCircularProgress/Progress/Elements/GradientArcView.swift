@@ -15,7 +15,7 @@ class GradientArcView : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.layer.masksToBounds = true
     }
     
@@ -23,7 +23,7 @@ class GradientArcView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func getGradientPointColor(ratio: CGFloat, startColor: UIColor, endColor: UIColor) -> UIColor {
+    private func getGradientPointColor(_ ratio: CGFloat, startColor: UIColor, endColor: UIColor) -> UIColor {
         
         let sColor = ColorUtil.toRGBA(color: startColor)
         let eColor = ColorUtil.toRGBA(color: endColor)
@@ -36,7 +36,7 @@ class GradientArcView : UIView {
         return UIColor(red: r, green: g, blue: b, alpha: a)
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
         guard let prop = prop else {
             return
@@ -48,7 +48,7 @@ class GradientArcView : UIView {
         
         // workaround
         var limit: CGFloat = 1.0 // 32bit
-        if sizeof(limit.dynamicType) == 8 {
+        if MemoryLayout<CGFloat>.size == 8 {
             limit = 1.01 // 64bit
         }
         

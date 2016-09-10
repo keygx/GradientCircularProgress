@@ -10,16 +10,16 @@ import Foundation
 
 class AsyncUtil {
     
-    func dispatchOnMainThread(block: () -> (), delay: Double) {
+    func dispatchOnMainThread(_ block: @escaping () -> (), delay: Double) {
         if delay == 0 {
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 block()
             }
             return
         }
         
-        let d = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-        dispatch_after(d, dispatch_get_main_queue()) {
+        let d = DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: d) {
             block()
         }
     }

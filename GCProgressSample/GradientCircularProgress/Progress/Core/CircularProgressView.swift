@@ -26,7 +26,7 @@ class CircularProgressView : UIView {
             // Attribute
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineHeightMultiple = 1.2;
-            paragraphStyle.alignment = NSTextAlignment.Center
+            paragraphStyle.alignment = NSTextAlignment.center
             let attr = [NSParagraphStyleAttributeName: paragraphStyle]
             let attributedString = NSMutableAttributedString(string: message, attributes: attr)
             
@@ -52,8 +52,8 @@ class CircularProgressView : UIView {
                 let animation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
                 animation.duration = 0.8
                 animation.repeatCount = HUGE
-                animation.fromValue = NSNumber(float: 0.0)
-                animation.toValue = NSNumber(float: 2 * Float(M_PI))
+                animation.fromValue = NSNumber(value: 0.0)
+                animation.toValue = NSNumber(value: 2 * Float(M_PI))
                 
                 return animation
             }
@@ -61,11 +61,11 @@ class CircularProgressView : UIView {
         
         init() {}
         
-        func start(layer: CALayer) {
-            layer.addAnimation(rotationZ, forKey: "rotate")
+        func start(_ layer: CALayer) {
+            layer.add(rotationZ, forKey: "rotate")
         }
         
-        func stop(layer: CALayer) {
+        func stop(_ layer: CALayer) {
             layer.removeAllAnimations()
         }
     }
@@ -73,17 +73,17 @@ class CircularProgressView : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.layer.masksToBounds = true
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(viewDidEnterBackground(_:)),
-                                                         name: UIApplicationDidEnterBackgroundNotification,
-                                                         object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(viewWillEnterForeground(_:)),
-                                                         name: UIApplicationWillEnterForegroundNotification,
-                                                         object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(viewDidEnterBackground(_:)),
+                                               name: .UIApplicationDidEnterBackground,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(viewWillEnterForeground(_:)),
+                                               name: .UIApplicationWillEnterForeground,
+                                               object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -91,24 +91,24 @@ class CircularProgressView : UIView {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    @objc private func viewDidEnterBackground(notification: NSNotification?) {
+    @objc private func viewDidEnterBackground(_ notification: Notification?) {
         Animation().stop(gradientLayer)
     }
     
-    @objc private func viewWillEnterForeground(notification: NSNotification?) {
+    @objc private func viewWillEnterForeground(_ notification: Notification?) {
         Animation().start(gradientLayer)
     }
     
-    internal func initialize(frame: CGRect) {
+    internal func initialize(_ frame: CGRect) {
         
         guard let prop = prop else {
             return
         }
         
-        let rect: CGRect = CGRectMake(0, 0, frame.size.width, frame.size.height)
+        let rect: CGRect = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
         
         // Base Circular
         if let baseLineWidth = prop.baseLineWidth, let baseArcColor = prop.baseArcColor {
@@ -138,7 +138,7 @@ class CircularProgressView : UIView {
         }
     }
     
-    internal func showMessage(message: String) {
+    internal func showMessage(_ message: String) {
         
         guard let prop = prop else {
             return
@@ -146,7 +146,7 @@ class CircularProgressView : UIView {
         
         // Message
         messageLabel.font = prop.messageLabelFont
-        messageLabel.textAlignment = NSTextAlignment.Center
+        messageLabel.textAlignment = NSTextAlignment.center
         messageLabel.textColor = prop.messageLabelFontColor
         messageLabel.numberOfLines = 0
 
