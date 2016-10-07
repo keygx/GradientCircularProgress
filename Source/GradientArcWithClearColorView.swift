@@ -103,7 +103,7 @@ class GradientArcWithClearColorView : UIView {
         
         let maskedImageRef: CGImage = image.cgImage!.masking(mask)!
         let scale = UIScreen.main.scale
-        let maskedImage: UIImage = UIImage.init(cgImage: maskedImageRef, scale: scale, orientation: .up)
+        let maskedImage: UIImage = UIImage(cgImage: maskedImageRef, scale: scale, orientation: .up)
         
         return maskedImage
     }

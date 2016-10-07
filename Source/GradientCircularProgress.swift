@@ -12,15 +12,17 @@ internal var baseWindow: BaseWindow?
 
 public class GradientCircularProgress {
     
-    private var progressViewController: ProgressViewController?
-    private var progressView: ProgressView?
+    fileprivate var progressViewController: ProgressViewController?
+    fileprivate var progressView: ProgressView?
     
     public var isAvailable: Bool = false
     
     public init() {}
+}
 
+// MARK: Common
+extension GradientCircularProgress {
     
-    // MARK: Common
     public func updateMessage(message: String) {
         if !isAvailable {
             return
@@ -52,9 +54,11 @@ public class GradientCircularProgress {
             vc.ratio = ratio
         }
     }
+}
 
+// MARK: Use UIWindow
+extension GradientCircularProgress {
     
-    // MARK: Use UIWindow
     public func showAtRatio(display: Bool = true, style: StyleProperty = Style()) {
         if isAvailable {
             return
@@ -148,12 +152,12 @@ public class GradientCircularProgress {
                 animations: {
                     win.alpha = 0
                 },
-                completion: { [unowned self] finished in
-                    self.progressViewController = nil
+                completion: { [weak self] finished in
+                    self?.progressViewController = nil
                     win.isHidden = true
                     win.rootViewController = nil
                     baseWindow = nil
-                    self.isAvailable = false
+                    self?.isAvailable = false
                     guard let completionHandler = completionHandler else {
                         return
                     }
@@ -162,9 +166,11 @@ public class GradientCircularProgress {
             )
         }
     }
+}
 
-
-    // MARK: Use addSubView
+// MARK: Use addSubView
+extension GradientCircularProgress {
+    
     public func showAtRatio(frame: CGRect, display: Bool = true, style: StyleProperty = Style()) -> UIView? {
         if isAvailable {
             return nil
@@ -241,9 +247,9 @@ public class GradientCircularProgress {
                 animations: {
                     view.alpha = 0
                 },
-                completion: { [unowned self] finished in
+                completion: { [weak self] finished in
                     view.removeFromSuperview()
-                    self.isAvailable = false
+                    self?.isAvailable = false
                     guard let completionHandler = completionHandler else {
                         return
                     }
