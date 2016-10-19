@@ -8,22 +8,22 @@
 
 import UIKit
 
-class GradientArcView : UIView {
+class GradientArcView: UIView {
     
     internal var prop: Property?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.clear
-        self.layer.masksToBounds = true
+        backgroundColor = UIColor.clear
+        layer.masksToBounds = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func getGradientPointColor(_ ratio: CGFloat, startColor: UIColor, endColor: UIColor) -> UIColor {
+    private func getGradientPointColor(ratio: CGFloat, startColor: UIColor, endColor: UIColor) -> UIColor {
         
         let sColor = ColorUtil.toRGBA(color: startColor)
         let eColor = ColorUtil.toRGBA(color: endColor)
@@ -73,7 +73,7 @@ class GradientArcView : UIView {
                                                  endAngle: arcEndAngle,
                                                  clockwise: true)
             
-            let strokeColor: UIColor = getGradientPointColor(i, startColor: prop.startArcColor, endColor: prop.endArcColor)
+            let strokeColor: UIColor = getGradientPointColor(ratio: i, startColor: prop.startArcColor, endColor: prop.endArcColor)
             strokeColor.setStroke()
             
             arc.lineWidth = prop.arcLineWidth

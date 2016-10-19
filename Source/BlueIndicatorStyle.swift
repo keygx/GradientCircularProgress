@@ -7,7 +7,7 @@
 //
 
 
-public struct BlueIndicatorStyle : StyleProperty {
+public struct BlueIndicatorStyle: StyleProperty {
     // Progress Size
     public var progressSize: CGFloat = 44
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProgressAtRatioView : UIView {
+class ProgressAtRatioView: UIView {
     
     internal var arcView: ArcView?
     internal var prop: Property?
@@ -23,15 +23,15 @@ class ProgressAtRatioView : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.clear
-        self.layer.masksToBounds = true
+        backgroundColor = UIColor.clear
+        layer.masksToBounds = true
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    internal func initialize(_ frame: CGRect) {
+    internal func initialize(frame: CGRect) {
         
         guard let prop = prop else {
             return
@@ -46,14 +46,14 @@ class ProgressAtRatioView : UIView {
             circular.ratio = 1.0
             circular.color = baseArcColor
             circular.lineWidth = baseLineWidth
-            self.addSubview(circular)
+            addSubview(circular)
         }
         
         // Gradient Circular
         if ColorUtil.toRGBA(color: prop.startArcColor).a < 1.0 || ColorUtil.toRGBA(color: prop.endArcColor).a < 1.0 {
             // Clear Color
-            let gradient: UIView = GradientArcWithClearColorView().draw(rect, prop: prop)
-            self.addSubview(gradient)
+            let gradient: UIView = GradientArcWithClearColorView().draw(rect: rect, prop: prop)
+            addSubview(gradient)
             
             masking(rect: rect, prop: prop, gradient: gradient)
             
@@ -61,7 +61,7 @@ class ProgressAtRatioView : UIView {
             // Opaque Color
             let gradient: GradientArcView = GradientArcView(frame: rect)
             gradient.prop = prop
-            self.addSubview(gradient)
+            addSubview(gradient)
             
             masking(rect: rect, prop: prop, gradient: gradient)
         }
@@ -105,8 +105,8 @@ class ProgressAtRatioView : UIView {
         ratioLabel.textAlignment = NSTextAlignment.right
         ratioLabel.textColor = prop.ratioLabelFontColor
         ratioLabel.sizeToFit()
-        ratioLabel.center = self.center
+        ratioLabel.center = center
         
-        self.addSubview(ratioLabel)
+        addSubview(ratioLabel)
     }
 }

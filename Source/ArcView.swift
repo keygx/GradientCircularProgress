@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArcView : UIView {
+class ArcView: UIView {
     
     var prop: Property?
     var ratio: CGFloat = 1.0
@@ -22,18 +22,18 @@ class ArcView : UIView {
     init(frame: CGRect, lineWidth: CGFloat) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.clear
-        self.layer.masksToBounds = true
+        backgroundColor = UIColor.clear
+        layer.masksToBounds = true
         
         self.lineWidth = lineWidth
     }
     
     override func draw(_ rect: CGRect) {
         
-        drawArc(rect)
+        drawArc(rect: rect)
     }
     
-    private func drawArc(_ rect: CGRect) {
+    private func drawArc(rect: CGRect) {
         
         guard let prop = prop else {
             return
@@ -41,16 +41,16 @@ class ArcView : UIView {
         
         let circularRect: CGRect = prop.progressRect
         
-        let arcPoint: CGPoint = CGPoint(x: rect.width/2, y: rect.height/2)
-        let arcRadius: CGFloat = circularRect.width/2 + prop.arcLineWidth/2
+        let arcPoint: CGPoint      = CGPoint(x: rect.width/2, y: rect.height/2)
+        let arcRadius: CGFloat     = circularRect.width/2 + prop.arcLineWidth/2
         let arcStartAngle: CGFloat = -CGFloat(M_PI_2)
-        let arcEndAngle: CGFloat = ratio * 2.0 * CGFloat(M_PI) - CGFloat(M_PI_2)
+        let arcEndAngle: CGFloat   = ratio * 2.0 * CGFloat(M_PI) - CGFloat(M_PI_2)
         
         let arc: UIBezierPath = UIBezierPath(arcCenter: arcPoint,
-            radius: arcRadius,
-            startAngle: arcStartAngle,
-            endAngle: arcEndAngle,
-            clockwise: true)
+                                             radius: arcRadius,
+                                             startAngle: arcStartAngle,
+                                             endAngle: arcEndAngle,
+                                             clockwise: true)
         
         color.setStroke()
         

@@ -195,7 +195,7 @@ public class AlertHelperKit {
     
     // Appear Alert
     private func show(_ vc: UIViewController, ac: UIAlertController) {
-        self.textFields = ac.textFields
+        textFields = ac.textFields
         vc.present(ac, animated: animated, completion: completionHandler)
     }
     
