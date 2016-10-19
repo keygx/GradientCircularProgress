@@ -8,9 +8,9 @@
 
 import UIKit
 
-class GradientArcWithClearColorView : UIView {
+class GradientArcWithClearColorView: UIView {
     
-    internal func draw(_ rect: CGRect, prop: Property) -> UIImageView {
+    internal func draw(rect: CGRect, prop: Property) -> UIImageView {
         // Gradient Clear Circular
         
         /* Prop */
@@ -47,35 +47,35 @@ class GradientArcWithClearColorView : UIView {
         let startArcColorView = ArcView(frame: rect, lineWidth: startArcColorProp.arcLineWidth)
         startArcColorView.color = startArcColorProp.startArcColor
         startArcColorView.prop = startArcColorProp
-        let startArcColorImage = viewToUIImage(startArcColorView)!
+        let startArcColorImage = viewToUIImage(view: startArcColorView)!
         
         // StartGradientMaskImage
         let startGradientMaskView = GradientArcView(frame: rect)
         startGradientMaskView.prop = startGradientMaskProp
-        let startGradientMaskImage = viewToUIImage(startGradientMaskView)!
+        let startGradientMaskImage = viewToUIImage(view: startGradientMaskView)!
         
         // EndArcColorImage
         let endArcColorView = ArcView(frame: rect, lineWidth: endArcColorProp.arcLineWidth)
         endArcColorView.color = endArcColorProp.startArcColor
         endArcColorView.prop = endArcColorProp
-        let endArcColorImage = viewToUIImage(endArcColorView)!
+        let endArcColorImage = viewToUIImage(view: endArcColorView)!
         
         // EndGradientMaskImage
         let endGradientMaskView = GradientArcView(frame: rect)
         endGradientMaskView.prop = endGradientMaskProp
-        let endGradientMaskImage = viewToUIImage(endGradientMaskView)!
+        let endGradientMaskImage = viewToUIImage(view: endGradientMaskView)!
         
         // SolidMaskImage
         let solidMaskView = ArcView(frame: rect, lineWidth: solidMaskProp.arcLineWidth)
         solidMaskView.prop = solidMaskProp
-        let solidMaskImage = viewToUIImage(solidMaskView)!
+        let solidMaskImage = viewToUIImage(view: solidMaskView)!
         
         /* Masking */
-        var startArcImage = mask(startGradientMaskImage, maskImage: solidMaskImage)
-        startArcImage = mask(startArcColorImage, maskImage: startArcImage)
+        var startArcImage = mask(image: startGradientMaskImage, maskImage: solidMaskImage)
+        startArcImage = mask(image: startArcColorImage, maskImage: startArcImage)
         
-        var endArcImage = mask(endGradientMaskImage, maskImage: solidMaskImage)
-        endArcImage = mask(endArcColorImage, maskImage: endArcImage)
+        var endArcImage = mask(image: endGradientMaskImage, maskImage: solidMaskImage)
+        endArcImage = mask(image: endArcColorImage, maskImage: endArcImage)
         
         /* Composite */
         let image: UIImage = composite(image1: startArcImage, image2: endArcImage, prop: prop)
@@ -88,7 +88,7 @@ class GradientArcWithClearColorView : UIView {
         return imageView
     }
     
-    internal func mask(_ image: UIImage, maskImage: UIImage) -> UIImage {
+    internal func mask(image: UIImage, maskImage: UIImage) -> UIImage {
         
         let maskRef: CGImage = maskImage.cgImage!
         let mask: CGImage = CGImage(
@@ -108,7 +108,7 @@ class GradientArcWithClearColorView : UIView {
         return maskedImage
     }
     
-    internal func viewToUIImage(_ view: UIView) -> UIImage? {
+    internal func viewToUIImage(view: UIView) -> UIImage? {
         
         let scale = UIScreen.main.scale
         UIGraphicsBeginImageContextWithOptions(view.frame.size, false, scale)

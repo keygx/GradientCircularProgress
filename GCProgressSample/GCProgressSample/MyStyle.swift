@@ -8,7 +8,7 @@
 
 import GradientCircularProgress
 
-public struct MyStyle : StyleProperty {
+public struct MyStyle: StyleProperty {
     /*** style properties **********************************************************************************/
     
     // Progress Size

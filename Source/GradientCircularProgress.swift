@@ -35,7 +35,7 @@ extension GradientCircularProgress {
         
         // Use UIWindow
         if let vc = progressViewController {
-            vc.updateMessage(message)
+            vc.updateMessage(message: message)
         }
     }
     
@@ -65,10 +65,10 @@ extension GradientCircularProgress {
         }
         isAvailable = true
         
-        getProgressAtRatio(display, style: style)
+        getProgressAtRatio(display: display, style: style)
     }
     
-    private func getProgressAtRatio(_ display: Bool, style: StyleProperty) {
+    private func getProgressAtRatio(display: Bool, style: StyleProperty) {
         baseWindow = BaseWindow()
         progressViewController = ProgressViewController()
         
@@ -78,7 +78,7 @@ extension GradientCircularProgress {
         
         win.rootViewController = vc
         win.backgroundColor = UIColor.clear
-        vc.arc(display, style: style)
+        vc.arc(display: display, style: style)
     }
     
     public func show(style: StyleProperty = Style()) {
@@ -109,7 +109,7 @@ extension GradientCircularProgress {
         
         win.rootViewController = vc
         win.backgroundColor = UIColor.clear
-        vc.circle(message, style: style)
+        vc.circle(message: message, style: style)
     }
     
     public func dismiss() {

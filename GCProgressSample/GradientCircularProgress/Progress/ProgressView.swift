@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProgressView : UIView {
+class ProgressView: UIView {
     
     private var viewRect: CGRect?
     private var blurView: UIVisualEffectView?
@@ -26,16 +26,16 @@ class ProgressView : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        initialize(frame)
+        initialize(frame: frame)
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
     
-    private func initialize(_ frame: CGRect) {
+    private func initialize(frame: CGRect) {
         viewRect = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
-        self.clipsToBounds = true
+        clipsToBounds = true
     }
     
     internal func arc(_ display: Bool, style: StyleProperty) {
@@ -46,7 +46,7 @@ class ProgressView : UIView {
             return
         }
         
-        self.isUserInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false
+        isUserInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false
         
         getBlurView()
         
@@ -57,19 +57,19 @@ class ProgressView : UIView {
         }
         
         progressAtRatioView.prop = prop
-        progressAtRatioView.initialize(progressAtRatioView.frame)
+        progressAtRatioView.initialize(frame: progressAtRatioView.frame)
         
         if display {
             progressAtRatioView.showRatio()
         }
         
         progressAtRatioView.frame = CGRect(
-            x: (self.frame.size.width - progressAtRatioView.frame.size.width) / 2,
-            y: (self.frame.size.height - progressAtRatioView.frame.size.height) / 2,
+            x: (frame.size.width - progressAtRatioView.frame.size.width) / 2,
+            y: (frame.size.height - progressAtRatioView.frame.size.height) / 2,
             width: progressAtRatioView.frame.size.width,
             height: progressAtRatioView.frame.size.height)
         
-        self.addSubview(progressAtRatioView)
+        addSubview(progressAtRatioView)
     }
     
     internal func circle(_ message: String?, style: StyleProperty) {
@@ -80,7 +80,7 @@ class ProgressView : UIView {
             return
         }
         
-        self.isUserInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false
+        isUserInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false
                 
         getBlurView()
         
@@ -91,19 +91,19 @@ class ProgressView : UIView {
         }
         
         circularProgressView.prop = prop
-        circularProgressView.initialize(circularProgressView.frame)
+        circularProgressView.initialize(frame: circularProgressView.frame)
         
         if let message = message {
             circularProgressView.showMessage(message)
         }
         
         circularProgressView.frame = CGRect(
-            x: (self.frame.size.width - circularProgressView.frame.size.width) / 2,
-            y: (self.frame.size.height - circularProgressView.frame.size.height) / 2,
+            x: (frame.size.width - circularProgressView.frame.size.width) / 2,
+            y: (frame.size.height - circularProgressView.frame.size.height) / 2,
             width: circularProgressView.frame.size.width,
             height: circularProgressView.frame.size.height)
         
-        self.addSubview(circularProgressView)
+        addSubview(circularProgressView)
     }
     
     internal func updateMessage(_ message: String) {
@@ -127,7 +127,7 @@ class ProgressView : UIView {
             return
         }
         
-        self.backgroundColor = UIColor.clear
-        self.addSubview(blurView)
+        backgroundColor = UIColor.clear
+        addSubview(blurView)
     }
 }

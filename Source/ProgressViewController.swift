@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProgressViewController : UIViewController {
+class ProgressViewController: UIViewController {
     
     private var viewRect: CGRect?
     private var blurView: UIVisualEffectView?
@@ -26,7 +26,7 @@ class ProgressViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.clear
+        view.backgroundColor = UIColor.clear
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,11 +71,11 @@ class ProgressViewController : UIViewController {
             return
         }
         
-        self.view.backgroundColor = UIColor.clear
-        self.view.addSubview(blurView)
+        view.backgroundColor = UIColor.clear
+        view.addSubview(blurView)
     }
     
-    internal func arc(_ display: Bool, style: StyleProperty) {
+    internal func arc(display: Bool, style: StyleProperty) {
         
         prop = Property(style: style)
         
@@ -96,17 +96,17 @@ class ProgressViewController : UIViewController {
         }
         
         progressAtRatioView.prop = prop
-        progressAtRatioView.initialize(progressAtRatioView.frame)
+        progressAtRatioView.initialize(frame: progressAtRatioView.frame)
         
         if display {
             progressAtRatioView.showRatio()
         }
         
-        progressAtRatioView.center = self.view.center
-        self.view.addSubview(progressAtRatioView)
+        progressAtRatioView.center = view.center
+        view.addSubview(progressAtRatioView)
     }
     
-    internal func circle(_ message: String?, style: StyleProperty) {
+    internal func circle(message: String?, style: StyleProperty) {
         
         prop = Property(style: style)
         
@@ -127,17 +127,17 @@ class ProgressViewController : UIViewController {
         }
         
         circularProgressView.prop = prop
-        circularProgressView.initialize(circularProgressView.frame)
+        circularProgressView.initialize(frame: circularProgressView.frame)
         
         if message != nil {
             circularProgressView.showMessage(message!)
         }
         
-        circularProgressView.center = self.view.center
-        self.view.addSubview(circularProgressView)
+        circularProgressView.center = view.center
+        view.addSubview(circularProgressView)
     }
     
-    internal func updateMessage(_ message: String) {
+    internal func updateMessage(message: String) {
         
         guard let circularProgressView = circularProgressView else {
             return

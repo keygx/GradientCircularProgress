@@ -7,7 +7,7 @@
 //
 
 
-public struct Style : StyleProperty {
+public struct Style: StyleProperty {
     // Progress Size
     public var progressSize: CGFloat = 220
     

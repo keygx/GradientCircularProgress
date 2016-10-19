@@ -7,7 +7,7 @@
 //
 
 
-public struct GreenLightStyle : StyleProperty {
+public struct GreenLightStyle: StyleProperty {
     // Progress Size
     public var progressSize: CGFloat = 200
     
