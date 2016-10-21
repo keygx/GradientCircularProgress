@@ -55,34 +55,61 @@ To integrate "GradientCircularProgress.framework" into your Xcode project
 * PodFile [Sample/PodFile]
 
 ```PodFile
-source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
-use_frameworks!
 
 target '<Your Target Name>' do
+    use_frameworks!
+    
     pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress'
+    
+    post_install do |installer|
+        installer.pods_project.targets.each do |target|
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '3.0'
+            end
+        end
+    end
+    
 end
 ```
 or
 
 ```PodFile
-source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
-use_frameworks!
 
 target '<Your Target Name>' do
+    use_frameworks!
+    
     pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress', :branch => 'branch-name'
+    
+    post_install do |installer|
+        installer.pods_project.targets.each do |target|
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '3.0'
+            end
+        end
+    end
+    
 end
 ```
 or
 
 ```PodFile
-source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
-use_frameworks!
 
 target '<Your Target Name>' do
+    use_frameworks!
+    
     pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress', :tag => 'tag'
+    
+    post_install do |installer|
+        installer.pods_project.targets.each do |target|
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '3.0'
+            end
+        end
+    end
+    
 end
 ```
 
@@ -130,6 +157,9 @@ public struct MyStyle : StyleProperty {
     
     // Background
     public var backgroundStyle: BackgroundStyles = .dark
+    
+    // Dismiss
+    public var dismissTimeInterval: Double? = 0.0 // 'nil' for default setting.
     
     /*** style properties **********************************************************************************/
     
