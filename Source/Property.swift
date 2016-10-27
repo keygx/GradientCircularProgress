@@ -30,6 +30,9 @@ public protocol StyleProperty {
     // Background
     var backgroundStyle: BackgroundStyles { get set }
     
+    // Dismiss
+    var dismissTimeInterval: Double? { get set }
+    
     // Initialize
     init()
 }
@@ -69,6 +72,9 @@ internal struct Property {
     // Background
     let backgroundStyle: BackgroundStyles
     
+    // Dismiss
+    let dismissTimeInterval: Double?
+    
     // Progress Rect
     var progressRect: CGRect {
         let lineWidth: CGFloat = (arcLineWidth > baseLineWidth!) ? arcLineWidth : baseLineWidth!
@@ -90,5 +96,6 @@ internal struct Property {
         messageLabelFont      = styles.messageLabelFont      ?? UIFont.systemFont(ofSize: 16.0)
         messageLabelFontColor = styles.messageLabelFontColor ?? UIColor.clear
         backgroundStyle       = styles.backgroundStyle
+        dismissTimeInterval   = styles.dismissTimeInterval    ?? 0.8
     }
 }

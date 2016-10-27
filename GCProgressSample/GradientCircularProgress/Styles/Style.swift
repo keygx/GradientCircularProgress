@@ -31,5 +31,8 @@ public struct Style: StyleProperty {
     // Background
     public var backgroundStyle: BackgroundStyles = .extraLight
     
+    // Dismiss
+    public var dismissTimeInterval: Double? = nil // 'nil' for default setting.
+    
     public init() {}
 }

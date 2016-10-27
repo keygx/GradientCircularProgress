@@ -31,5 +31,8 @@ public struct OrangeClearStyle: StyleProperty {
     // Background
     public var backgroundStyle: BackgroundStyles = .none
     
+    // Dismiss
+    public var dismissTimeInterval: Double? = nil // 'nil' for default setting.
+    
     public init() {}
 }

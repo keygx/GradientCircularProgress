@@ -14,6 +14,7 @@ public class GradientCircularProgress {
     
     fileprivate var progressViewController: ProgressViewController?
     fileprivate var progressView: ProgressView?
+    fileprivate var property: Property?
     
     public var isAvailable: Bool = false
     
@@ -64,6 +65,7 @@ extension GradientCircularProgress {
             return
         }
         isAvailable = true
+        property = Property(style: style)
         
         getProgressAtRatio(display: display, style: style)
     }
@@ -86,6 +88,7 @@ extension GradientCircularProgress {
             return
         }
         isAvailable = true
+        property = Property(style: style)
         
         getProgress(message: nil, style: style)
     }
@@ -95,6 +98,7 @@ extension GradientCircularProgress {
             return
         }
         isAvailable = true
+        property = Property(style: style)
         
         getProgress(message: message, style: style)
     }
@@ -117,11 +121,16 @@ extension GradientCircularProgress {
             return
         }
         
-        if let vc = progressViewController {
-            vc.dismiss(0.6)
+        guard let prop = property else {
+            return
         }
         
-        cleanup(1.4, completionHandler: nil)
+        if let vc = progressViewController {
+            vc.dismiss(prop.dismissTimeInterval!)
+        }
+        
+        cleanup(prop.dismissTimeInterval!, completionHandler: nil)
+        
     }
     
     public func dismiss(_ completionHandler: @escaping () -> Void) -> () {
@@ -129,11 +138,15 @@ extension GradientCircularProgress {
             return
         }
         
-        if let vc = progressViewController {
-            vc.dismiss(0.6)
+        guard let prop = property else {
+            return
         }
         
-        cleanup(1.4) { Void in
+        if let vc = progressViewController {
+            vc.dismiss(prop.dismissTimeInterval!)
+        }
+        
+        cleanup(prop.dismissTimeInterval!) { Void in
             completionHandler()
         }
     }
@@ -157,6 +170,7 @@ extension GradientCircularProgress {
                     win.isHidden = true
                     win.rootViewController = nil
                     baseWindow = nil
+                    self?.property = nil
                     self?.isAvailable = false
                     guard let completionHandler = completionHandler else {
                         return
@@ -176,6 +190,7 @@ extension GradientCircularProgress {
             return nil
         }
         isAvailable = true
+        property = Property(style: style)
         
         progressView = ProgressView(frame: frame)
         
@@ -193,6 +208,7 @@ extension GradientCircularProgress {
             return nil
         }
         isAvailable = true
+        property = Property(style: style)
         
         return getProgress(frame: frame, message: nil, style: style)
     }
@@ -202,6 +218,7 @@ extension GradientCircularProgress {
             return nil
         }
         isAvailable = true
+        property = Property(style: style)
         
         return getProgress(frame: frame, message: message, style: style)
     }
@@ -224,7 +241,11 @@ extension GradientCircularProgress {
             return
         }
         
-        cleanup(0.8, view: view, completionHandler: nil)
+        guard let prop = property else {
+            return
+        }
+        
+        cleanup(prop.dismissTimeInterval!, view: view, completionHandler: nil)
     }
     
     public func dismiss(progress view: UIView, completionHandler: @escaping () -> Void) -> () {
@@ -232,7 +253,11 @@ extension GradientCircularProgress {
             return
         }
         
-        cleanup(0.8, view: view) { Void in
+        guard let prop = property else {
+            return
+        }
+        
+        cleanup(prop.dismissTimeInterval!, view: view) { Void in
             completionHandler()
         }
     }
@@ -249,6 +274,7 @@ extension GradientCircularProgress {
                 },
                 completion: { [weak self] finished in
                     view.removeFromSuperview()
+                    self?.property = nil
                     self?.isAvailable = false
                     guard let completionHandler = completionHandler else {
                         return

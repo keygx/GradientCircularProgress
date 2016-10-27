@@ -31,5 +31,8 @@ public struct GreenLightStyle: StyleProperty {
     // Background
     public var backgroundStyle: BackgroundStyles = .light
     
+    // Dismiss
+    public var dismissTimeInterval: Double? = nil // 'nil' for default setting.
+    
     public init() {}
 }

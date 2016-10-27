@@ -31,5 +31,8 @@ public struct BlueDarkStyle: StyleProperty {
     // Background
     public var backgroundStyle: BackgroundStyles = .dark
     
+    // Dismiss
+    public var dismissTimeInterval: Double? = nil // 'nil' for default setting.
+    
     public init() {}
 }

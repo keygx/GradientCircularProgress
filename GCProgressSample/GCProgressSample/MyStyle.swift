@@ -34,6 +34,9 @@ public struct MyStyle: StyleProperty {
     // Background
     public var backgroundStyle: BackgroundStyles = .dark
     
+    // Dismiss
+    public var dismissTimeInterval: Double? = 0.0 // 'nil' for default setting.
+    
     /*** style properties **********************************************************************************/
     
     public init() {}
