@@ -7,7 +7,7 @@
 //
 
 
-public struct BlueIndicatorStyle : StyleProperty {
+public struct BlueIndicatorStyle: StyleProperty {
     // Progress Size
     public var progressSize: CGFloat = 44
     
@@ -30,6 +30,9 @@ public struct BlueIndicatorStyle : StyleProperty {
     
     // Background
     public var backgroundStyle: BackgroundStyles = .none
+    
+    // Dismiss
+    public var dismissTimeInterval: Double? = nil // 'nil' for default setting.
     
     public init() {}
 }

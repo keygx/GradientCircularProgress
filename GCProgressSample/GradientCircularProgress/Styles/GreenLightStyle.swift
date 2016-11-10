@@ -7,7 +7,7 @@
 //
 
 
-public struct GreenLightStyle : StyleProperty {
+public struct GreenLightStyle: StyleProperty {
     // Progress Size
     public var progressSize: CGFloat = 200
     
@@ -30,6 +30,9 @@ public struct GreenLightStyle : StyleProperty {
     
     // Background
     public var backgroundStyle: BackgroundStyles = .light
+    
+    // Dismiss
+    public var dismissTimeInterval: Double? = nil // 'nil' for default setting.
     
     public init() {}
 }

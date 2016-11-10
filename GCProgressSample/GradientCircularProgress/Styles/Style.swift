@@ -7,7 +7,7 @@
 //
 
 
-public struct Style : StyleProperty {
+public struct Style: StyleProperty {
     // Progress Size
     public var progressSize: CGFloat = 220
     
@@ -30,6 +30,9 @@ public struct Style : StyleProperty {
     
     // Background
     public var backgroundStyle: BackgroundStyles = .extraLight
+    
+    // Dismiss
+    public var dismissTimeInterval: Double? = nil // 'nil' for default setting.
     
     public init() {}
 }

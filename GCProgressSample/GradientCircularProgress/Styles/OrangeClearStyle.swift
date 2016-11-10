@@ -7,7 +7,7 @@
 //
 
 
-public struct OrangeClearStyle : StyleProperty {
+public struct OrangeClearStyle: StyleProperty {
     // Progress Size
     public var progressSize: CGFloat = 80
     
@@ -30,6 +30,9 @@ public struct OrangeClearStyle : StyleProperty {
     
     // Background
     public var backgroundStyle: BackgroundStyles = .none
+    
+    // Dismiss
+    public var dismissTimeInterval: Double? = nil // 'nil' for default setting.
     
     public init() {}
 }

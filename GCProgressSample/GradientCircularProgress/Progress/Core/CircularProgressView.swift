@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CircularProgressView : UIView {
+class CircularProgressView: UIView {
     
     var prop: Property?
     var messageLabel = UILabel()
@@ -16,7 +16,7 @@ class CircularProgressView : UIView {
     
     var message: String? {
         willSet {
-            messageLabel.frame = self.frame
+            messageLabel.frame = frame
             messageLabel.text = newValue
             
             guard let message = messageLabel.text else {
@@ -25,17 +25,16 @@ class CircularProgressView : UIView {
             
             // Attribute
             let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineHeightMultiple = 1.2;
+            paragraphStyle.lineHeightMultiple = 1.2
             paragraphStyle.alignment = NSTextAlignment.center
             let attr = [NSParagraphStyleAttributeName: paragraphStyle]
             let attributedString = NSMutableAttributedString(string: message, attributes: attr)
             
             messageLabel.attributedText = attributedString
-            
             messageLabel.sizeToFit()
             
             if centerPoint == nil {
-                centerPoint = self.center
+                centerPoint = center
             }
             
             if let center = centerPoint {
@@ -48,15 +47,13 @@ class CircularProgressView : UIView {
     
     private struct Animation {
         var rotationZ: CABasicAnimation {
-            get {
-                let animation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-                animation.duration = 0.8
-                animation.repeatCount = HUGE
-                animation.fromValue = NSNumber(value: 0.0)
-                animation.toValue = NSNumber(value: 2 * Float(M_PI))
-                
-                return animation
-            }
+            let animation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+            animation.duration = 0.8
+            animation.repeatCount = HUGE
+            animation.fromValue = NSNumber(value: 0.0)
+            animation.toValue = NSNumber(value: 2 * Float(M_PI))
+            
+            return animation
         }
         
         init() {}
@@ -73,8 +70,8 @@ class CircularProgressView : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.clear
-        self.layer.masksToBounds = true
+        backgroundColor = UIColor.clear
+        layer.masksToBounds = true
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(viewDidEnterBackground(_:)),
@@ -102,7 +99,7 @@ class CircularProgressView : UIView {
         Animation().start(gradientLayer)
     }
     
-    internal func initialize(_ frame: CGRect) {
+    internal func initialize(frame: CGRect) {
         
         guard let prop = prop else {
             return
@@ -115,14 +112,14 @@ class CircularProgressView : UIView {
             let circular: ArcView = ArcView(frame: rect, lineWidth: baseLineWidth)
             circular.color = baseArcColor
             circular.prop = prop
-            self.addSubview(circular)
+            addSubview(circular)
         }
         
         // Gradient Circular
         if ColorUtil.toRGBA(color: prop.startArcColor).a < 1.0 || ColorUtil.toRGBA(color: prop.endArcColor).a < 1.0 {
             // Clear Color
-            let gradient: UIView = GradientArcWithClearColorView().draw(rect, prop: prop)
-            self.addSubview(gradient)
+            let gradient: UIView = GradientArcWithClearColorView().draw(rect: rect, prop: prop)
+            addSubview(gradient)
             
             gradientLayer = gradient.layer
             Animation().start(gradientLayer)
@@ -131,7 +128,7 @@ class CircularProgressView : UIView {
             // Opaque Color
             let gradient: GradientArcView = GradientArcView(frame: rect)
             gradient.prop = prop
-            self.addSubview(gradient)
+            addSubview(gradient)
             
             gradientLayer = gradient.layer
             Animation().start(gradientLayer)
@@ -150,7 +147,7 @@ class CircularProgressView : UIView {
         messageLabel.textColor = prop.messageLabelFontColor
         messageLabel.numberOfLines = 0
 
-        self.addSubview(messageLabel)
+        addSubview(messageLabel)
         
         self.message = message
     }
