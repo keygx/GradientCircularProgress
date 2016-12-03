@@ -11,27 +11,40 @@ struct Background {
     
     internal func blurEffectView(fromBlurStyle style: BackgroundStyles, frame: CGRect) -> UIVisualEffectView? {
         
-        guard let backgroundStyle = getStyle(style) else {
-            return nil
+        var blurView: UIVisualEffectView?
+        
+        // return (blurEffectStyle: UIBlurEffectStyle?, isUserInteraction: Bool)
+        let backgroundStyle = getStyle(style)
+        
+        if let blur = backgroundStyle.blurEffectStyle {
+            // UIBlurEffectStyle (.extraLight, .light, .dark)
+            let effect = UIBlurEffect(style: blur)
+            blurView = UIVisualEffectView(effect: effect)
+        
+        } else {
+            if !backgroundStyle.isUserInteraction {
+                // .transparent
+                blurView = UIVisualEffectView(effect: nil)
+            }
         }
         
-        let effect = UIBlurEffect(style: backgroundStyle)
-        let blurView = UIVisualEffectView(effect: effect)
-        blurView.frame = frame
-        
+        blurView?.frame = frame
         return blurView
     }
     
-    private func getStyle(_ style: BackgroundStyles) -> UIBlurEffectStyle? {
+    private func getStyle(_ style: BackgroundStyles) -> (blurEffectStyle: UIBlurEffectStyle?, isUserInteraction: Bool) {
         switch style {
         case .extraLight:
-            return .extraLight
+            return (.extraLight, false)
         case .light:
-            return .light
+            return (.light, false)
         case .dark:
-            return .dark
+            return (.dark, false)
+        case .transparent:
+            return (nil, false)
         default:
-            return nil
+            // .none
+            return (nil, true)
         }
     }
 }
