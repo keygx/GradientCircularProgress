@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         ("GreenLightStyle.swift", GreenLightStyle()),
         ("BlueIndicatorStyle.swift", BlueIndicatorStyle()),
         ("MyStyle.swift", MyStyle()),
+        ("BackgroundTransparentStyle", BackgroundTransparentStyle()),
     ]
     
     var usageType: UsageType = .window
@@ -99,6 +100,9 @@ class ViewController: UIViewController {
                 self.seletedStyleIndex = buttonIndex - 1
                 self.btnUpdateMessage.status = .disabled
             case 6:
+                self.seletedStyleIndex = buttonIndex - 1
+                self.btnUpdateMessage.status = .normal
+            case 7:
                 self.seletedStyleIndex = buttonIndex - 1
                 self.btnUpdateMessage.status = .normal
             default: break

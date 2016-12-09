@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		360F44AB1DF27B2800835EA0 /* BackgroundTransparentStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360F44AA1DF27B2800835EA0 /* BackgroundTransparentStyle.swift */; };
 		362C51F91C9AB926008C1C81 /* AlertHelperKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C51F81C9AB926008C1C81 /* AlertHelperKit.swift */; };
 		3632ED251C7833CD006484E5 /* AsyncUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3632ED241C7833CD006484E5 /* AsyncUtil.swift */; };
 		366555DE1C9D900F00767B90 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366555DD1C9D900F00767B90 /* MyButton.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		360F44AA1DF27B2800835EA0 /* BackgroundTransparentStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTransparentStyle.swift; sourceTree = "<group>"; };
 		362C51F81C9AB926008C1C81 /* AlertHelperKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelperKit.swift; sourceTree = "<group>"; };
 		3632ED241C7833CD006484E5 /* AsyncUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncUtil.swift; sourceTree = "<group>"; };
 		366555DD1C9D900F00767B90 /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				36CC1C811B37083E009DE1F8 /* AppDelegate.swift */,
 				36CC1C831B37083E009DE1F8 /* ViewController.swift */,
 				368F0E4D1C35319E008B1AC4 /* MyStyle.swift */,
+				360F44AA1DF27B2800835EA0 /* BackgroundTransparentStyle.swift */,
 				36CC1C851B37083E009DE1F8 /* Main.storyboard */,
 				36CC1C881B37083E009DE1F8 /* Images.xcassets */,
 				36CC1C8A1B37083E009DE1F8 /* LaunchScreen.xib */,
@@ -430,6 +433,7 @@
 			files = (
 				36CC1C841B37083E009DE1F8 /* ViewController.swift in Sources */,
 				362C51F91C9AB926008C1C81 /* AlertHelperKit.swift in Sources */,
+				360F44AB1DF27B2800835EA0 /* BackgroundTransparentStyle.swift in Sources */,
 				36CC1C821B37083E009DE1F8 /* AppDelegate.swift in Sources */,
 				3632ED251C7833CD006484E5 /* AsyncUtil.swift in Sources */,
 				368F0E4E1C35319E008B1AC4 /* MyStyle.swift in Sources */,

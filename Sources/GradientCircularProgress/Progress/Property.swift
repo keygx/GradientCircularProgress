@@ -42,6 +42,7 @@ public enum BackgroundStyles: Int {
     case extraLight
     case light
     case dark
+    case transparent
 }
 
 
