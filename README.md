@@ -3,7 +3,7 @@
 Customizable progress indicator library in Swift
 
 ## Requirements
-- Swift 3.0.1
+- Swift 3.0.2
 - iOS 8.0 or later
 
 ## Screen Shots
