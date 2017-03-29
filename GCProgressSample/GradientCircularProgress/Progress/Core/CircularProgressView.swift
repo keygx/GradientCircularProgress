@@ -51,7 +51,7 @@ class CircularProgressView: UIView {
             animation.duration = 0.8
             animation.repeatCount = HUGE
             animation.fromValue = NSNumber(value: 0.0)
-            animation.toValue = NSNumber(value: 2 * Float(M_PI))
+            animation.toValue = NSNumber(value: 2 * Float.pi)
             
             return animation
         }

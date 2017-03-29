@@ -43,8 +43,8 @@ class ArcView: UIView {
         
         let arcPoint: CGPoint      = CGPoint(x: rect.width/2, y: rect.height/2)
         let arcRadius: CGFloat     = circularRect.width/2 + prop.arcLineWidth/2
-        let arcStartAngle: CGFloat = -CGFloat(M_PI_2)
-        let arcEndAngle: CGFloat   = ratio * 2.0 * CGFloat(M_PI) - CGFloat(M_PI_2)
+        let arcStartAngle: CGFloat = -CGFloat.pi/2
+        let arcEndAngle: CGFloat   = ratio * 2.0 * CGFloat.pi - CGFloat.pi/2
         
         let arc: UIBezierPath = UIBezierPath(arcCenter: arcPoint,
                                              radius: arcRadius,
