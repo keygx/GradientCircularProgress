@@ -46,15 +46,7 @@ class GradientArcView: UIView {
         
         var currentAngle: CGFloat = 0.0
         
-        // workaround
-        var limit: CGFloat = 1.0 // 32bit
-        if MemoryLayout<CGFloat>.size == 8 {
-            limit = 1.01 // 64bit
-        }
-        
-        var i: CGFloat = 0.0
-        
-        while i <= limit {
+        for i in stride(from:CGFloat(0.0), through: CGFloat(1.0), by: CGFloat(0.005)) {
             
             let arcPoint: CGPoint = CGPoint(x: rect.width/2, y: rect.height/2)
             let arcRadius: CGFloat = circularRect.width/2 + prop.arcLineWidth/2
@@ -64,7 +56,7 @@ class GradientArcView: UIView {
             if currentAngle == 0.0 {
                 currentAngle = arcStartAngle
             } else {
-                currentAngle = arcEndAngle - 0.1
+                currentAngle = arcEndAngle - 0.05
             }
             
             let arc: UIBezierPath = UIBezierPath(arcCenter: arcPoint,
@@ -79,8 +71,6 @@ class GradientArcView: UIView {
             arc.lineWidth = prop.arcLineWidth
             arc.lineCapStyle = prop.arcLineCapStyle
             arc.stroke()
-            
-            i += 0.01
         }
     }
 }
