@@ -12,9 +12,9 @@ internal var baseWindow: BaseWindow?
 
 public class GradientCircularProgress {
     
-    fileprivate var progressViewController: ProgressViewController?
-    fileprivate var progressView: ProgressView?
-    fileprivate var property: Property?
+    private var progressViewController: ProgressViewController?
+    private var progressView: ProgressView?
+    private var property: Property?
     
     public var isAvailable: Bool = false
     
@@ -146,7 +146,7 @@ extension GradientCircularProgress {
             vc.dismiss(prop.dismissTimeInterval!)
         }
         
-        cleanup(prop.dismissTimeInterval!) { Void in
+        cleanup(prop.dismissTimeInterval!) {
             completionHandler()
         }
     }
@@ -257,7 +257,7 @@ extension GradientCircularProgress {
             return
         }
         
-        cleanup(prop.dismissTimeInterval!, view: view) { Void in
+        cleanup(prop.dismissTimeInterval!, view: view) {
             completionHandler()
         }
     }

@@ -27,7 +27,7 @@ class CircularProgressView: UIView {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineHeightMultiple = 1.2
             paragraphStyle.alignment = NSTextAlignment.center
-            let attr = [NSParagraphStyleAttributeName: paragraphStyle]
+            let attr = [NSAttributedStringKey.paragraphStyle: paragraphStyle]
             let attributedString = NSMutableAttributedString(string: message, attributes: attr)
             
             messageLabel.attributedText = attributedString
