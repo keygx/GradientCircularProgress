@@ -8,13 +8,12 @@
 
 import UIKit
 
-internal var baseWindow: BaseWindow?
-
 public class GradientCircularProgress {
     
-    fileprivate var progressViewController: ProgressViewController?
-    fileprivate var progressView: ProgressView?
-    fileprivate var property: Property?
+    private var baseWindow: BaseWindow?
+    private var progressViewController: ProgressViewController?
+    private var progressView: ProgressView?
+    private var property: Property?
     
     public var isAvailable: Bool = false
     
@@ -80,7 +79,7 @@ extension GradientCircularProgress {
         
         win.rootViewController = vc
         win.backgroundColor = UIColor.clear
-        vc.arc(display: display, style: style)
+        vc.arc(display: display, style: style, baseWindow: baseWindow)
     }
     
     public func show(style: StyleProperty = Style()) {
@@ -113,7 +112,7 @@ extension GradientCircularProgress {
         
         win.rootViewController = vc
         win.backgroundColor = UIColor.clear
-        vc.circle(message: message, style: style)
+        vc.circle(message: message, style: style, baseWindow: baseWindow)
     }
     
     public func dismiss() {
@@ -146,7 +145,7 @@ extension GradientCircularProgress {
             vc.dismiss(prop.dismissTimeInterval!)
         }
         
-        cleanup(prop.dismissTimeInterval!) { Void in
+        cleanup(prop.dismissTimeInterval!) {
             completionHandler()
         }
     }
@@ -155,8 +154,8 @@ extension GradientCircularProgress {
         let delay = t * Double(NSEC_PER_SEC)
         let time  = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
         
-        DispatchQueue.main.asyncAfter(deadline: time) {
-            guard let win = baseWindow else {
+        DispatchQueue.main.asyncAfter(deadline: time) { [weak self] in
+            guard let win = self?.baseWindow else {
                 return
             }
             
@@ -165,11 +164,11 @@ extension GradientCircularProgress {
                 animations: {
                     win.alpha = 0
                 },
-                completion: { [weak self] finished in
+                completion: { finished in
                     self?.progressViewController = nil
                     win.isHidden = true
                     win.rootViewController = nil
-                    baseWindow = nil
+                    self?.baseWindow = nil
                     self?.property = nil
                     self?.isAvailable = false
                     guard let completionHandler = completionHandler else {
@@ -257,7 +256,7 @@ extension GradientCircularProgress {
             return
         }
         
-        cleanup(prop.dismissTimeInterval!, view: view) { Void in
+        cleanup(prop.dismissTimeInterval!, view: view) {
             completionHandler()
         }
     }

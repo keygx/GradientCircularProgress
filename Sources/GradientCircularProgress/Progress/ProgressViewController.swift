@@ -75,7 +75,7 @@ class ProgressViewController: UIViewController {
         view.addSubview(blurView)
     }
     
-    internal func arc(display: Bool, style: StyleProperty) {
+    internal func arc(display: Bool, style: StyleProperty, baseWindow: BaseWindow?) {
         
         prop = Property(style: style)
         
@@ -106,7 +106,7 @@ class ProgressViewController: UIViewController {
         view.addSubview(progressAtRatioView)
     }
     
-    internal func circle(message: String?, style: StyleProperty) {
+    internal func circle(message: String?, style: StyleProperty, baseWindow: BaseWindow?) {
         
         prop = Property(style: style)
         

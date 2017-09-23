@@ -241,7 +241,7 @@ extension ViewController {
         RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
     }
     
-    func updateMessage() {
+    @objc func updateMessage() {
         v += 0.002
         
         if v > 1.00 {
@@ -285,7 +285,7 @@ extension ViewController {
         RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
     }
     
-    func updateProgressAtRatio() {
+    @objc func updateProgressAtRatio() {
         v += 0.01
         
         progress.updateRatio(CGFloat(v))
