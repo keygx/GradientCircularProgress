@@ -91,6 +91,15 @@ class CircularProgressView: UIView {
         NotificationCenter.default.removeObserver(self)
     }
     
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        if window != nil {
+            Animation().start(gradientLayer)
+        } else {
+            Animation().stop(gradientLayer)
+        }
+    }
+    
     @objc private func viewDidEnterBackground(_ notification: Notification?) {
         Animation().stop(gradientLayer)
     }
