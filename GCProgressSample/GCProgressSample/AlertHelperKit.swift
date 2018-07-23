@@ -110,9 +110,11 @@ public class AlertHelperKit {
             
             switch parameters.popoverStyle {
             case .barButton:
-                popover.barButtonItem = sender as? UIBarButtonItem
+                guard let barButton = sender as? UIBarButtonItem else { return }
+                popover.barButtonItem = barButton
             default:
-                popover.sourceRect = sender.frame
+                guard let button = sender as? UIButton else { return }
+                popover.sourceRect = button.frame
             }
             
             popover.permittedArrowDirections = arrowDirection
@@ -122,7 +124,7 @@ public class AlertHelperKit {
     }
     
     // Build AlertController
-    private func buildAlertController(_ style: UIAlertControllerStyle, params: Parameters, handler: @escaping (Int) -> ()) -> UIAlertController {
+    private func buildAlertController(_ style: UIAlertController.Style, params: Parameters, handler: @escaping (Int) -> ()) -> UIAlertController {
         
         let alertController = UIAlertController(title: params.title, message: params.message, preferredStyle: style)
         let destructivOffset = 1

@@ -59,7 +59,7 @@ class MyButton: UIButton {
             setTitleColor(disabledColor, for: .disabled)
             layer.borderColor = disabledColor.cgColor
         default:
-            setTitleColor(defaultColor, for: UIControlState())
+            setTitleColor(defaultColor, for: UIControl.State())
             layer.borderColor = defaultColor.cgColor
         }
     }
