@@ -32,7 +32,7 @@ struct Background {
         return blurView
     }
     
-    private func getStyle(_ style: BackgroundStyles) -> (blurEffectStyle: UIBlurEffectStyle?, isUserInteraction: Bool) {
+    private func getStyle(_ style: BackgroundStyles) -> (blurEffectStyle: UIBlurEffect.Style?, isUserInteraction: Bool) {
         switch style {
         case .extraLight:
             return (.extraLight, false)

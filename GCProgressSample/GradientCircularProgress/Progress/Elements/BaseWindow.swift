@@ -27,7 +27,7 @@ class BaseWindow: UIWindow {
         }
         
         backgroundColor = UIColor.clear
-        windowLevel = UIWindowLevelAlert + 1
+        windowLevel = UIWindow.Level.alert + 1
         
         makeKey()
         
