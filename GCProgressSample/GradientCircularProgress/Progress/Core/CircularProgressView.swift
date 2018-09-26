@@ -75,11 +75,11 @@ class CircularProgressView: UIView {
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(viewDidEnterBackground(_:)),
-                                               name: UIApplication.didEnterBackgroundNotification,
+                                               name: NSNotification.Name.UIApplicationDidEnterBackground,
                                                object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(viewWillEnterForeground(_:)),
-                                               name: UIApplication.willEnterForegroundNotification,
+                                               name: NSNotification.Name.UIApplicationWillEnterForeground,
                                                object: nil)
     }
     
