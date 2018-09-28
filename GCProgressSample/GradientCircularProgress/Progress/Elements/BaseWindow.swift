@@ -27,12 +27,17 @@ class BaseWindow: UIWindow {
         }
         
         backgroundColor = UIColor.clear
+        #if swift(>=4.2)
+        windowLevel = UIWindow.Level.alert + 1
+        #else
         windowLevel = UIWindowLevelAlert + 1
-        
+        #endif
+
         makeKey()
         
         makeKeyAndVisible()
     }
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
