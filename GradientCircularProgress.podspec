@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "GradientCircularProgress"
-  s.version = "3.10.0"
+  s.version = "3.10.1"
   s.summary = "Customizable progress indicator library in Swift"
   s.homepage = "https://github.com/keygx/GradientCircularProgress"
   s.license = { :type => "MIT", :file => "LICENSE" }
@@ -9,7 +9,6 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.ios.deployment_target = '8.0'
   s.source = { :git => "https://github.com/keygx/GradientCircularProgress.git", :tag => "#{s.version}" }
-  s.source_files = "Sources/**/*.{swift,h,m}"
-  s.source_files = "GCProgressSample/GradientCircularProgress/**/*"
+  s.source_files = "source/**/*"
   s.requires_arc = true
 end
