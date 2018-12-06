@@ -5,7 +5,7 @@
 //  Created by keygx on 2015/11/24.
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
-
+import UIKit
 
 public struct OrangeClearStyle: StyleProperty {
     // Progress Size
