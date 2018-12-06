@@ -5,7 +5,7 @@
 //  Created by keygx on 2016/12/03.
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
-
+import UIKit
 import GradientCircularProgress
 
 public struct BackgroundTransparentStyle: StyleProperty {

@@ -83,7 +83,7 @@ class ProgressViewController: UIViewController {
             return
         }
         
-        win.isUserInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false // 0 == .None
+        win.isUserInteractionEnabled = !(prop.backgroundStyle.rawValue == 0) ? true : false // 0 == .None
         
         getViewRect()
         
@@ -114,7 +114,7 @@ class ProgressViewController: UIViewController {
             return
         }
         
-        win.isUserInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false // 0 == .None
+        win.isUserInteractionEnabled = !(prop.backgroundStyle.rawValue == 0) ? true : false // 0 == .None
         
         getViewRect()
         

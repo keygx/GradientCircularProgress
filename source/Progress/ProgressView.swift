@@ -46,7 +46,7 @@ class ProgressView: UIView {
             return
         }
         
-        isUserInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false
+        isUserInteractionEnabled = !(prop.backgroundStyle.rawValue == 0) ? true : false
         
         getBlurView()
         
@@ -80,7 +80,7 @@ class ProgressView: UIView {
             return
         }
         
-        isUserInteractionEnabled = !(prop.backgroundStyle.hashValue == 0) ? true : false
+        isUserInteractionEnabled = !(prop.backgroundStyle.rawValue == 0) ? true : false
                 
         getBlurView()
         
