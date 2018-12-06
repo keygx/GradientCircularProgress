@@ -5,7 +5,7 @@
 //  Created by keygx on 2015/11/25.
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
-
+import UIKit
 import GradientCircularProgress
 
 public struct MyStyle: StyleProperty {

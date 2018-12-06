@@ -5,7 +5,7 @@
 //  Created by keygx on 2015/08/31.
 //  Copyright (c) 2015年 keygx. All rights reserved.
 //
-
+import UIKit
 
 public struct BlueDarkStyle: StyleProperty {
     // Progress Size
