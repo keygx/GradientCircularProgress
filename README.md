@@ -23,13 +23,13 @@ Customizable progress indicator library in Swift
 
 ## Installation
 
-###Carthage
+### Carthage
 
 ```Cartfile
 github "keygx/GradientCircularProgress"
 ```
 
-###CocoaPods
+### CocoaPods
 
 ```PodFile
 pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress'
