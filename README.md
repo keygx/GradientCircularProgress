@@ -3,7 +3,7 @@
 Customizable progress indicator library in Swift
 
 ## Requirements
-- Swift 4.2
+- Swift 5
 - iOS 8.0 or later
 
 ## Screen Shots
@@ -25,99 +25,23 @@ Customizable progress indicator library in Swift
 
 ###Carthage
 
-* Cartfile
-
 ```Cartfile
 github "keygx/GradientCircularProgress"
 ```
-or
-
-```Cartfile
-github "keygx/GradientCircularProgress" "branch-name"
-```
-or
-
-```Cartfile
-github "keygx/GradientCircularProgress" "tag"
-```
-
-* install
-
-```
-$ carthage update
-```
-
-
-To integrate "GradientCircularProgress.framework" into your Xcode project
 
 ###CocoaPods
 
-* PodFile [Sample/PodFile]
-
 ```PodFile
-platform :ios, '8.0'
-
-target '<Your Target Name>' do
-    use_frameworks!
-    
-    pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress'
-    
-    post_install do |installer|
-        installer.pods_project.targets.each do |target|
-            target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '4.1'
-            end
-        end
-    end
-    
-end
-```
-or
-
-```PodFile
-platform :ios, '8.0'
-
-target '<Your Target Name>' do
-    use_frameworks!
-    
-    pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress', :branch => 'branch-name'
-    
-    post_install do |installer|
-        installer.pods_project.targets.each do |target|
-            target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '4.1'
-            end
-        end
-    end
-    
-end
-```
-or
-
-```PodFile
-platform :ios, '8.0'
-
-target '<Your Target Name>' do
-    use_frameworks!
-    
-    pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress', :tag => 'tag'
-    
-    post_install do |installer|
-        installer.pods_project.targets.each do |target|
-            target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '4.1'
-            end
-        end
-    end
-    
-end
+pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress'
 ```
 
-* install
+### Swift versions support
 
-```
-$ pod install
-```
+- Swift 5, tag "swift5"
+- Swift 4.2, tag "swift4.2"
+- Swift 4.1, tag "swift4.1"
+- Swift 4.0, tag "swift4.0"
+
 
 ## Style Settings
 
