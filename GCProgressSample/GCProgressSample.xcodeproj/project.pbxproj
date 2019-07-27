@@ -11,6 +11,7 @@
 		362C51F91C9AB926008C1C81 /* AlertHelperKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C51F81C9AB926008C1C81 /* AlertHelperKit.swift */; };
 		3632ED251C7833CD006484E5 /* AsyncUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3632ED241C7833CD006484E5 /* AsyncUtil.swift */; };
 		366555DE1C9D900F00767B90 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366555DD1C9D900F00767B90 /* MyButton.swift */; };
+		3667E0ED23392FEC002CCD9C /* WindowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3667E0EC23392FEC002CCD9C /* WindowBuilder.swift */; };
 		368F0E4E1C35319E008B1AC4 /* MyStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368F0E4D1C35319E008B1AC4 /* MyStyle.swift */; };
 		36CC1C821B37083E009DE1F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC1C811B37083E009DE1F8 /* AppDelegate.swift */; };
 		36CC1C841B37083E009DE1F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC1C831B37083E009DE1F8 /* ViewController.swift */; };
@@ -23,7 +24,6 @@
 		36CE2B5F1C93EA740084CE64 /* ProgressAtRatioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B4B1C93EA740084CE64 /* ProgressAtRatioView.swift */; };
 		36CE2B601C93EA740084CE64 /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B4D1C93EA740084CE64 /* ArcView.swift */; };
 		36CE2B611C93EA740084CE64 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B4E1C93EA740084CE64 /* Background.swift */; };
-		36CE2B621C93EA740084CE64 /* BaseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B4F1C93EA740084CE64 /* BaseWindow.swift */; };
 		36CE2B631C93EA740084CE64 /* GradientArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B501C93EA740084CE64 /* GradientArcView.swift */; };
 		36CE2B641C93EA740084CE64 /* GradientArcWithClearColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B511C93EA740084CE64 /* GradientArcWithClearColorView.swift */; };
 		36CE2B651C93EA740084CE64 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE2B521C93EA740084CE64 /* ProgressView.swift */; };
@@ -76,6 +76,7 @@
 		362C51F81C9AB926008C1C81 /* AlertHelperKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelperKit.swift; sourceTree = "<group>"; };
 		3632ED241C7833CD006484E5 /* AsyncUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncUtil.swift; sourceTree = "<group>"; };
 		366555DD1C9D900F00767B90 /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		3667E0EC23392FEC002CCD9C /* WindowBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowBuilder.swift; sourceTree = "<group>"; };
 		368F0E4D1C35319E008B1AC4 /* MyStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStyle.swift; sourceTree = "<group>"; };
 		36CC1C7C1B37083E009DE1F8 /* GCProgressSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCProgressSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CC1C801B37083E009DE1F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,7 +93,6 @@
 		36CE2B4B1C93EA740084CE64 /* ProgressAtRatioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressAtRatioView.swift; sourceTree = "<group>"; };
 		36CE2B4D1C93EA740084CE64 /* ArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcView.swift; sourceTree = "<group>"; };
 		36CE2B4E1C93EA740084CE64 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
-		36CE2B4F1C93EA740084CE64 /* BaseWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWindow.swift; sourceTree = "<group>"; };
 		36CE2B501C93EA740084CE64 /* GradientArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientArcView.swift; sourceTree = "<group>"; };
 		36CE2B511C93EA740084CE64 /* GradientArcWithClearColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientArcWithClearColorView.swift; sourceTree = "<group>"; };
 		36CE2B521C93EA740084CE64 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 			children = (
 				36CE2B4D1C93EA740084CE64 /* ArcView.swift */,
 				36CE2B4E1C93EA740084CE64 /* Background.swift */,
-				36CE2B4F1C93EA740084CE64 /* BaseWindow.swift */,
+				3667E0EC23392FEC002CCD9C /* WindowBuilder.swift */,
 				36CE2B501C93EA740084CE64 /* GradientArcView.swift */,
 				36CE2B511C93EA740084CE64 /* GradientArcWithClearColorView.swift */,
 			);
@@ -357,7 +357,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = keygx;
 				TargetAttributes = {
 					36CC1C7B1B37083E009DE1F8 = {
@@ -454,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36CE2B5F1C93EA740084CE64 /* ProgressAtRatioView.swift in Sources */,
+				3667E0ED23392FEC002CCD9C /* WindowBuilder.swift in Sources */,
 				36CE2B681C93EA740084CE64 /* BlueDarkStyle.swift in Sources */,
 				36CE2B601C93EA740084CE64 /* ArcView.swift in Sources */,
 				36CE2B671C93EA740084CE64 /* Property.swift in Sources */,
@@ -462,7 +463,6 @@
 				36CE2B631C93EA740084CE64 /* GradientArcView.swift in Sources */,
 				36CE2B6C1C93EA740084CE64 /* Style.swift in Sources */,
 				36CE2B661C93EA740084CE64 /* ProgressViewController.swift in Sources */,
-				36CE2B621C93EA740084CE64 /* BaseWindow.swift in Sources */,
 				36CE2B611C93EA740084CE64 /* Background.swift in Sources */,
 				36CE2B641C93EA740084CE64 /* GradientArcWithClearColorView.swift in Sources */,
 				36CE2B6B1C93EA740084CE64 /* OrangeClearStyle.swift in Sources */,
@@ -626,12 +626,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 3.13.0;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GCProgressSample",
 				);
 				INFOPLIST_FILE = GCProgressSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 3.13.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keygraphix.ios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -647,12 +649,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 3.13.0;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GCProgressSample",
 				);
 				INFOPLIST_FILE = GCProgressSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 3.13.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keygraphix.ios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -697,9 +701,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3.13.0;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -712,6 +716,7 @@
 				INFOPLIST_FILE = GradientCircularProgress/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 3.13.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keygraphix.ios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -726,9 +731,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3.13.0;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -737,6 +742,7 @@
 				INFOPLIST_FILE = GradientCircularProgress/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 3.13.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keygraphix.ios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

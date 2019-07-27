@@ -10,7 +10,7 @@ import UIKit
 
 public class GradientCircularProgress {
     
-    private var baseWindow: BaseWindow?
+    private var baseWindow: UIWindow?
     private var progressViewController: ProgressViewController?
     private var progressView: ProgressView?
     private var property: Property?
@@ -70,7 +70,7 @@ extension GradientCircularProgress {
     }
     
     private func getProgressAtRatio(display: Bool, style: StyleProperty) {
-        baseWindow = BaseWindow()
+        baseWindow = WindowBuilder.build()
         progressViewController = ProgressViewController()
         
         guard let win = baseWindow, let vc = progressViewController else {
@@ -103,7 +103,7 @@ extension GradientCircularProgress {
     }
     
     private func getProgress(message: String?, style: StyleProperty) {
-        baseWindow = BaseWindow()
+        baseWindow = WindowBuilder.build()
         progressViewController = ProgressViewController()
         
         guard let win = baseWindow, let vc = progressViewController else {
