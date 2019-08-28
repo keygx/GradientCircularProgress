@@ -10,7 +10,7 @@ import UIKit
 
 class BaseWindow: UIWindow {
     
-    override init(frame: CGRect) {
+    override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         
         let orientation: UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
