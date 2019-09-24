@@ -38,12 +38,15 @@ class ProgressViewController: UIViewController {
     }
     
     override var prefersStatusBarHidden: Bool {
-        let orientation:UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
+        let orientation: UIInterfaceOrientation
+        if #available(iOS 13.0, *) {
+            orientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation ?? .portrait
+        } else {
+            orientation = UIApplication.shared.statusBarOrientation
+        }
         
         switch orientation {
-        case .landscapeLeft:
-            fallthrough
-        case .landscapeRight:
+        case .landscapeLeft, .landscapeRight:
             // LandscapeLeft | LandscapeRight
             return true
         default:
@@ -75,7 +78,7 @@ class ProgressViewController: UIViewController {
         view.addSubview(blurView)
     }
     
-    internal func arc(display: Bool, style: StyleProperty, baseWindow: BaseWindow?) {
+    internal func arc(display: Bool, style: StyleProperty, baseWindow: UIWindow?) {
         
         prop = Property(style: style)
         
@@ -106,7 +109,7 @@ class ProgressViewController: UIViewController {
         view.addSubview(progressAtRatioView)
     }
     
-    internal func circle(message: String?, style: StyleProperty, baseWindow: BaseWindow?) {
+    internal func circle(message: String?, style: StyleProperty, baseWindow: UIWindow?) {
         
         prop = Property(style: style)
         
