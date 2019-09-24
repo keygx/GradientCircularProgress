@@ -3,7 +3,7 @@
 Customizable progress indicator library in Swift
 
 ## Requirements
-- Swift 5
+- Swift 5.1
 - iOS 8.0 or later
 
 ## Screen Shots
@@ -37,6 +37,7 @@ pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircul
 
 ### Swift versions support
 
+- Swift 5.1, tag "swift5.1"
 - Swift 5, tag "swift5"
 - Swift 4.2, tag "swift4.2"
 - Swift 4.1, tag "swift4.1"
