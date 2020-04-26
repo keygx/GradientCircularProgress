@@ -104,8 +104,13 @@ class ProgressAtRatioView: UIView {
         ratioLabel.font = prop.ratioLabelFont
         ratioLabel.textAlignment = NSTextAlignment.right
         ratioLabel.textColor = prop.ratioLabelFontColor
-        ratioLabel.sizeToFit()
+        ratioLabel.frame.size = (ratioLabel.text as! NSString).boundingRect(
+            with: CGSize(width: prop.progressSize, height: CGFloat.infinity),
+            options: .usesLineFragmentOrigin,
+            attributes: [.font: ratioLabel.font],
+            context: nil).size
         ratioLabel.center = center
+        ratioLabel.adjustsFontSizeToFitWidth = true
         
         addSubview(ratioLabel)
     }
