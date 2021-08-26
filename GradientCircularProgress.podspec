@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.ios.deployment_target = '8.0'
   s.source = { :git => "https://github.com/keygx/GradientCircularProgress.git", :tag => "#{s.version}" }
-  s.source_files = "source/**/*"
+  s.source_files = "Sources/GradientCircularProgress/"
   s.requires_arc = true
 end
