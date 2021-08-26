@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "36F742BA1B3A7016003D799C"
+               BlueprintIdentifier = "GradientCircularProgress::GradientCircularProgress"
                BuildableName = "GradientCircularProgress.framework"
                BlueprintName = "GradientCircularProgress"
-               ReferencedContainer = "container:GCProgressSample.xcodeproj">
+               ReferencedContainer = "container:GradientCircularProgress.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,15 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "36F742BA1B3A7016003D799C"
-            BuildableName = "GradientCircularProgress.framework"
-            BlueprintName = "GradientCircularProgress"
-            ReferencedContainer = "container:GCProgressSample.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -59,10 +50,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "36F742BA1B3A7016003D799C"
+            BlueprintIdentifier = "GradientCircularProgress::GradientCircularProgress"
             BuildableName = "GradientCircularProgress.framework"
             BlueprintName = "GradientCircularProgress"
-            ReferencedContainer = "container:GCProgressSample.xcodeproj">
+            ReferencedContainer = "container:GradientCircularProgress.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

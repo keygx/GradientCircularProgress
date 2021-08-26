@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		"GradientCircularProgress::GradientCircularProgressPackageTests::ProductTarget" /* GradientCircularProgressPackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_30 /* Build configuration list for PBXAggregateTarget "GradientCircularProgressPackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_33 /* PBXTargetDependency */,
+			);
+			name = GradientCircularProgressPackageTests;
+			productName = GradientCircularProgressPackageTests;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		10D3283826D799E400119AB8 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3282226D799E400119AB8 /* Property.swift */; };
+		10D3283926D799E400119AB8 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3282426D799E400119AB8 /* CircularProgressView.swift */; };
+		10D3283A26D799E400119AB8 /* ProgressAtRatioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3282526D799E400119AB8 /* ProgressAtRatioView.swift */; };
+		10D3283B26D799E400119AB8 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3282626D799E400119AB8 /* ProgressView.swift */; };
+		10D3283C26D799E400119AB8 /* GradientArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3282826D799E400119AB8 /* GradientArcView.swift */; };
+		10D3283D26D799E400119AB8 /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3282926D799E400119AB8 /* ArcView.swift */; };
+		10D3283E26D799E400119AB8 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3282A26D799E400119AB8 /* Background.swift */; };
+		10D3283F26D799E400119AB8 /* WindowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3282B26D799E400119AB8 /* WindowBuilder.swift */; };
+		10D3284026D799E400119AB8 /* GradientArcWithClearColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3282C26D799E400119AB8 /* GradientArcWithClearColorView.swift */; };
+		10D3284126D799E400119AB8 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3282D26D799E400119AB8 /* ProgressViewController.swift */; };
+		10D3284226D799E400119AB8 /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3283026D799E400119AB8 /* ColorUtil.swift */; };
+		10D3284326D799E400119AB8 /* GreenLightStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3283226D799E400119AB8 /* GreenLightStyle.swift */; };
+		10D3284426D799E400119AB8 /* BlueIndicatorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3283326D799E400119AB8 /* BlueIndicatorStyle.swift */; };
+		10D3284526D799E400119AB8 /* BlueDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3283426D799E400119AB8 /* BlueDarkStyle.swift */; };
+		10D3284626D799E400119AB8 /* OrangeClearStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3283526D799E400119AB8 /* OrangeClearStyle.swift */; };
+		10D3284726D799E400119AB8 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3283626D799E400119AB8 /* Style.swift */; };
+		10D3284826D799E400119AB8 /* GradientCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3283726D799E400119AB8 /* GradientCircularProgress.swift */; };
+		OBJ_28 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_39 /* GradientCircularProgressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* GradientCircularProgressTests.swift */; };
+		OBJ_41 /* GradientCircularProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "GradientCircularProgress::GradientCircularProgress::Product" /* GradientCircularProgress.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10D3281E26D7990200119AB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "GradientCircularProgress::GradientCircularProgress";
+			remoteInfo = GradientCircularProgress;
+		};
+		10D3281F26D7996E00119AB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "GradientCircularProgress::GradientCircularProgressTests";
+			remoteInfo = GradientCircularProgressTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10D3282226D799E400119AB8 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		10D3282426D799E400119AB8 /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		10D3282526D799E400119AB8 /* ProgressAtRatioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressAtRatioView.swift; sourceTree = "<group>"; };
+		10D3282626D799E400119AB8 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		10D3282826D799E400119AB8 /* GradientArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientArcView.swift; sourceTree = "<group>"; };
+		10D3282926D799E400119AB8 /* ArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcView.swift; sourceTree = "<group>"; };
+		10D3282A26D799E400119AB8 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		10D3282B26D799E400119AB8 /* WindowBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowBuilder.swift; sourceTree = "<group>"; };
+		10D3282C26D799E400119AB8 /* GradientArcWithClearColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientArcWithClearColorView.swift; sourceTree = "<group>"; };
+		10D3282D26D799E400119AB8 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		10D3282E26D799E400119AB8 /* GradientCircularProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientCircularProgress.h; sourceTree = "<group>"; };
+		10D3283026D799E400119AB8 /* ColorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
+		10D3283226D799E400119AB8 /* GreenLightStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenLightStyle.swift; sourceTree = "<group>"; };
+		10D3283326D799E400119AB8 /* BlueIndicatorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueIndicatorStyle.swift; sourceTree = "<group>"; };
+		10D3283426D799E400119AB8 /* BlueDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueDarkStyle.swift; sourceTree = "<group>"; };
+		10D3283526D799E400119AB8 /* OrangeClearStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeClearStyle.swift; sourceTree = "<group>"; };
+		10D3283626D799E400119AB8 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		10D3283726D799E400119AB8 /* GradientCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientCircularProgress.swift; sourceTree = "<group>"; };
+		"GradientCircularProgress::GradientCircularProgress::Product" /* GradientCircularProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GradientCircularProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"GradientCircularProgress::GradientCircularProgressTests::Product" /* GradientCircularProgressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = GradientCircularProgressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_12 /* GradientCircularProgressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientCircularProgressTests.swift; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_41 /* GradientCircularProgress.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10D3282126D799E400119AB8 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				10D3282326D799E400119AB8 /* Core */,
+				10D3282726D799E400119AB8 /* Elements */,
+				10D3282226D799E400119AB8 /* Property.swift */,
+				10D3282626D799E400119AB8 /* ProgressView.swift */,
+				10D3282D26D799E400119AB8 /* ProgressViewController.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		10D3282326D799E400119AB8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				10D3282426D799E400119AB8 /* CircularProgressView.swift */,
+				10D3282526D799E400119AB8 /* ProgressAtRatioView.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		10D3282726D799E400119AB8 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				10D3282826D799E400119AB8 /* GradientArcView.swift */,
+				10D3282926D799E400119AB8 /* ArcView.swift */,
+				10D3282A26D799E400119AB8 /* Background.swift */,
+				10D3282B26D799E400119AB8 /* WindowBuilder.swift */,
+				10D3282C26D799E400119AB8 /* GradientArcWithClearColorView.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		10D3282F26D799E400119AB8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				10D3283026D799E400119AB8 /* ColorUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		10D3283126D799E400119AB8 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				10D3283226D799E400119AB8 /* GreenLightStyle.swift */,
+				10D3283326D799E400119AB8 /* BlueIndicatorStyle.swift */,
+				10D3283426D799E400119AB8 /* BlueDarkStyle.swift */,
+				10D3283526D799E400119AB8 /* OrangeClearStyle.swift */,
+				10D3283626D799E400119AB8 /* Style.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		OBJ_10 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_11 /* GradientCircularProgressTests */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_11 /* GradientCircularProgressTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_12 /* GradientCircularProgressTests.swift */,
+			);
+			name = GradientCircularProgressTests;
+			path = Tests/GradientCircularProgressTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"GradientCircularProgress::GradientCircularProgress::Product" /* GradientCircularProgress.framework */,
+				"GradientCircularProgress::GradientCircularProgressTests::Product" /* GradientCircularProgressTests.xctest */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_5 /*  */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_10 /* Tests */,
+				OBJ_13 /* Products */,
+			);
+			name = "";
+			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* GradientCircularProgress */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_8 /* GradientCircularProgress */ = {
+			isa = PBXGroup;
+			children = (
+				10D3282126D799E400119AB8 /* Progress */,
+				10D3283126D799E400119AB8 /* Styles */,
+				10D3282F26D799E400119AB8 /* Utils */,
+				10D3282E26D799E400119AB8 /* GradientCircularProgress.h */,
+				10D3283726D799E400119AB8 /* GradientCircularProgress.swift */,
+			);
+			name = GradientCircularProgress;
+			path = Sources/GradientCircularProgress;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		"GradientCircularProgress::GradientCircularProgress" /* GradientCircularProgress */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_17 /* Build configuration list for PBXNativeTarget "GradientCircularProgress" */;
+			buildPhases = (
+				OBJ_20 /* Sources */,
+				OBJ_22 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GradientCircularProgress;
+			productName = GradientCircularProgress;
+			productReference = "GradientCircularProgress::GradientCircularProgress::Product" /* GradientCircularProgress.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"GradientCircularProgress::GradientCircularProgressTests" /* GradientCircularProgressTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_35 /* Build configuration list for PBXNativeTarget "GradientCircularProgressTests" */;
+			buildPhases = (
+				OBJ_38 /* Sources */,
+				OBJ_40 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_42 /* PBXTargetDependency */,
+			);
+			name = GradientCircularProgressTests;
+			productName = GradientCircularProgressTests;
+			productReference = "GradientCircularProgress::GradientCircularProgressTests::Product" /* GradientCircularProgressTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		"GradientCircularProgress::SwiftPMPackageDescription" /* GradientCircularProgressPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_24 /* Build configuration list for PBXNativeTarget "GradientCircularProgressPackageDescription" */;
+			buildPhases = (
+				OBJ_27 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GradientCircularProgressPackageDescription;
+			productName = GradientCircularProgressPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 9999;
+				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					"GradientCircularProgress::GradientCircularProgress" = {
+						LastSwiftMigration = 1250;
+					};
+				};
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "GradientCircularProgress" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_13 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"GradientCircularProgress::GradientCircularProgress" /* GradientCircularProgress */,
+				"GradientCircularProgress::SwiftPMPackageDescription" /* GradientCircularProgressPackageDescription */,
+				"GradientCircularProgress::GradientCircularProgressPackageTests::ProductTarget" /* GradientCircularProgressPackageTests */,
+				"GradientCircularProgress::GradientCircularProgressTests" /* GradientCircularProgressTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				10D3283C26D799E400119AB8 /* GradientArcView.swift in Sources */,
+				10D3283E26D799E400119AB8 /* Background.swift in Sources */,
+				10D3283A26D799E400119AB8 /* ProgressAtRatioView.swift in Sources */,
+				10D3283B26D799E400119AB8 /* ProgressView.swift in Sources */,
+				10D3284226D799E400119AB8 /* ColorUtil.swift in Sources */,
+				10D3283D26D799E400119AB8 /* ArcView.swift in Sources */,
+				10D3284126D799E400119AB8 /* ProgressViewController.swift in Sources */,
+				10D3284726D799E400119AB8 /* Style.swift in Sources */,
+				10D3284526D799E400119AB8 /* BlueDarkStyle.swift in Sources */,
+				10D3283F26D799E400119AB8 /* WindowBuilder.swift in Sources */,
+				10D3283926D799E400119AB8 /* CircularProgressView.swift in Sources */,
+				10D3284026D799E400119AB8 /* GradientArcWithClearColorView.swift in Sources */,
+				10D3284626D799E400119AB8 /* OrangeClearStyle.swift in Sources */,
+				10D3284326D799E400119AB8 /* GreenLightStyle.swift in Sources */,
+				10D3283826D799E400119AB8 /* Property.swift in Sources */,
+				10D3284826D799E400119AB8 /* GradientCircularProgress.swift in Sources */,
+				10D3284426D799E400119AB8 /* BlueIndicatorStyle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_28 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_39 /* GradientCircularProgressTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		OBJ_33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "GradientCircularProgress::GradientCircularProgressTests" /* GradientCircularProgressTests */;
+			targetProxy = 10D3281F26D7996E00119AB8 /* PBXContainerItemProxy */;
+		};
+		OBJ_42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "GradientCircularProgress::GradientCircularProgress" /* GradientCircularProgress */;
+			targetProxy = 10D3281E26D7990200119AB8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = GradientCircularProgress.xcodeproj/GradientCircularProgress_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.keygraphix.ios.GradientCircularProgress;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGET_NAME = GradientCircularProgress;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = GradientCircularProgress.xcodeproj/GradientCircularProgress_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.keygraphix.ios.GradientCircularProgress;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGET_NAME = GradientCircularProgress;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode-12.5.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -package-description-version 5.3.0";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode-12.5.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -package-description-version 5.3.0";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+					"DEBUG=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		OBJ_31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CURRENT_PROJECT_VERSION = 1;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = GradientCircularProgress.xcodeproj/GradientCircularProgressTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = GradientCircularProgressTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Debug;
+		};
+		OBJ_37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = GradientCircularProgress.xcodeproj/GradientCircularProgressTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = GradientCircularProgressTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Release;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_17 /* Build configuration list for PBXNativeTarget "GradientCircularProgress" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_18 /* Debug */,
+				OBJ_19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_2 /* Build configuration list for PBXProject "GradientCircularProgress" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_24 /* Build configuration list for PBXNativeTarget "GradientCircularProgressPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_25 /* Debug */,
+				OBJ_26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_30 /* Build configuration list for PBXAggregateTarget "GradientCircularProgressPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_31 /* Debug */,
+				OBJ_32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_35 /* Build configuration list for PBXNativeTarget "GradientCircularProgressTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_36 /* Debug */,
+				OBJ_37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
+}

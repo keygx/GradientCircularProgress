@@ -7,6 +7,7 @@
 //
 
 import GradientCircularProgress
+import UIKit
 
 public struct MyStyle: StyleProperty {
     /*** style properties **********************************************************************************/
